@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:raw_copper"
+    },
+    {
+      "item": "minecraft:raw_copper"
+    },
+    {
+      "item": "minecraft:raw_copper"
+    },
+    {
+      "item": "additions:raw_tin"
+    }
+  ],
+  "result": {
+    "item": "additions:raw_bronze_alloy",
+    "count": 1
+  }
+}

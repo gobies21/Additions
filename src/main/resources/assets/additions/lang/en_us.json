@@ -1,0 +1,17 @@
+{
+  "item.additions.raw_tin": "Raw Tin",
+  "item.additions.tin_ingot": "Tin Ingot",
+  "item.additions.tin_nugget": "Tin Nugget",
+  "item.additions.raw_bronze_alloy": "Raw Bronze Alloy",
+  "item.additions.bronze_ingot": "Bronze Ingot",
+  "item.additions.bronze_nugget": "Bronze Nugget",
+  "item.additions.raw_steel_alloy": "Raw Steel Alloy",
+  "item.additions.steel_ingot": "Steel Ingot",
+  "item.additions.steel_nugget": "Steel Nugget",
+  "item.additions.ruby": "Ruby",
+
+  "block.additions.ruby_ore": "Ruby Ore",
+  "block.additions.tin_ore": "Tin Ore",
+
+  "creativetab.additions_tab": "Additions"
+}
