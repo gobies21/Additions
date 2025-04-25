@@ -1,12 +1,14 @@
 package net.gobies.additions.item;
 
 import net.gobies.additions.Additions;
-import net.gobies.additions.block.ModBlocks;
+import net.gobies.additions.Config;
+import net.gobies.additions.item.blocks.ModBlocks;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Items;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber(modid = Additions.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -24,10 +26,18 @@ public class CreativeTab {
             event.getEntries().putAfter(ModItems.BronzeIngot.get().getDefaultInstance(), ModItems.SteelIngot.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.getEntries().putAfter(Items.DIAMOND.getDefaultInstance(), ModItems.Ruby.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
 
-
             event.getEntries().putAfter(Items.GOLD_NUGGET.getDefaultInstance(), ModItems.TinNugget.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.getEntries().putAfter(ModItems.TinNugget.get().getDefaultInstance(), ModItems.BronzeNugget.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.getEntries().putAfter(ModItems.BronzeNugget.get().getDefaultInstance(), ModItems.SteelNugget.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+
+            if (Config.ENABLE_GEMS.get()) {
+                event.getEntries().putAfter(Items.AMETHYST_SHARD.getDefaultInstance(), ModItems.DiamondGem.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+                event.getEntries().putAfter(ModItems.DiamondGem.get().getDefaultInstance(), ModItems.EmeraldGem.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+                event.getEntries().putAfter(ModItems.EmeraldGem.get().getDefaultInstance(), ModItems.RubyGem.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+                if (ModList.get().isLoaded("iceandfire")) {
+                    event.getEntries().putAfter(ModItems.RubyGem.get().getDefaultInstance(), ModItems.SapphireGem.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+                }
+            }
         }
         if (event.getTabKey() == CreativeModeTabs.NATURAL_BLOCKS) {
             event.getEntries().putAfter(Items.DEEPSLATE_COPPER_ORE.getDefaultInstance(), ModBlocks.TinOre.get().asItem().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
@@ -43,6 +53,8 @@ public class CreativeTab {
             event.getEntries().putAfter(Items.COPPER_BLOCK.getDefaultInstance(), ModBlocks.TinBlock.get().asItem().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.getEntries().putAfter(ModBlocks.TinBlock.get().asItem().getDefaultInstance(), ModBlocks.BronzeBlock.get().asItem().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.getEntries().putAfter(Items.IRON_BLOCK.getDefaultInstance(), ModBlocks.SteelBlock.get().asItem().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.getEntries().putAfter(Items.REDSTONE_BLOCK.getDefaultInstance(), ModBlocks.RubyBlock.get().asItem().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+
 
 
         }

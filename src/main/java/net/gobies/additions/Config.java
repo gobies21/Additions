@@ -19,6 +19,8 @@ public class Config {
     public static boolean horse_armor_recipes;
     public static ForgeConfigSpec.ConfigValue<Boolean> ENABLE_BUNDLE;
     public static boolean enable_bundle;
+    public static ForgeConfigSpec.ConfigValue<Boolean> ENABLE_GEMS;
+    public static boolean enable_gems;
 
     public Config() {
     }
@@ -29,7 +31,7 @@ public class Config {
         saddle_recipe = SADDLE_RECIPE.get();
         horse_armor_recipes = HORSE_ARMOR_RECIPES.get();
         enable_bundle = ENABLE_BUNDLE.get();
-
+        enable_gems = ENABLE_GEMS.get();
     }
 
     static {
@@ -38,8 +40,12 @@ public class Config {
         SADDLE_RECIPE = BUILDER.comment("Adds a recipe for saddles").define("Saddle Recipe", true);
         HORSE_ARMOR_RECIPES = BUILDER.comment("Adds recipes for all horse armor").define("Horse Armor Recipes", true);
         ENABLE_BUNDLE = BUILDER.comment("Enables the bundle").define("Enable Bundle", true);
-
         BUILDER.pop();
+
+        BUILDER.push("Additions");
+        ENABLE_GEMS = BUILDER.comment("Enable gems, nugget versions for minerals such as diamond").define("Enable Gems", true);
+        BUILDER.pop();
+
         SPEC = BUILDER.build();
 
     }

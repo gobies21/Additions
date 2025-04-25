@@ -1,6 +1,6 @@
 package net.gobies.additions.datagen;
 
-import net.gobies.additions.block.ModBlocks;
+import net.gobies.additions.item.blocks.ModBlocks;
 import net.gobies.additions.item.ModItems;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
@@ -20,6 +20,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.TinBlock.get());
         this.dropSelf(ModBlocks.BronzeBlock.get());
         this.dropSelf(ModBlocks.SteelBlock.get());
+        this.dropSelf(ModBlocks.RubyBlock.get());
         this.dropSelf(ModBlocks.RawTinBlock.get());
         this.dropSelf(ModBlocks.RawBronzeBlock.get());
         this.dropSelf(ModBlocks.RawSteelBlock.get());

@@ -1,7 +1,9 @@
-package net.gobies.additions.block;
+package net.gobies.additions.item.blocks;
 
 import net.gobies.additions.Additions;
-import net.gobies.additions.block.ores.*;
+import net.gobies.additions.item.blocks.ores.DeepslateTinOre;
+import net.gobies.additions.item.blocks.ores.RubyOre;
+import net.gobies.additions.item.blocks.ores.TinOre;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -24,6 +26,7 @@ public class ModBlocks {
     public static final RegistryObject<Block> TinBlock;
     public static final RegistryObject<Block> BronzeBlock;
     public static final RegistryObject<Block> SteelBlock;
+    public static final RegistryObject<Block> RubyBlock;
 
     public ModBlocks() {
     }
@@ -46,6 +49,7 @@ public class ModBlocks {
         TinBlock = registerBlock("tin_block", () -> new Block(BlockBehaviour.Properties.of().strength(3.0F, 3.0F).requiresCorrectToolForDrops().sound(SoundType.METAL)));
         BronzeBlock = registerBlock("bronze_block", () -> new Block(BlockBehaviour.Properties.of().strength(3.0F, 4.0F).requiresCorrectToolForDrops().sound(SoundType.METAL)));
         SteelBlock = registerBlock("steel_block", () -> new Block(BlockBehaviour.Properties.of().strength(3.0F, 5.0F).requiresCorrectToolForDrops().sound(SoundType.METAL)));
+        RubyBlock = registerBlock("ruby_block", () -> new Block(BlockBehaviour.Properties.of().strength(3.0F, 4.0F).requiresCorrectToolForDrops().sound(SoundType.METAL)));
     }
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {

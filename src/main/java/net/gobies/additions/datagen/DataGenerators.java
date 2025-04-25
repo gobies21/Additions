@@ -20,12 +20,7 @@ public class DataGenerators {
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
         CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
 
-        //generator.addProvider(true, new ModRecipeProvider(packOutput));
-        //generator.addProvider(true, ModLootTableProvider.create(packOutput));
         generator.addProvider(event.includeServer(), ModLootTableProvider.create(packOutput));
-
-        // generator.addProvider(true, new ModBlockStateProvider(packOutput, existingFileHelper));
-        //generator.addProvider(true, new ModItemModelProvider(packOutput, existingFileHelper));
         generator.addProvider(event.includeServer(), new ModWorldGenProvider(packOutput, lookupProvider));
     }
 }

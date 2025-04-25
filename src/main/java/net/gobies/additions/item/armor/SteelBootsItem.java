@@ -36,7 +36,7 @@ public class SteelBootsItem extends ArmorItem {
 
     @Override
     public void appendHoverText(@NotNull ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, @NotNull TooltipFlag pIsAdvanced) {
-        pTooltipComponents.add(Component.literal("§7Reduces Fire and Lava damage taken by 12.5%"));
+        pTooltipComponents.add(Component.literal("§7Reduces Fire and Lava damage taken by §312.5%"));
         super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
     }
 }

@@ -1,12 +1,14 @@
 package net.gobies.additions.item;
 
 import net.gobies.additions.Additions;
-import net.gobies.additions.block.ModBlocks;
+import net.gobies.additions.Config;
+import net.gobies.additions.item.blocks.ModBlocks;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 
@@ -26,6 +28,7 @@ public class ModCreativeTab {
                         pOutput.accept(ModBlocks.TinBlock.get());
                         pOutput.accept(ModBlocks.BronzeBlock.get());
                         pOutput.accept(ModBlocks.SteelBlock.get());
+                        pOutput.accept(ModBlocks.RubyBlock.get());
                         pOutput.accept(ModItems.RawTin.get());
                         pOutput.accept(ModItems.TinIngot.get());
                         pOutput.accept(ModItems.TinNugget.get());
@@ -36,6 +39,14 @@ public class ModCreativeTab {
                         pOutput.accept(ModItems.SteelIngot.get());
                         pOutput.accept(ModItems.SteelNugget.get());
                         pOutput.accept(ModItems.Ruby.get());
+                        if (Config.ENABLE_GEMS.get()) {
+                            pOutput.accept(ModItems.RubyGem.get());
+                            pOutput.accept(ModItems.DiamondGem.get());
+                            pOutput.accept(ModItems.EmeraldGem.get());
+                            if (ModList.get().isLoaded("iceandfire")) {
+                                pOutput.accept(ModItems.SapphireGem.get());
+                            }
+                        }
                         pOutput.accept(ModItems.TinSword.get());
                         pOutput.accept(ModItems.TinPickaxe.get());
                         pOutput.accept(ModItems.TinAxe.get());
@@ -63,6 +74,7 @@ public class ModCreativeTab {
                         pOutput.accept(ModItems.SteelChestplate.get());
                         pOutput.accept(ModItems.SteelLeggings.get());
                         pOutput.accept(ModItems.SteelBoots.get());
+
                     })
                     .build());
 

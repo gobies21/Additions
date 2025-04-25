@@ -21,6 +21,10 @@ public class ModItems {
     public static final RegistryObject<Item> SteelIngot;
     public static final RegistryObject<Item> SteelNugget;
     public static final RegistryObject<Item> Ruby;
+    public static final RegistryObject<Item> DiamondGem;
+    public static final RegistryObject<Item> EmeraldGem;
+    public static final RegistryObject<Item> RubyGem;
+    public static final RegistryObject<Item> SapphireGem;
 
     //Tin Gear
     public static final RegistryObject<Item> TinHelmet;
@@ -76,6 +80,10 @@ public class ModItems {
         SteelIngot = ITEMS.register("steel_ingot", () -> new Item(new Item.Properties()));
         SteelNugget = ITEMS.register("steel_nugget", () -> new Item(new Item.Properties()));
         Ruby = ITEMS.register("ruby", () -> new Item(new Item.Properties()));
+        DiamondGem = ITEMS.register("diamond_gem", () -> new Item(new Item.Properties()));
+        EmeraldGem = ITEMS.register("emerald_gem", () -> new Item(new Item.Properties()));
+        RubyGem = ITEMS.register("ruby_gem", () -> new Item(new Item.Properties()));
+        SapphireGem = ITEMS.register("sapphire_gem", () -> new Item(new Item.Properties()));
 
         //Register Tin Gear
         TinHelmet = ITEMS.register("tin_helmet", () -> new TinHelmetItem(new ArmorItem.Properties()));

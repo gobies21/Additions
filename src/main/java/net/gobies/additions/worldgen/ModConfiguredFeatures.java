@@ -1,7 +1,7 @@
 package net.gobies.additions.worldgen;
 
 import net.gobies.additions.Additions;
-import net.gobies.additions.block.ModBlocks;
+import net.gobies.additions.item.blocks.ModBlocks;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.resources.ResourceKey;

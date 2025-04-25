@@ -3,7 +3,7 @@ package net.gobies.additions;
 import com.mojang.logging.LogUtils;
 import net.gobies.additions.item.ModCreativeTab;
 import net.gobies.additions.item.ModItems;
-import net.gobies.additions.block.ModBlocks;
+import net.gobies.additions.item.blocks.ModBlocks;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -36,9 +36,6 @@ public class Additions {
         ModBlocks.register(modBus);
 
         ModCreativeTab.register(modBus);
-
-
-        //NetworkHandler.register();
 
         MinecraftForge.EVENT_BUS.register(this);
 

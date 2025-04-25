@@ -1,4 +1,4 @@
-package net.gobies.additions.block.ores;
+package net.gobies.additions.item.blocks.ores;
 
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.block.DropExperienceBlock;
