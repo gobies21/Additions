@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " a ",
+    " a ",
+    " b "
+  ],
+  "key": {
+    "a": {
+      "item": "additions:tin_ingot"
+    },
+    "b": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "additions:tin_sword",
+    "count": 1
+  }
+}

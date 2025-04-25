@@ -1,7 +1,5 @@
 package net.gobies.additions.datagen;
 
-import com.oblivioussp.spartanweaponry.data.ModItemModelProvider;
-import com.oblivioussp.spartanweaponry.data.ModRecipeProvider;
 import net.gobies.additions.Additions;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
@@ -22,10 +20,12 @@ public class DataGenerators {
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
         CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
 
-        generator.addProvider(true, new ModRecipeProvider(packOutput));
-        generator.addProvider(true, ModLootTableProvider.create(packOutput));
-       // generator.addProvider(true, new ModBlockStateProvider(packOutput, existingFileHelper));
-        generator.addProvider(true, new ModItemModelProvider(packOutput, existingFileHelper));
-        //generator.addProvider(event.includeServer(), new ModWorldGenProvider(packOutput, lookupProvider));
+        //generator.addProvider(true, new ModRecipeProvider(packOutput));
+        //generator.addProvider(true, ModLootTableProvider.create(packOutput));
+        generator.addProvider(event.includeServer(), ModLootTableProvider.create(packOutput));
+
+        // generator.addProvider(true, new ModBlockStateProvider(packOutput, existingFileHelper));
+        //generator.addProvider(true, new ModItemModelProvider(packOutput, existingFileHelper));
+        generator.addProvider(event.includeServer(), new ModWorldGenProvider(packOutput, lookupProvider));
     }
 }

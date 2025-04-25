@@ -29,6 +29,7 @@ public class Config {
         saddle_recipe = SADDLE_RECIPE.get();
         horse_armor_recipes = HORSE_ARMOR_RECIPES.get();
         enable_bundle = ENABLE_BUNDLE.get();
+
     }
 
     static {
@@ -37,6 +38,7 @@ public class Config {
         SADDLE_RECIPE = BUILDER.comment("Adds a recipe for saddles").define("Saddle Recipe", true);
         HORSE_ARMOR_RECIPES = BUILDER.comment("Adds recipes for all horse armor").define("Horse Armor Recipes", true);
         ENABLE_BUNDLE = BUILDER.comment("Enables the bundle").define("Enable Bundle", true);
+
         BUILDER.pop();
         SPEC = BUILDER.build();
 

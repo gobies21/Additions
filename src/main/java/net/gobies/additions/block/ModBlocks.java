@@ -1,8 +1,7 @@
 package net.gobies.additions.block;
 
 import net.gobies.additions.Additions;
-import net.gobies.additions.block.ores.RubyOre;
-import net.gobies.additions.block.ores.TinOre;
+import net.gobies.additions.block.ores.*;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -17,8 +16,14 @@ import java.util.function.Supplier;
 public class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS;
     public static final RegistryObject<Block> TinOre;
+    public static final RegistryObject<Block> DeepslateTinOre;
     public static final RegistryObject<Block> RubyOre;
-
+    public static final RegistryObject<Block> RawTinBlock;
+    public static final RegistryObject<Block> RawBronzeBlock;
+    public static final RegistryObject<Block> RawSteelBlock;
+    public static final RegistryObject<Block> TinBlock;
+    public static final RegistryObject<Block> BronzeBlock;
+    public static final RegistryObject<Block> SteelBlock;
 
     public ModBlocks() {
     }
@@ -32,8 +37,17 @@ public class ModBlocks {
 
     static {
         BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Additions.MOD_ID);
-        TinOre = registerBlock("tin_ore", () -> new TinOre(BlockBehaviour.Properties.of().strength(0.14F, 1.5F).requiresCorrectToolForDrops().sound(SoundType.STONE)));
-        RubyOre = registerBlock("ruby_ore", () -> new RubyOre(BlockBehaviour.Properties.of().strength(0.16F, 2.0F).requiresCorrectToolForDrops().sound(SoundType.STONE)));
+        TinOre = registerBlock("tin_ore", () -> new TinOre(BlockBehaviour.Properties.of().strength(3.0F, 1.5F).requiresCorrectToolForDrops().sound(SoundType.STONE)));
+        DeepslateTinOre = registerBlock("deepslate_tin_ore", () -> new DeepslateTinOre(BlockBehaviour.Properties.of().strength(3.1F, 2.0F).requiresCorrectToolForDrops().sound(SoundType.DEEPSLATE)));
+        RubyOre = registerBlock("ruby_ore", () -> new RubyOre(BlockBehaviour.Properties.of().strength(3.0F, 2.0F).requiresCorrectToolForDrops().sound(SoundType.NETHER_GOLD_ORE)));
+        RawTinBlock = registerBlock("raw_tin_block", () -> new Block(BlockBehaviour.Properties.of().strength(3.0F, 3.0F).requiresCorrectToolForDrops().sound(SoundType.STONE)));
+        RawBronzeBlock = registerBlock("raw_bronze_block", () -> new Block(BlockBehaviour.Properties.of().strength(3.0F, 4.0F).requiresCorrectToolForDrops().sound(SoundType.STONE)));
+        RawSteelBlock = registerBlock("raw_steel_block", () -> new Block(BlockBehaviour.Properties.of().strength(3.0F, 5.0F).requiresCorrectToolForDrops().sound(SoundType.STONE)));
+        TinBlock = registerBlock("tin_block", () -> new Block(BlockBehaviour.Properties.of().strength(3.0F, 3.0F).requiresCorrectToolForDrops().sound(SoundType.METAL)));
+        BronzeBlock = registerBlock("bronze_block", () -> new Block(BlockBehaviour.Properties.of().strength(3.0F, 4.0F).requiresCorrectToolForDrops().sound(SoundType.METAL)));
+        SteelBlock = registerBlock("steel_block", () -> new Block(BlockBehaviour.Properties.of().strength(3.0F, 5.0F).requiresCorrectToolForDrops().sound(SoundType.METAL)));
+
+
     }
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {

@@ -10,8 +10,31 @@
   "item.additions.steel_nugget": "Steel Nugget",
   "item.additions.ruby": "Ruby",
 
-  "block.additions.ruby_ore": "Ruby Ore",
+  "item.additions.tin_sword": "Tin Sword",
+  "item.additions.tin_pickaxe": "Tin Pickaxe",
+  "item.additions.tin_axe": "Tin Axe",
+  "item.additions.tin_shovel": "Tin Shovel",
+  "item.additions.tin_hoe": "Tin Hoe",
+  "item.additions.bronze_sword": "Bronze Sword",
+  "item.additions.bronze_pickaxe": "Bronze Pickaxe",
+  "item.additions.bronze_axe": "Bronze Axe",
+  "item.additions.bronze_shovel": "Bronze Shovel",
+  "item.additions.bronze_hoe": "Bronze Hoe",
+  "item.additions.steel_sword": "Steel Sword",
+  "item.additions.steel_pickaxe": "Steel Pickaxe",
+  "item.additions.steel_axe": "Steel Axe",
+  "item.additions.steel_shovel": "Steel Shovel",
+  "item.additions.steel_hoe": "Steel Hoe",
+
   "block.additions.tin_ore": "Tin Ore",
+  "block.additions.deepslate_tin_ore": "Deepslate Tin Ore",
+  "block.additions.ruby_ore": "Ruby Ore",
+  "block.additions.tin_block": "Block of Tin",
+  "block.additions.bronze_block": "Block of Bronze",
+  "block.additions.steel_block": "Block of Steel",
+  "block.additions.raw_tin_block": "Block of Raw Tin",
+  "block.additions.raw_bronze_block": "Block of Raw Bronze",
+  "block.additions.raw_steel_block": "Block of Raw Steel",
 
   "creativetab.additions_tab": "Additions"
 }

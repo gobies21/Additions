@@ -30,8 +30,19 @@ public class CreativeTab {
             event.getEntries().putAfter(ModItems.BronzeNugget.get().getDefaultInstance(), ModItems.SteelNugget.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
         }
         if (event.getTabKey() == CreativeModeTabs.NATURAL_BLOCKS) {
-            event.getEntries().putAfter(Items.COPPER_ORE.getDefaultInstance(), ModBlocks.TinOre.get().asItem().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.getEntries().putAfter(Items.NETHER_QUARTZ_ORE.getDefaultInstance(), ModBlocks.RubyOre.get().asItem().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.getEntries().putAfter(Items.DEEPSLATE_COPPER_ORE.getDefaultInstance(), ModBlocks.TinOre.get().asItem().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.getEntries().putAfter(ModBlocks.TinOre.get().asItem().getDefaultInstance(), ModBlocks.DeepslateTinOre.get().asItem().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.getEntries().putAfter(Items.NETHER_GOLD_ORE.getDefaultInstance(), ModBlocks.RubyOre.get().asItem().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+
+            event.getEntries().putAfter(Items.RAW_COPPER_BLOCK.getDefaultInstance(), ModBlocks.RawTinBlock.get().asItem().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.getEntries().putAfter(ModBlocks.RawTinBlock.get().asItem().getDefaultInstance(), ModBlocks.RawBronzeBlock.get().asItem().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.getEntries().putAfter(Items.RAW_IRON_BLOCK.getDefaultInstance(), ModBlocks.RawSteelBlock.get().asItem().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+
+        }
+        if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
+            event.getEntries().putAfter(Items.COPPER_BLOCK.getDefaultInstance(), ModBlocks.TinBlock.get().asItem().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.getEntries().putAfter(ModBlocks.TinBlock.get().asItem().getDefaultInstance(), ModBlocks.BronzeBlock.get().asItem().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.getEntries().putAfter(Items.IRON_BLOCK.getDefaultInstance(), ModBlocks.SteelBlock.get().asItem().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
 
 
         }

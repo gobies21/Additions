@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "additions:raw_steel_alloy"
+    "layer0": "additions:item/raw_steel_alloy"
   }
 }

@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "additions:block/raw_bronze_block"
+    }
+  }
+}

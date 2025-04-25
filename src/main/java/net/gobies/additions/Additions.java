@@ -37,6 +37,7 @@ public class Additions {
 
         ModCreativeTab.register(modBus);
 
+
         //NetworkHandler.register();
 
         MinecraftForge.EVENT_BUS.register(this);

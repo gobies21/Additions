@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.1,
+  "ingredient": [
+    {
+      "item": "additions:steel_sword"
+    },
+    {
+      "item": "additions:steel_pickaxe"
+    },
+    {
+      "item": "additions:steel_axe"
+    },
+    {
+      "item": "additions:steel_shovel"
+    },
+    {
+      "item": "additions:steel_hoe"
+    }
+  ],
+  "result": "additions:steel_nugget"
+}

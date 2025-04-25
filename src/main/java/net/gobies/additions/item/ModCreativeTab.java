@@ -18,7 +18,14 @@ public class ModCreativeTab {
                     .title(Component.translatable("creativetab.additions_tab"))
                     .displayItems((pParameters, pOutput) -> {
                         pOutput.accept(ModBlocks.TinOre.get());
+                        pOutput.accept(ModBlocks.DeepslateTinOre.get());
                         pOutput.accept(ModBlocks.RubyOre.get());
+                        pOutput.accept(ModBlocks.RawTinBlock.get());
+                        pOutput.accept(ModBlocks.RawBronzeBlock.get());
+                        pOutput.accept(ModBlocks.RawSteelBlock.get());
+                        pOutput.accept(ModBlocks.TinBlock.get());
+                        pOutput.accept(ModBlocks.BronzeBlock.get());
+                        pOutput.accept(ModBlocks.SteelBlock.get());
                         pOutput.accept(ModItems.RawTin.get());
                         pOutput.accept(ModItems.TinIngot.get());
                         pOutput.accept(ModItems.TinNugget.get());
@@ -29,6 +36,21 @@ public class ModCreativeTab {
                         pOutput.accept(ModItems.SteelIngot.get());
                         pOutput.accept(ModItems.SteelNugget.get());
                         pOutput.accept(ModItems.Ruby.get());
+                        pOutput.accept(ModItems.TinSword.get());
+                        pOutput.accept(ModItems.TinPickaxe.get());
+                        pOutput.accept(ModItems.TinAxe.get());
+                        pOutput.accept(ModItems.TinShovel.get());
+                        pOutput.accept(ModItems.TinHoe.get());
+                        pOutput.accept(ModItems.BronzeSword.get());
+                        pOutput.accept(ModItems.BronzePickaxe.get());
+                        pOutput.accept(ModItems.BronzeAxe.get());
+                        pOutput.accept(ModItems.BronzeShovel.get());
+                        pOutput.accept(ModItems.BronzeHoe.get());
+                        pOutput.accept(ModItems.SteelSword.get());
+                        pOutput.accept(ModItems.SteelPickaxe.get());
+                        pOutput.accept(ModItems.SteelAxe.get());
+                        pOutput.accept(ModItems.SteelShovel.get());
+                        pOutput.accept(ModItems.SteelHoe.get());
                     })
                     .build());
 

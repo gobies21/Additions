@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.1,
+  "ingredient": [
+    {
+      "item": "additions:tin_sword"
+    },
+    {
+      "item": "additions:tin_pickaxe"
+    },
+    {
+      "item": "additions:tin_axe"
+    },
+    {
+      "item": "additions:tin_shovel"
+    },
+    {
+      "item": "additions:tin_hoe"
+    }
+  ],
+  "result": "additions:tin_nugget"
+}

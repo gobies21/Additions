@@ -17,12 +17,19 @@ public class ModBlockLootTables extends BlockLootSubProvider {
 
     @Override
     protected void generate() {
-      //  this.dropSelf(ModBlocks.ALUMINUM_BLOCK.get());
+        this.dropSelf(ModBlocks.TinBlock.get());
+        this.dropSelf(ModBlocks.BronzeBlock.get());
+        this.dropSelf(ModBlocks.SteelBlock.get());
+        this.dropSelf(ModBlocks.RawTinBlock.get());
+        this.dropSelf(ModBlocks.RawBronzeBlock.get());
+        this.dropSelf(ModBlocks.RawSteelBlock.get());
 
         this.add(ModBlocks.TinOre.get(),
                 (block) -> createOreDrop(ModBlocks.TinOre.get(), ModItems.RawTin.get()));
+        this.add(ModBlocks.DeepslateTinOre.get(),
+                (block) -> createOreDrop(ModBlocks.DeepslateTinOre.get(), ModItems.RawTin.get()));
         this.add(ModBlocks.RubyOre.get(),
-                (block) -> createOreDrop(ModBlocks.RubyOre.get(), ModItems.RawTin.get()));
+                (block) -> createOreDrop(ModBlocks.RubyOre.get(), ModItems.Ruby.get()));
 
     }
 
