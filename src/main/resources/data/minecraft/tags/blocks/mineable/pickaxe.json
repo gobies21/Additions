@@ -2,6 +2,12 @@
   "values": [
     "additions:tin_ore",
     "additions:deepslate_tin_ore",
-    "additions:ruby_ore"
+    "additions:ruby_ore",
+    "additions:steel_block",
+    "additions:bronze_block",
+    "additions:tin_block",
+    "additions:raw_steel_block",
+    "additions:raw_bronze_block",
+    "additions:raw_tin_block"
   ]
 }

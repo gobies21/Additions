@@ -18,6 +18,18 @@
     },
     {
       "item": "additions:bronze_hoe"
+    },
+    {
+      "item": "additions:bronze_helmet"
+    },
+    {
+      "item": "additions:bronze_chestplate"
+    },
+    {
+      "item": "additions:bronze_leggings"
+    },
+    {
+      "item": "additions:bronze_boots"
     }
   ],
   "result": "additions:bronze_nugget"

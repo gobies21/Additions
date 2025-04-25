@@ -1,5 +1,8 @@
 {
   "values": [
-    "additions:ruby_ore"
+    "additions:ruby_ore",
+    "additions:steel_block",
+    "additions:bronze_block",
+    "additions:tin_block"
   ]
 }

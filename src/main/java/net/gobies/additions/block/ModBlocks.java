@@ -46,8 +46,6 @@ public class ModBlocks {
         TinBlock = registerBlock("tin_block", () -> new Block(BlockBehaviour.Properties.of().strength(3.0F, 3.0F).requiresCorrectToolForDrops().sound(SoundType.METAL)));
         BronzeBlock = registerBlock("bronze_block", () -> new Block(BlockBehaviour.Properties.of().strength(3.0F, 4.0F).requiresCorrectToolForDrops().sound(SoundType.METAL)));
         SteelBlock = registerBlock("steel_block", () -> new Block(BlockBehaviour.Properties.of().strength(3.0F, 5.0F).requiresCorrectToolForDrops().sound(SoundType.METAL)));
-
-
     }
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "a a",
+    "aaa",
+    "aaa"
+  ],
+  "key": {
+    "a": {
+      "item": "additions:tin_ingot"
+    }
+  },
+  "result": {
+    "item": "additions:tin_chestplate",
+    "count": 1
+  }
+}

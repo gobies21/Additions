@@ -18,6 +18,18 @@
     },
     {
       "item": "additions:tin_hoe"
+    },
+    {
+      "item": "additions:tin_helmet"
+    },
+    {
+      "item": "additions:tin_chestplate"
+    },
+    {
+      "item": "additions:tin_leggings"
+    },
+    {
+      "item": "additions:tin_boots"
     }
   ],
   "result": "additions:tin_nugget"

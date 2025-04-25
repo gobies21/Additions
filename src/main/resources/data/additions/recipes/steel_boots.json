@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "a a",
+    "a a",
+    "   "
+  ],
+  "key": {
+    "a": {
+      "item": "additions:steel_ingot"
+    }
+  },
+  "result": {
+    "item": "additions:steel_boots",
+    "count": 1
+  }
+}

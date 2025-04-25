@@ -51,6 +51,18 @@ public class ModCreativeTab {
                         pOutput.accept(ModItems.SteelAxe.get());
                         pOutput.accept(ModItems.SteelShovel.get());
                         pOutput.accept(ModItems.SteelHoe.get());
+                        pOutput.accept(ModItems.TinHelmet.get());
+                        pOutput.accept(ModItems.TinChestplate.get());
+                        pOutput.accept(ModItems.TinLeggings.get());
+                        pOutput.accept(ModItems.TinBoots.get());
+                        pOutput.accept(ModItems.BronzeHelmet.get());
+                        pOutput.accept(ModItems.BronzeChestplate.get());
+                        pOutput.accept(ModItems.BronzeLeggings.get());
+                        pOutput.accept(ModItems.BronzeBoots.get());
+                        pOutput.accept(ModItems.SteelHelmet.get());
+                        pOutput.accept(ModItems.SteelChestplate.get());
+                        pOutput.accept(ModItems.SteelLeggings.get());
+                        pOutput.accept(ModItems.SteelBoots.get());
                     })
                     .build());
 

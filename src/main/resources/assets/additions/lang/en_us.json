@@ -26,6 +26,22 @@
   "item.additions.steel_shovel": "Steel Shovel",
   "item.additions.steel_hoe": "Steel Hoe",
 
+  "item.additions.tin_helmet": "Tin Helmet",
+  "item.additions.tin_chestplate": "Tin Chestplate",
+  "item.additions.tin_leggings": "Tin Leggings",
+  "item.additions.tin_boots": "Tin Boots",
+
+  "item.additions.bronze_helmet": "Bronze Helmet",
+  "item.additions.bronze_chestplate": "Bronze Chestplate",
+  "item.additions.bronze_leggings": "Bronze Leggings",
+  "item.additions.bronze_boots": "Bronze Boots",
+
+  "item.additions.steel_helmet": "Steel Helmet",
+  "item.additions.steel_chestplate": "Steel Chestplate",
+  "item.additions.steel_leggings": "Steel Leggings",
+  "item.additions.steel_boots": "Steel Boots",
+
+
   "block.additions.tin_ore": "Tin Ore",
   "block.additions.deepslate_tin_ore": "Deepslate Tin Ore",
   "block.additions.ruby_ore": "Ruby Ore",
