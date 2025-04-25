@@ -4,11 +4,12 @@ import com.mojang.logging.LogUtils;
 import net.gobies.additions.Config;
 import net.gobies.additions.item.ModItems;
 import net.minecraft.core.NonNullList;
+import net.minecraft.core.RegistryAccess;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.crafting.CraftingBookCategory;
-import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.item.crafting.RecipeManager;
-import net.minecraft.world.item.crafting.ShapedRecipe;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.*;
+import net.minecraftforge.event.AddReloadListenerEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
@@ -21,48 +22,78 @@ import java.util.Objects;
 @Mod.EventBusSubscriber
 public class CompatRecipes {
     private static final Logger LOGGER = LogUtils.getLogger();
+    private static RegistryAccess registryAccess;
+
+    private static void addRecipe(RecipeManager recipeManager, RegistryAccess registryAccess, Item resultItem, String recipeName, NonNullList<Ingredient> ingredients, boolean shaped, int count) {
+        try {
+            var recipes = recipeManager.getRecipes().stream()
+                    .filter(recipe -> !(recipe instanceof ShapedRecipe && recipe.getResultItem(registryAccess).is(resultItem)))
+                    .collect(java.util.stream.Collectors.toSet());
+
+            var result = resultItem.getDefaultInstance().copyWithCount(count);
+
+            Recipe<?> newRecipe;
+            if (shaped) {
+                newRecipe = new ShapedRecipe(
+                        new ResourceLocation("additions:" + recipeName),
+                        "minecraft:crafting",
+                        CraftingBookCategory.MISC,
+                        3, 3,
+                        ingredients,
+                        result
+                );
+            } else {
+                newRecipe = new ShapelessRecipe(
+                        new ResourceLocation("additions:" + recipeName),
+                        "minecraft:crafting",
+                        CraftingBookCategory.MISC,
+                        result,
+                        ingredients
+                );
+            }
+            recipes.add(newRecipe);
+            recipeManager.replaceRecipes(recipes);
+        } catch (Exception e) {
+            LOGGER.error("Failed to add recipe for {}: {}", recipeName, e.getMessage());
+        }
+    }
+
+    private static NonNullList<Ingredient> createIngredients(Object... items) {
+        NonNullList<Ingredient> ingredients = NonNullList.create();
+        for (Object item : items) {
+            if (item instanceof Item) {
+                ingredients.add(Ingredient.of((Item) item));
+            } else {
+                ingredients.add(Ingredient.EMPTY);
+            }
+        }
+        return ingredients;
+    }
+
+    private static void registerRecipes(RecipeManager recipeManager, RegistryAccess registryAccess) {
+        if (ModList.get().isLoaded("iceandfire")) {
+            if (Config.ENABLE_GEMS.get()) {
+                addRecipe(recipeManager, registryAccess, (Objects.requireNonNull(ForgeRegistries.ITEMS.getValue(new ResourceLocation("iceandfire:sapphire_gem")))), "diamond",
+                        createIngredients(
+                                ModItems.SapphireGem.get(), ModItems.SapphireGem.get(), ModItems.SapphireGem.get(),
+                                ModItems.SapphireGem.get(), ModItems.SapphireGem.get(), ModItems.SapphireGem.get(),
+                                ModItems.SapphireGem.get(), ModItems.SapphireGem.get(), ModItems.SapphireGem.get()
+                        ), true, 1);
+
+                addRecipe(recipeManager, registryAccess, ModItems.SapphireGem.get(), "sapphire_to_gems",
+                        createIngredients(Objects.requireNonNull(ForgeRegistries.ITEMS.getValue(new ResourceLocation("iceandfire:sapphire_gem")))), false, 9);
+            }
+        }
+    }
 
     @SubscribeEvent
     public static void onServerStarting(ServerStartingEvent event) {
-        try {
-            if (ModList.get().isLoaded("iceandfire")) {
-                if (Config.ENABLE_GEMS.get()) {
-                    RecipeManager recipeManager = event.getServer().getRecipeManager();
-                    var recipes = recipeManager.getRecipes().stream()
-                            .filter(recipe -> !(recipe instanceof ShapedRecipe &&
-                                    (recipe.getResultItem(event.getServer().registryAccess()).is(Objects.requireNonNull(ForgeRegistries.ITEMS.getValue(new ResourceLocation("iceandfire:sapphire_gem")))))))
-                            .collect(java.util.stream.Collectors.toSet());
-                    ShapedRecipe sapphireRecipe = new ShapedRecipe(
-                            new ResourceLocation("additions:sapphire"),
-                            "minecraft:crafting",
-                            CraftingBookCategory.MISC,
-                            3, 3,
-                            NonNullList.of(Ingredient.EMPTY,
-                                    Ingredient.of(ModItems.SapphireGem.get()), Ingredient.of(ModItems.SapphireGem.get()), Ingredient.of(ModItems.SapphireGem.get()),
-                                    Ingredient.of(ModItems.SapphireGem.get()), Ingredient.of(ModItems.SapphireGem.get()), Ingredient.of(ModItems.SapphireGem.get()),
-                                    Ingredient.of(ModItems.SapphireGem.get()), Ingredient.of(ModItems.SapphireGem.get()), Ingredient.of(ModItems.SapphireGem.get())
-                            ),
-                            Objects.requireNonNull(ForgeRegistries.ITEMS.getValue(new ResourceLocation("iceandfire:sapphire_gem"))).getDefaultInstance()
-                    );
+        registryAccess = event.getServer().registryAccess();
+        registerRecipes(event.getServer().getRecipeManager(), registryAccess);
+    }
 
-                    ShapedRecipe sapphireToGemsRecipe = new ShapedRecipe(
-                            new ResourceLocation("additions:sapphire_to_gems"),
-                            "minecraft:crafting",
-                            CraftingBookCategory.MISC,
-                            1, 1,
-                            NonNullList.of(Ingredient.EMPTY,
-                                    Ingredient.of(ForgeRegistries.ITEMS.getValue(new ResourceLocation("iceandfire:sapphire_gem")))
-                            ),
-                            ModItems.SapphireGem.get().getDefaultInstance().copyWithCount(9)
-                    );
-
-                    recipes.add(sapphireRecipe);
-                    recipes.add(sapphireToGemsRecipe);
-                    recipeManager.replaceRecipes(recipes);
-                }
-            }
-        } catch (Exception e) {
-            LOGGER.error("Failed to create gem compat recipes: {}", e.getMessage());
-        }
+    @SubscribeEvent
+    public static void onRecipesUpdated(AddReloadListenerEvent event) {
+        registerRecipes(event.getServerResources().getRecipeManager(), registryAccess);
     }
 }

@@ -364,7 +364,7 @@
 [24Apr2025 09:34:09.975] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing net.gobies.additions.datagen.DataGenerators to MOD
 [24Apr2025 09:34:09.979] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing net.gobies.additions.item.Bundle to MOD
 [24Apr2025 09:34:09.982] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing net.gobies.additions.item.CreativeTab to MOD
-[24Apr2025 09:34:09.983] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing net.gobies.additions.recipes.VanillaRecipes to FORGE
+[24Apr2025 09:34:09.983] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing net.gobies.additions.recipes.AdditionsRecipes to FORGE
 [24Apr2025 09:34:09.987] [modloading-worker-0/DEBUG] [mezz.jei.common.platform.Services/]: Loaded mezz.jei.forge.platform.PlatformHelper@3bf23fa2 for service interface mezz.jei.common.platform.IPlatformHelper
 [24Apr2025 09:34:10.005] [modloading-worker-0/DEBUG] [io.netty.util.internal.PlatformDependent0/]: -Dio.netty.noUnsafe: false
 [24Apr2025 09:34:10.005] [modloading-worker-0/DEBUG] [io.netty.util.internal.PlatformDependent0/]: Java version: 17
