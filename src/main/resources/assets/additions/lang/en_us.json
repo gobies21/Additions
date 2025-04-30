@@ -14,6 +14,12 @@
   "item.additions.emerald_gem": "Emerald Gem",
   "item.additions.sapphire_gem": "Sapphire Gem",
 
+  "item.additions.flint_sword": "Flint Sword",
+  "item.additions.flint_pickaxe": "Flint Pickaxe",
+  "item.additions.flint_axe": "Flint Axe",
+  "item.additions.flint_shovel": "Flint Shovel",
+  "item.additions.flint_hoe": "Flint Hoe",
+
   "item.additions.tin_helmet": "Tin Helmet",
   "item.additions.tin_chestplate": "Tin Chestplate",
   "item.additions.tin_leggings": "Tin Leggings",

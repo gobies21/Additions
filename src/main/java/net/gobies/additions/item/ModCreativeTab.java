@@ -47,29 +47,37 @@ public class ModCreativeTab {
                                 pOutput.accept(ModItems.SapphireGem.get());
                             }
                         }
+                        if (Config.ENABLE_FLINT_TOOLS.get()) {
+                            pOutput.accept(ModItems.FlintSword.get());
+                            pOutput.accept(ModItems.FlintPickaxe.get());
+                            pOutput.accept(ModItems.FlintAxe.get());
+                            pOutput.accept(ModItems.FlintShovel.get());
+                            pOutput.accept(ModItems.FlintHoe.get());
+                        }
+
                         pOutput.accept(ModItems.TinSword.get());
                         pOutput.accept(ModItems.TinPickaxe.get());
                         pOutput.accept(ModItems.TinAxe.get());
                         pOutput.accept(ModItems.TinShovel.get());
                         pOutput.accept(ModItems.TinHoe.get());
+                        pOutput.accept(ModItems.TinHelmet.get());
+                        pOutput.accept(ModItems.TinChestplate.get());
+                        pOutput.accept(ModItems.TinLeggings.get());
+                        pOutput.accept(ModItems.TinBoots.get());
                         pOutput.accept(ModItems.BronzeSword.get());
                         pOutput.accept(ModItems.BronzePickaxe.get());
                         pOutput.accept(ModItems.BronzeAxe.get());
                         pOutput.accept(ModItems.BronzeShovel.get());
                         pOutput.accept(ModItems.BronzeHoe.get());
+                        pOutput.accept(ModItems.BronzeHelmet.get());
+                        pOutput.accept(ModItems.BronzeChestplate.get());
+                        pOutput.accept(ModItems.BronzeLeggings.get());
+                        pOutput.accept(ModItems.BronzeBoots.get());
                         pOutput.accept(ModItems.SteelSword.get());
                         pOutput.accept(ModItems.SteelPickaxe.get());
                         pOutput.accept(ModItems.SteelAxe.get());
                         pOutput.accept(ModItems.SteelShovel.get());
                         pOutput.accept(ModItems.SteelHoe.get());
-                        pOutput.accept(ModItems.TinHelmet.get());
-                        pOutput.accept(ModItems.TinChestplate.get());
-                        pOutput.accept(ModItems.TinLeggings.get());
-                        pOutput.accept(ModItems.TinBoots.get());
-                        pOutput.accept(ModItems.BronzeHelmet.get());
-                        pOutput.accept(ModItems.BronzeChestplate.get());
-                        pOutput.accept(ModItems.BronzeLeggings.get());
-                        pOutput.accept(ModItems.BronzeBoots.get());
                         pOutput.accept(ModItems.SteelHelmet.get());
                         pOutput.accept(ModItems.SteelChestplate.get());
                         pOutput.accept(ModItems.SteelLeggings.get());

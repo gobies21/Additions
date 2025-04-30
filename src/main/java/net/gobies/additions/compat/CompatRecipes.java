@@ -73,7 +73,7 @@ public class CompatRecipes {
     private static void registerRecipes(RecipeManager recipeManager, RegistryAccess registryAccess) {
         if (ModList.get().isLoaded("iceandfire")) {
             if (Config.ENABLE_GEMS.get()) {
-                addRecipe(recipeManager, registryAccess, (Objects.requireNonNull(ForgeRegistries.ITEMS.getValue(new ResourceLocation("iceandfire:sapphire_gem")))), "diamond",
+                addRecipe(recipeManager, registryAccess, (Objects.requireNonNull(ForgeRegistries.ITEMS.getValue(new ResourceLocation("iceandfire:sapphire_gem")))), "sapphire",
                         createIngredients(
                                 ModItems.SapphireGem.get(), ModItems.SapphireGem.get(), ModItems.SapphireGem.get(),
                                 ModItems.SapphireGem.get(), ModItems.SapphireGem.get(), ModItems.SapphireGem.get(),
