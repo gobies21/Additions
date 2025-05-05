@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "additions:flint_pickaxe",
+    "additions:tin_pickaxe",
+    "additions:bronze_pickaxe",
+    "additions:steel_pickaxe"
+  ]
+}

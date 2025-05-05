@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "additions:flint_shovel",
+    "additions:tin_shovel",
+    "additions:bronze_shovel",
+    "additions:steel_shovel"
+  ]
+}

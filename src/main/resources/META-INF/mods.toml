@@ -5,7 +5,7 @@ license = "All Rights Reserved"
 
 [[mods]]
 modId="additions"
-version="1.0.0"
+version="1.0.1"
 displayName="Additions"
 authors="gobies"
 description='''extra additions!'''

@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "additions:flint_hoe",
+    "additions:tin_hoe",
+    "additions:bronze_hoe",
+    "additions:steel_hoe"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "additions:flint_sword",
+    "additions:tin_sword",
+    "additions:bronze_sword",
+    "additions:steel_sword"
+  ]
+}

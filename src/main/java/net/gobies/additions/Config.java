@@ -29,6 +29,8 @@ public class Config {
     public static boolean increased_reach;
     public static ForgeConfigSpec.ConfigValue<Boolean> GRASS_ATTACK;
     public static boolean grass_attack;
+    public static ForgeConfigSpec.ConfigValue<Boolean> LIGHTNING_DESTROY_ITEM;
+    public static boolean lightning_destroy_item;
 
     public Config() {
     }
@@ -44,6 +46,7 @@ public class Config {
         steel_armor_damage_reduction = STEEL_ARMOR_DAMAGE_REDUCTION.get().floatValue();
         increased_reach = INCREASED_REACH.get();
         grass_attack = GRASS_ATTACK.get();
+        lightning_destroy_item = LIGHTNING_DESTROY_ITEM.get();
     }
 
     static {
@@ -53,7 +56,8 @@ public class Config {
         HORSE_ARMOR_RECIPES = BUILDER.comment("Adds recipes for all horse armor").worldRestart().define("Horse Armor Recipes", true);
         ENABLE_BUNDLE = BUILDER.comment("Enables the bundle").worldRestart().define("Enable Bundle", true);
         INCREASED_REACH = BUILDER.comment("Increases the default melee reach of the player by +1").worldRestart().define("Increase Melee Reach", false);
-        GRASS_ATTACK = BUILDER.comment("Allows the player to be able to hit entities through grass").worldRestart().define("Hit through grass", true);
+        GRASS_ATTACK = BUILDER.comment("Allows the player to be able to hit entities through grass").define("Hit through grass", true);
+        LIGHTNING_DESTROY_ITEM = BUILDER.comment("Makes lightning not able to destroy items").define("Prevent Lightning destroying items", true);
         BUILDER.pop();
 
         BUILDER.push("Additions");
