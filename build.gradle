@@ -87,11 +87,14 @@ dependencies {
 
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
 
+    annotationProcessor "org.spongepowered:mixin:${mixin_version}:processor"
+
     compileOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-forge-api:${jei_version}"))
     compileOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}"))
     runtimeOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}"))
 
     implementation fg.deobf("curse.maven:spartan-weaponry-278141:5597663")
+    implementation fg.deobf("curse.maven:blessfulled-1182590:6174088")
 
 }
 
@@ -132,6 +135,7 @@ tasks.named('jar', Jar).configure {
 
     finalizedBy 'reobfJar'
 }
+
 
 publishing {
     publications {

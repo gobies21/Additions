@@ -1,9 +1,0 @@
-Manifest-Version: 1.0
-Specification-Title: additions
-Specification-Vendor: gobies
-Specification-Version: 1
-Implementation-Title: Additions
-Implementation-Version: 1.0.1
-Implementation-Vendor: gobies
-Implementation-Timestamp: 2025-05-05T00:55:22-0300
-MixinConfigs: additions.mixins.json

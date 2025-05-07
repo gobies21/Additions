@@ -3,10 +3,13 @@
   "package": "net.gobies.additions.mixin",
   "compatibilityLevel": "JAVA_17",
   "refmap": "additions.mixins.refmap.json",
-  "minVersion": "0.8",
   "mixins": [
     "ItemEntityMixin"
-  ]
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "minVersion": "0.8"
 }
 
 
