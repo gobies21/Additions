@@ -15,7 +15,7 @@ import net.minecraft.world.level.levelgen.placement.PlacementModifier;
 
 import java.util.List;
 
-public class ModPlacedFeatures {
+public class AdditionsPF {
 
     public static final ResourceKey<PlacedFeature> TIN_ORE_PLACED = createKey("tin_ore_placed");
     public static final ResourceKey<PlacedFeature> DEEPSLATE_TIN_ORE_PLACED = createKey("deepslate_tin_ore_placed");
@@ -23,16 +23,16 @@ public class ModPlacedFeatures {
     public static void bootstrap(BootstapContext<PlacedFeature> context) {
         HolderGetter<ConfiguredFeature<?, ?>> configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
 
-        register(context, TIN_ORE_PLACED, configuredFeatures.getOrThrow(ModConfiguredFeatures.OVERWORLD_TIN_KEY),
-                ModOrePlacements.commonOrePlacement(5, // veins per chunk
-                        HeightRangePlacement.uniform(VerticalAnchor.absolute(-20), VerticalAnchor.absolute(75))));
+        register(context, TIN_ORE_PLACED, configuredFeatures.getOrThrow(AdditionsCF.OVERWORLD_TIN_KEY),
+                AdditionsOP.commonOrePlacement(5, // veins per chunk
+                        HeightRangePlacement.uniform(VerticalAnchor.absolute(-20), VerticalAnchor.absolute(256))));
 
-        register(context, DEEPSLATE_TIN_ORE_PLACED, configuredFeatures.getOrThrow(ModConfiguredFeatures.OVERWORLD_DEEPSLATE_TIN_KEY),
-                ModOrePlacements.commonOrePlacement(3, // veins per chunk
+        register(context, DEEPSLATE_TIN_ORE_PLACED, configuredFeatures.getOrThrow(AdditionsCF.OVERWORLD_DEEPSLATE_TIN_KEY),
+                AdditionsOP.commonOrePlacement(3, // veins per chunk
                         HeightRangePlacement.uniform(VerticalAnchor.absolute(-40), VerticalAnchor.absolute(0))));
 
-        register(context, RUBY_ORE_PLACED, configuredFeatures.getOrThrow(ModConfiguredFeatures.NETHER_RUBY_KEY),
-                ModOrePlacements.commonOrePlacement(5, // veins per chunk
+        register(context, RUBY_ORE_PLACED, configuredFeatures.getOrThrow(AdditionsCF.NETHER_RUBY_KEY),
+                AdditionsOP.commonOrePlacement(5, // veins per chunk
                         HeightRangePlacement.uniform(VerticalAnchor.absolute(50), VerticalAnchor.absolute(115))));
     }
 

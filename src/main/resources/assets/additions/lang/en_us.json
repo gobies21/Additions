@@ -14,6 +14,8 @@
   "item.additions.emerald_gem": "Emerald Gem",
   "item.additions.sapphire_gem": "Sapphire Gem",
 
+  "item.additions.match_box": "Match Box",
+
   "item.additions.flint_sword": "Flint Sword",
   "item.additions.flint_pickaxe": "Flint Pickaxe",
   "item.additions.flint_axe": "Flint Axe",
@@ -52,7 +54,7 @@
 
   "block.additions.tin_ore": "Tin Ore",
   "block.additions.deepslate_tin_ore": "Deepslate Tin Ore",
-  "block.additions.ruby_ore": "Ruby Ore",
+  "block.additions.ruby_ore": "Nether Ruby Ore",
   "block.additions.tin_block": "Block of Tin",
   "block.additions.bronze_block": "Block of Bronze",
   "block.additions.steel_block": "Block of Steel",

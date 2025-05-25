@@ -20,8 +20,8 @@ import java.util.List;
 
 @Mod.EventBusSubscriber
 public class SteelArmor extends ArmorItem {
-    public SteelArmor(ModArmorMaterials steel, Type type, Properties properties) {
-        super(ModArmorMaterials.STEEL, type, properties);
+    public SteelArmor(AdditionsArmorMaterials steel, Type type, Properties properties) {
+        super(AdditionsArmorMaterials.STEEL, type, properties);
     }
 
     @SubscribeEvent
@@ -35,22 +35,22 @@ public class SteelArmor extends ArmorItem {
                 float pieces = 0;
 
                 if (player.getItemBySlot(EquipmentSlot.HEAD).getItem() instanceof ArmorItem helmet &&
-                        helmet.getMaterial() == ModArmorMaterials.STEEL &&
+                        helmet.getMaterial() == AdditionsArmorMaterials.STEEL &&
                         helmet.getType() == ArmorItem.Type.HELMET) {
                     pieces++;
                 }
                 if (player.getItemBySlot(EquipmentSlot.CHEST).getItem() instanceof ArmorItem chestplate &&
-                        chestplate.getMaterial() == ModArmorMaterials.STEEL &&
+                        chestplate.getMaterial() == AdditionsArmorMaterials.STEEL &&
                         chestplate.getType() == ArmorItem.Type.CHESTPLATE) {
                     pieces++;
                 }
                 if (player.getItemBySlot(EquipmentSlot.LEGS).getItem() instanceof ArmorItem leggings &&
-                        leggings.getMaterial() == ModArmorMaterials.STEEL &&
+                        leggings.getMaterial() == AdditionsArmorMaterials.STEEL &&
                         leggings.getType() == ArmorItem.Type.LEGGINGS) {
                     pieces++;
                 }
                 if (player.getItemBySlot(EquipmentSlot.FEET).getItem() instanceof ArmorItem boots &&
-                        boots.getMaterial() == ModArmorMaterials.STEEL &&
+                        boots.getMaterial() == AdditionsArmorMaterials.STEEL &&
                         boots.getType() == ArmorItem.Type.BOOTS) {
                     pieces++;
                 }

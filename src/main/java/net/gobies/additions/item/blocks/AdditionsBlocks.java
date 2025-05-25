@@ -15,7 +15,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import java.util.function.Supplier;
 
-public class ModBlocks {
+public class AdditionsBlocks {
     public static final DeferredRegister<Block> BLOCKS;
     public static final RegistryObject<Block> TinOre;
     public static final RegistryObject<Block> DeepslateTinOre;
@@ -28,7 +28,7 @@ public class ModBlocks {
     public static final RegistryObject<Block> SteelBlock;
     public static final RegistryObject<Block> RubyBlock;
 
-    public ModBlocks() {
+    public AdditionsBlocks() {
     }
 
     public static void register(IEventBus eventbus) {

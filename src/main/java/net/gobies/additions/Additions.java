@@ -1,9 +1,9 @@
 package net.gobies.additions;
 
 import com.mojang.logging.LogUtils;
-import net.gobies.additions.item.ModCreativeTab;
-import net.gobies.additions.item.ModItems;
-import net.gobies.additions.item.blocks.ModBlocks;
+import net.gobies.additions.item.AdditionsCreativeTab;
+import net.gobies.additions.item.AdditionsItems;
+import net.gobies.additions.item.blocks.AdditionsBlocks;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -20,9 +20,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
-import static net.gobies.additions.Additions.MOD_ID;
-
-@Mod(MOD_ID)
+@Mod(Additions.MOD_ID)
 public class Additions {
     public static final String MOD_ID = "additions";
     public static final Logger LOGGER = LogUtils.getLogger();
@@ -31,11 +29,11 @@ public class Additions {
     public Additions() {
         IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
 
-        ModItems.register(modBus);
+        AdditionsItems.register(modBus);
 
-        ModBlocks.register(modBus);
+        AdditionsBlocks.register(modBus);
 
-        ModCreativeTab.register(modBus);
+        AdditionsCreativeTab.register(modBus);
 
         MinecraftForge.EVENT_BUS.register(this);
 
@@ -54,8 +52,8 @@ public class Additions {
         if (event.phase == TickEvent.Phase.END) {
             List<AbstractMap.SimpleEntry<Runnable, Integer>> actions = new ArrayList<>();
             workQueue.forEach((work) -> {
-                work.setValue((Integer) work.getValue() - 1);
-                if ((Integer) work.getValue() == 0) {
+                work.setValue(work.getValue() - 1);
+                if (work.getValue() == 0) {
                     actions.add(work);
                 }
 

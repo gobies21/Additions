@@ -2,7 +2,7 @@ package net.gobies.additions.recipes;
 
 import com.mojang.logging.LogUtils;
 import net.gobies.additions.Config;
-import net.gobies.additions.item.ModItems;
+import net.gobies.additions.item.AdditionsItems;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.resources.ResourceLocation;
@@ -60,8 +60,8 @@ public class VanillaRecipes {
         if (Config.BLAST_FURNACE_RECIPE_CHANGE.get()) {
             addRecipe(recipeManager, registryAccess, Items.BLAST_FURNACE, "blast_furnace",
                     createIngredients(
-                            ModItems.SteelIngot.get(), ModItems.SteelIngot.get(), ModItems.SteelIngot.get(),
-                            ModItems.SteelIngot.get(), Items.FURNACE, ModItems.SteelIngot.get(),
+                            AdditionsItems.SteelIngot.get(), AdditionsItems.SteelIngot.get(), AdditionsItems.SteelIngot.get(),
+                            AdditionsItems.SteelIngot.get(), Items.FURNACE, AdditionsItems.SteelIngot.get(),
                             Items.SMOOTH_STONE, Items.SMOOTH_STONE, Items.SMOOTH_STONE
                     ));
         }

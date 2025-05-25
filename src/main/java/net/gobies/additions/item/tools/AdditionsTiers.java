@@ -1,12 +1,12 @@
 package net.gobies.additions.item.tools;
 
-import net.gobies.additions.item.ModItems;
+import net.gobies.additions.item.AdditionsItems;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
 import org.jetbrains.annotations.NotNull;
 
-public class ModTiers {
+public class AdditionsTiers {
 
     //Flint Tier
     public static final Tier FLINT = new Tier() {
@@ -70,7 +70,7 @@ public class ModTiers {
 
         @Override
         public @NotNull Ingredient getRepairIngredient() {
-            return Ingredient.of(ModItems.TinIngot.get());
+            return Ingredient.of(AdditionsItems.TinIngot.get());
         }
     };
 
@@ -103,7 +103,7 @@ public class ModTiers {
 
         @Override
         public @NotNull Ingredient getRepairIngredient() {
-            return Ingredient.of(ModItems.BronzeIngot.get());
+            return Ingredient.of(AdditionsItems.BronzeIngot.get());
         }
     };
 
@@ -136,7 +136,7 @@ public class ModTiers {
 
         @Override
         public @NotNull Ingredient getRepairIngredient() {
-            return Ingredient.of(ModItems.SteelIngot.get());
+            return Ingredient.of(AdditionsItems.SteelIngot.get());
         }
     };
 }

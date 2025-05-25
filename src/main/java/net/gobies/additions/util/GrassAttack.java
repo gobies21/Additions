@@ -1,12 +1,10 @@
 package net.gobies.additions.util;
 
 import net.gobies.additions.Config;
-import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.phys.AABB;
 import net.minecraftforge.common.ForgeMod;
-import net.minecraftforge.common.ToolActions;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -24,9 +22,7 @@ public class GrassAttack {
         if (event.getLevel().getBlockState(event.getPos()).getCollisionShape(event.getLevel(), event.getPos()).isEmpty() && event.getEntity() != null) {
 
             var player = event.getEntity();
-            var itemStack = player.getItemInHand(InteractionHand.MAIN_HAND);
             if (Config.GRASS_ATTACK.get()) {
-                if (itemStack.canPerformAction(ToolActions.SWORD_SWEEP)) {
                     var attackReach = player.getAttributeValue(ForgeMod.ENTITY_REACH.get());
                     if (player.isCreative()) {
                         attackReach = 5.0D;
@@ -62,4 +58,3 @@ public class GrassAttack {
             }
         }
     }
-}

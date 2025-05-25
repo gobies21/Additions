@@ -4,7 +4,7 @@ import net.minecraft.world.level.levelgen.placement.*;
 
 import java.util.List;
 
-public class ModOrePlacements {
+public class AdditionsOP {
     public static List<PlacementModifier> orePlacement(PlacementModifier place, PlacementModifier placement) {
         return List.of(place, InSquarePlacement.spread(), placement, BiomeFilter.biome());
     }

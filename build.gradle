@@ -95,6 +95,7 @@ dependencies {
 
     implementation fg.deobf("curse.maven:spartan-weaponry-278141:5597663")
     implementation fg.deobf("curse.maven:blessfulled-1182590:6174088")
+    implementation fg.deobf("curse.maven:hardcore-torches-forge-576846:6232004")
 
 }
 

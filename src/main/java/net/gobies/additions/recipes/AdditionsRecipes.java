@@ -1,7 +1,7 @@
 package net.gobies.additions.recipes;
 
 import net.gobies.additions.Config;
-import net.gobies.additions.item.ModItems;
+import net.gobies.additions.item.AdditionsItems;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.resources.ResourceLocation;
@@ -111,60 +111,60 @@ public class AdditionsRecipes {
         if (Config.ENABLE_GEMS.get()) {
             addRecipe(recipeManager, registryAccess, Items.DIAMOND, "diamond",
                     createIngredients(
-                            ModItems.DiamondGem.get(), ModItems.DiamondGem.get(), ModItems.DiamondGem.get(),
-                            ModItems.DiamondGem.get(), ModItems.DiamondGem.get(), ModItems.DiamondGem.get(),
-                            ModItems.DiamondGem.get(), ModItems.DiamondGem.get(), ModItems.DiamondGem.get()
+                            AdditionsItems.DiamondGem.get(), AdditionsItems.DiamondGem.get(), AdditionsItems.DiamondGem.get(),
+                            AdditionsItems.DiamondGem.get(), AdditionsItems.DiamondGem.get(), AdditionsItems.DiamondGem.get(),
+                            AdditionsItems.DiamondGem.get(), AdditionsItems.DiamondGem.get(), AdditionsItems.DiamondGem.get()
                     ), true, 1);
 
-            addRecipe(recipeManager, registryAccess, ModItems.DiamondGem.get(), "diamond_to_gems",
+            addRecipe(recipeManager, registryAccess, AdditionsItems.DiamondGem.get(), "diamond_to_gems",
                     createIngredients(Items.DIAMOND), false, 9);
 
             addRecipe(recipeManager, registryAccess, Items.EMERALD, "emerald",
                     createIngredients(
-                            ModItems.EmeraldGem.get(), ModItems.EmeraldGem.get(), ModItems.EmeraldGem.get(),
-                            ModItems.EmeraldGem.get(), ModItems.EmeraldGem.get(), ModItems.EmeraldGem.get(),
-                            ModItems.EmeraldGem.get(), ModItems.EmeraldGem.get(), ModItems.EmeraldGem.get()
+                            AdditionsItems.EmeraldGem.get(), AdditionsItems.EmeraldGem.get(), AdditionsItems.EmeraldGem.get(),
+                            AdditionsItems.EmeraldGem.get(), AdditionsItems.EmeraldGem.get(), AdditionsItems.EmeraldGem.get(),
+                            AdditionsItems.EmeraldGem.get(), AdditionsItems.EmeraldGem.get(), AdditionsItems.EmeraldGem.get()
                     ), true, 1);
 
-            addRecipe(recipeManager, registryAccess, ModItems.EmeraldGem.get(), "emerald_to_gems",
+            addRecipe(recipeManager, registryAccess, AdditionsItems.EmeraldGem.get(), "emerald_to_gems",
                     createIngredients(Items.EMERALD), false, 9);
 
-            addRecipe(recipeManager, registryAccess, ModItems.Ruby.get(), "ruby",
+            addRecipe(recipeManager, registryAccess, AdditionsItems.Ruby.get(), "ruby",
                     createIngredients(
-                            ModItems.RubyGem.get(), ModItems.RubyGem.get(), ModItems.RubyGem.get(),
-                            ModItems.RubyGem.get(), ModItems.RubyGem.get(), ModItems.RubyGem.get(),
-                            ModItems.RubyGem.get(), ModItems.RubyGem.get(), ModItems.RubyGem.get()
+                            AdditionsItems.RubyGem.get(), AdditionsItems.RubyGem.get(), AdditionsItems.RubyGem.get(),
+                            AdditionsItems.RubyGem.get(), AdditionsItems.RubyGem.get(), AdditionsItems.RubyGem.get(),
+                            AdditionsItems.RubyGem.get(), AdditionsItems.RubyGem.get(), AdditionsItems.RubyGem.get()
                     ), true, 1);
 
-            addRecipe(recipeManager, registryAccess, ModItems.RubyGem.get(), "ruby_to_gems",
-                    createIngredients(ModItems.Ruby.get()), false, 9);
+            addRecipe(recipeManager, registryAccess, AdditionsItems.RubyGem.get(), "ruby_to_gems",
+                    createIngredients(AdditionsItems.Ruby.get()), false, 9);
         }
 
         if (Config.ENABLE_FLINT_TOOLS.get()) {
-            addMirroredRecipe(recipeManager, registryAccess, ModItems.FlintSword.get(),
+            addMirroredRecipe(recipeManager, registryAccess, AdditionsItems.FlintSword.get(),
                     createIngredients(Items.FLINT, Items.FLINT, Items.STICK),
                     new String[]{"#",
                                  "#",
                                  "/"}, 1, 3);
 
-            addMirroredRecipe(recipeManager, registryAccess, ModItems.FlintPickaxe.get(),
+            addMirroredRecipe(recipeManager, registryAccess, AdditionsItems.FlintPickaxe.get(),
                     createPattern(new String[]{"###", " / ", " / "}, Items.FLINT, Items.STICK),
                     new String[]{"###",
                                  " / ",
                                  " / "}, 3, 3);
 
-            addMirroredRecipe(recipeManager, registryAccess, ModItems.FlintAxe.get(),
+            addMirroredRecipe(recipeManager, registryAccess, AdditionsItems.FlintAxe.get(),
                     createPattern(new String[]{"/#", "/ "}, Items.FLINT, Items.STICK),
                     new String[]{"/#",
                                  "/ "}, 2, 2);
 
-            addMirroredRecipe(recipeManager, registryAccess, ModItems.FlintHoe.get(),
+            addMirroredRecipe(recipeManager, registryAccess, AdditionsItems.FlintHoe.get(),
                     createPattern(new String[]{"## ", " / ", " / "}, Items.FLINT, Items.STICK),
                     new String[]{"## ",
                                  " / ",
                                  " / "}, 3, 3);
 
-            addMirroredRecipe(recipeManager, registryAccess, ModItems.FlintShovel.get(),
+            addMirroredRecipe(recipeManager, registryAccess, AdditionsItems.FlintShovel.get(),
                     createIngredients(Items.FLINT, Items.STICK, Items.STICK),
                     new String[]{"#",
                                  "/",

@@ -2,12 +2,11 @@ package net.gobies.additions.compat;
 
 import com.mojang.logging.LogUtils;
 import net.gobies.additions.Config;
-import net.gobies.additions.item.ModItems;
+import net.gobies.additions.item.AdditionsItems;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.*;
 import net.minecraftforge.event.AddReloadListenerEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
@@ -75,12 +74,12 @@ public class CompatRecipes {
             if (Config.ENABLE_GEMS.get()) {
                 addRecipe(recipeManager, registryAccess, (Objects.requireNonNull(ForgeRegistries.ITEMS.getValue(new ResourceLocation("iceandfire:sapphire_gem")))), "sapphire",
                         createIngredients(
-                                ModItems.SapphireGem.get(), ModItems.SapphireGem.get(), ModItems.SapphireGem.get(),
-                                ModItems.SapphireGem.get(), ModItems.SapphireGem.get(), ModItems.SapphireGem.get(),
-                                ModItems.SapphireGem.get(), ModItems.SapphireGem.get(), ModItems.SapphireGem.get()
+                                AdditionsItems.SapphireGem.get(), AdditionsItems.SapphireGem.get(), AdditionsItems.SapphireGem.get(),
+                                AdditionsItems.SapphireGem.get(), AdditionsItems.SapphireGem.get(), AdditionsItems.SapphireGem.get(),
+                                AdditionsItems.SapphireGem.get(), AdditionsItems.SapphireGem.get(), AdditionsItems.SapphireGem.get()
                         ), true, 1);
 
-                addRecipe(recipeManager, registryAccess, ModItems.SapphireGem.get(), "sapphire_to_gems",
+                addRecipe(recipeManager, registryAccess, AdditionsItems.SapphireGem.get(), "sapphire_to_gems",
                         createIngredients(Objects.requireNonNull(ForgeRegistries.ITEMS.getValue(new ResourceLocation("iceandfire:sapphire_gem")))), false, 9);
             }
         }
