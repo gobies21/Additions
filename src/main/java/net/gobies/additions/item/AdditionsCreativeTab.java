@@ -2,7 +2,8 @@ package net.gobies.additions.item;
 
 import net.gobies.additions.Additions;
 import net.gobies.additions.Config;
-import net.gobies.additions.item.blocks.AdditionsBlocks;
+import net.gobies.additions.init.AdditionsItems;
+import net.gobies.additions.init.AdditionsBlocks;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;

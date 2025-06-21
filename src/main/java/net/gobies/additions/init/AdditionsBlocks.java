@@ -1,4 +1,4 @@
-package net.gobies.additions.item.blocks;
+package net.gobies.additions.init;
 
 import net.gobies.additions.Additions;
 import net.gobies.additions.item.blocks.ores.DeepslateTinOre;

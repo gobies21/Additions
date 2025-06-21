@@ -25,12 +25,15 @@ public class Config {
     public static boolean enable_flint_tools;
     public static ForgeConfigSpec.ConfigValue<Double> STEEL_ARMOR_DAMAGE_REDUCTION;
     public static float steel_armor_damage_reduction;
-    public static ForgeConfigSpec.ConfigValue<Boolean> INCREASED_REACH;
-    public static boolean increased_reach;
-    public static ForgeConfigSpec.ConfigValue<Boolean> GRASS_ATTACK;
-    public static boolean grass_attack;
+    public static ForgeConfigSpec.ConfigValue<Boolean> ENABLE_RANDOM_MOB_HP;
+    public static boolean enable_random_mob_hp;
+    public static ForgeConfigSpec.ConfigValue<Double> BOSS_HP_THRESHOLD;
+    public static double boss_hp_threshold;
     public static ForgeConfigSpec.ConfigValue<Boolean> LIGHTNING_DESTROY_ITEM;
     public static boolean lightning_destroy_item;
+    public static ForgeConfigSpec.ConfigValue<Boolean> ATTACK_THROUGH_GRASS;
+    public static boolean attack_through_grass;
+
 
     public Config() {
     }
@@ -44,26 +47,28 @@ public class Config {
         enable_gems = ENABLE_GEMS.get();
         enable_flint_tools = ENABLE_FLINT_TOOLS.get();
         steel_armor_damage_reduction = STEEL_ARMOR_DAMAGE_REDUCTION.get().floatValue();
-        increased_reach = INCREASED_REACH.get();
-        grass_attack = GRASS_ATTACK.get();
+        enable_random_mob_hp = ENABLE_RANDOM_MOB_HP.get();
+        boss_hp_threshold = BOSS_HP_THRESHOLD.get();
         lightning_destroy_item = LIGHTNING_DESTROY_ITEM.get();
+        attack_through_grass = ATTACK_THROUGH_GRASS.get();
     }
 
     static {
         BUILDER.push("Tweaks");
-        BLAST_FURNACE_RECIPE_CHANGE = BUILDER.comment("Changes the blast furnace recipe to use steel instead of iron").worldRestart().define("Blast Furnace Recipe", true);
-        SADDLE_RECIPE = BUILDER.comment("Adds a recipe for saddles").worldRestart().define("Saddle Recipe", true);
-        HORSE_ARMOR_RECIPES = BUILDER.comment("Adds recipes for all horse armor").worldRestart().define("Horse Armor Recipes", true);
-        ENABLE_BUNDLE = BUILDER.comment("Enables the bundle").worldRestart().define("Enable Bundle", true);
-        INCREASED_REACH = BUILDER.comment("Increases the default melee reach of the player by +1").worldRestart().define("Increase Melee Reach", false);
-        GRASS_ATTACK = BUILDER.comment("Allows the player to be able to hit entities through grass").define("Hit through grass", true);
-        LIGHTNING_DESTROY_ITEM = BUILDER.comment("Makes lightning not able to destroy items").define("Prevent Lightning destroying items", true);
+        BLAST_FURNACE_RECIPE_CHANGE = BUILDER.comment("Changes the blast furnace recipe to use steel instead of iron").worldRestart().define("Blast_Furnace_Recipe", true);
+        SADDLE_RECIPE = BUILDER.comment("Adds a recipe for saddles").worldRestart().define("Saddle_Recipe", true);
+        HORSE_ARMOR_RECIPES = BUILDER.comment("Adds recipes for all horse armor").worldRestart().define("Horse_Armor_Recipes", true);
+        ENABLE_BUNDLE = BUILDER.comment("Enables the bundle").worldRestart().define("Enable_Bundle", true);
+        LIGHTNING_DESTROY_ITEM = BUILDER.comment("Prevents lightning from destroying items").define("Lightning_Prevention", true);
+        ATTACK_THROUGH_GRASS = BUILDER.comment("Allows attacking mobs through grass without breaking the grass").define("Attack_Through_Grass", true);
+        ENABLE_RANDOM_MOB_HP = BUILDER.comment("Adds rarity to mobs to spawn with random slight increase in max health depending on their rarity type").define("Random_Mob_HP", false);
+        BOSS_HP_THRESHOLD = BUILDER.comment("Limits the maximum health percentage that can be randomly increased for certain mobs, like bosses, to prevent their health from becoming too high").define("Boss_HP_Threshold", 1000.0);
         BUILDER.pop();
 
         BUILDER.push("Additions");
-        ENABLE_GEMS = BUILDER.comment("Enable gems, nugget versions for minerals such as diamond").worldRestart().define("Enable Gems", true);
-        ENABLE_FLINT_TOOLS = BUILDER.comment("Enable flint tools, early game tools weaker than wood").worldRestart().define("Enable Flint Tools", true);
-        STEEL_ARMOR_DAMAGE_REDUCTION = BUILDER.comment("Damage reduction to fire type damage that each steel armor piece provides in percentage").defineInRange("Steel Fire Damage Reduction", 0.125, 0.01, 0.250);
+        ENABLE_GEMS = BUILDER.comment("Enable gems, nugget versions for minerals such as diamond").worldRestart().define("Enable_Gems", true);
+        ENABLE_FLINT_TOOLS = BUILDER.comment("Enable flint tools, early game tools weaker than wood").worldRestart().define("Enable_Flint_Tools", true);
+        STEEL_ARMOR_DAMAGE_REDUCTION = BUILDER.comment("Damage reduction to fire type damage that each steel armor piece provides in percentage").defineInRange("Steel_Fire_Damage_Reduction", 0.125, 0.01, 0.250);
         BUILDER.pop();
 
         SPEC = BUILDER.build();

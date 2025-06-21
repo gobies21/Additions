@@ -1,7 +1,7 @@
 package net.gobies.additions.datagen;
 
-import net.gobies.additions.item.blocks.AdditionsBlocks;
-import net.gobies.additions.item.AdditionsItems;
+import net.gobies.additions.init.AdditionsBlocks;
+import net.gobies.additions.init.AdditionsItems;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.level.block.Block;

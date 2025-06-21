@@ -1,7 +1,7 @@
 package net.gobies.additions.recipes;
 
 import net.gobies.additions.Config;
-import net.gobies.additions.item.AdditionsItems;
+import net.gobies.additions.init.AdditionsItems;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.resources.ResourceLocation;

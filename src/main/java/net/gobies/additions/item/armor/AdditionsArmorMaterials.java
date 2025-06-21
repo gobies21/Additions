@@ -1,6 +1,6 @@
 package net.gobies.additions.item.armor;
 
-import net.gobies.additions.item.AdditionsItems;
+import net.gobies.additions.init.AdditionsItems;
 import net.minecraft.Util;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;

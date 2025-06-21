@@ -2,8 +2,11 @@ package net.gobies.additions;
 
 import com.mojang.logging.LogUtils;
 import net.gobies.additions.item.AdditionsCreativeTab;
-import net.gobies.additions.item.AdditionsItems;
-import net.gobies.additions.item.blocks.AdditionsBlocks;
+import net.gobies.additions.init.AdditionsItems;
+import net.gobies.additions.init.AdditionsBlocks;
+import net.gobies.additions.network.MobHPSyncPacket;
+import net.gobies.additions.network.PacketHandler;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -11,8 +14,11 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.util.thread.SidedThreadGroups;
+import net.minecraftforge.network.NetworkRegistry;
+import net.minecraftforge.network.simple.SimpleChannel;
 import org.slf4j.Logger;
 import java.util.AbstractMap;
 import java.util.ArrayList;
@@ -37,7 +43,21 @@ public class Additions {
 
         MinecraftForge.EVENT_BUS.register(this);
 
+        PacketHandler.registerMessages();
+
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+    }
+
+    @SubscribeEvent
+    public static void setup(FMLCommonSetupEvent event) {
+        SimpleChannel channel = NetworkRegistry.ChannelBuilder
+                .named(new ResourceLocation("additions", "channel"))
+                .networkProtocolVersion(() -> "1.0")
+                .clientAcceptedVersions(s -> true)
+                .serverAcceptedVersions(s -> true)
+                .simpleChannel();
+
+        event.enqueueWork(() -> MobHPSyncPacket.registerPackets(channel));
     }
 
 

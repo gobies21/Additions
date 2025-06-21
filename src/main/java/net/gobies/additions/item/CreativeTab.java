@@ -2,7 +2,8 @@ package net.gobies.additions.item;
 
 import net.gobies.additions.Additions;
 import net.gobies.additions.Config;
-import net.gobies.additions.item.blocks.AdditionsBlocks;
+import net.gobies.additions.init.AdditionsItems;
+import net.gobies.additions.init.AdditionsBlocks;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Items;
@@ -54,8 +55,6 @@ public class CreativeTab {
             event.getEntries().putAfter(AdditionsBlocks.TinBlock.get().asItem().getDefaultInstance(), AdditionsBlocks.BronzeBlock.get().asItem().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.getEntries().putAfter(Items.IRON_BLOCK.getDefaultInstance(), AdditionsBlocks.SteelBlock.get().asItem().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.getEntries().putAfter(Items.REDSTONE_BLOCK.getDefaultInstance(), AdditionsBlocks.RubyBlock.get().asItem().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-
-
 
         }
     }

@@ -1,6 +1,6 @@
 package net.gobies.additions.item.tools;
 
-import net.gobies.additions.item.AdditionsItems;
+import net.gobies.additions.init.AdditionsItems;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;

@@ -4,6 +4,7 @@
   "compatibilityLevel": "JAVA_17",
   "refmap": "additions.mixins.refmap.json",
   "mixins": [
+    "ItemEntityMixin"
   ],
   "client": [
   ],
