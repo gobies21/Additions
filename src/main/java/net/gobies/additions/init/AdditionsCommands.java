@@ -38,7 +38,7 @@ public class AdditionsCommands {
         dispatcher.register(additionsCommand);
     }
 
-
+    // Needs work
     public static int execute(CommandContext<CommandSourceStack> context) {
         ResourceLocation entityLocation = ResourceLocationArgument.getId(context, "entity");
         String entityName = entityLocation.toString();

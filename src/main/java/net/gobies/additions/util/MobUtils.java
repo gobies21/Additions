@@ -83,44 +83,44 @@ public class MobUtils {
             String rarityType;
 
             float rarity = random.nextFloat();
-            if (rarity < 0.6f) {
+            if (rarity < 0.6f) { // 60% Chance
                 rarityType = MobRarity.COMMON.name();
-                extraHPPercentage = 0.01f + (random.nextFloat() * 0.01f);
+                extraHPPercentage = 0.01f + (random.nextFloat() * 0.01f); // 1-2% Health Increase
                 if (random.nextFloat() < 0.5f) {
                     extraHPFlat = 1f;
                 }
 
-            } else if (rarity < 0.85f) {
+            } else if (rarity < 0.85f) { // 25% Chance
                 rarityType = MobRarity.UNCOMMON.name();
-                extraHPPercentage = 0.02f + (random.nextFloat() * 0.04f);
+                extraHPPercentage = 0.02f + (random.nextFloat() * 0.04f); // 2-4% Health Increase
                 if (random.nextFloat() < 0.5f) {
                     extraHPFlat = 2f;
                 }
 
-            } else if (rarity < 0.95f) {
+            } else if (rarity < 0.95f) { // 10% Chance
                 rarityType = MobRarity.RARE.name();
-                extraHPPercentage = 0.04f + (random.nextFloat() * 0.02f);
+                extraHPPercentage = 0.04f + (random.nextFloat() * 0.02f); // 4-6% Health Increase
                 if (random.nextFloat() < 0.6f) {
                     extraHPFlat = 5f;
                 }
 
-            } else if (rarity < 0.99f) {
+            } else if (rarity < 0.99f) { // 4% Chance
                 rarityType = MobRarity.EPIC.name();
-                extraHPPercentage = 0.06f + (random.nextFloat() * 0.02f);
+                extraHPPercentage = 0.06f + (random.nextFloat() * 0.02f); // 6-8% Health Increase
                 if (random.nextFloat() < 0.8f) {
                     extraHPFlat = 8f;
                 }
 
-            } else if (rarity < 0.9999f) {
+            } else if (rarity < 0.9999f) { // 1% Chance
                 rarityType = MobRarity.LEGENDARY.name();
-                extraHPPercentage = 0.08f + (random.nextFloat() * 0.04f);
+                extraHPPercentage = 0.08f + (random.nextFloat() * 0.04f); // 8-12% Health Increase
                 if (random.nextFloat() < 0.9f) {
                     extraHPFlat = 10f;
                 }
 
-            } else {
+            } else { // 0.01% Chance
                 rarityType = MobRarity.SHINY.name();
-                extraHPPercentage = 0.20f + (random.nextFloat() * 0.10f);
+                extraHPPercentage = 0.20f + (random.nextFloat() * 0.20f); // 20-40% Health Increase
                 extraHPFlat = 25f;
             }
 
