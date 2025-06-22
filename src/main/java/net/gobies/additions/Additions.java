@@ -1,13 +1,16 @@
 package net.gobies.additions;
 
 import com.mojang.logging.LogUtils;
+import net.gobies.additions.init.AdditionsParticles;
 import net.gobies.additions.item.AdditionsCreativeTab;
 import net.gobies.additions.init.AdditionsItems;
 import net.gobies.additions.init.AdditionsBlocks;
 import net.gobies.additions.network.MobHPSyncPacket;
 import net.gobies.additions.network.PacketHandler;
+import net.gobies.additions.init.AdditionsCommands;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -39,6 +42,8 @@ public class Additions {
 
         AdditionsBlocks.register(modBus);
 
+        AdditionsParticles.register(modBus);
+
         AdditionsCreativeTab.register(modBus);
 
         MinecraftForge.EVENT_BUS.register(this);
@@ -60,6 +65,10 @@ public class Additions {
         event.enqueueWork(() -> MobHPSyncPacket.registerPackets(channel));
     }
 
+    @SubscribeEvent
+    public void onCommandsRegister(RegisterCommandsEvent event) {
+        AdditionsCommands.register(event.getDispatcher());
+    }
 
     public static void queueServerWork(int tick, Runnable action) {
         if (Thread.currentThread().getThreadGroup() == SidedThreadGroups.SERVER) {

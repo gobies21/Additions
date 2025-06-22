@@ -29,6 +29,8 @@ public class Config {
     public static boolean enable_random_mob_hp;
     public static ForgeConfigSpec.ConfigValue<Double> BOSS_HP_THRESHOLD;
     public static double boss_hp_threshold;
+    public static ForgeConfigSpec.ConfigValue<Boolean> MOB_RARITY_DISPLAY_NAME;
+    public static boolean mob_rarity_display_name;
     public static ForgeConfigSpec.ConfigValue<Boolean> LIGHTNING_DESTROY_ITEM;
     public static boolean lightning_destroy_item;
     public static ForgeConfigSpec.ConfigValue<Boolean> ATTACK_THROUGH_GRASS;
@@ -49,6 +51,7 @@ public class Config {
         steel_armor_damage_reduction = STEEL_ARMOR_DAMAGE_REDUCTION.get().floatValue();
         enable_random_mob_hp = ENABLE_RANDOM_MOB_HP.get();
         boss_hp_threshold = BOSS_HP_THRESHOLD.get();
+        mob_rarity_display_name = MOB_RARITY_DISPLAY_NAME.get();
         lightning_destroy_item = LIGHTNING_DESTROY_ITEM.get();
         attack_through_grass = ATTACK_THROUGH_GRASS.get();
     }
@@ -61,8 +64,9 @@ public class Config {
         ENABLE_BUNDLE = BUILDER.comment("Enables the bundle").worldRestart().define("Enable_Bundle", true);
         LIGHTNING_DESTROY_ITEM = BUILDER.comment("Prevents lightning from destroying items").define("Lightning_Prevention", true);
         ATTACK_THROUGH_GRASS = BUILDER.comment("Allows attacking mobs through grass without breaking the grass").define("Attack_Through_Grass", true);
-        ENABLE_RANDOM_MOB_HP = BUILDER.comment("Adds rarity to mobs to spawn with random slight increase in max health depending on their rarity type").define("Random_Mob_HP", false);
+        ENABLE_RANDOM_MOB_HP = BUILDER.comment("Adds rarity to mobs to spawn with random slight increase in max health depending on their rarity type").define("Random_Mob_HP", true);
         BOSS_HP_THRESHOLD = BUILDER.comment("Limits the maximum health percentage that can be randomly increased for certain mobs, like bosses, to prevent their health from becoming too high").define("Boss_HP_Threshold", 1000.0);
+        MOB_RARITY_DISPLAY_NAME = BUILDER.comment("Displays the rarity of mobs in their name").define("Mob_Rarity_Display_Name", false);
         BUILDER.pop();
 
         BUILDER.push("Additions");

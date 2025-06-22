@@ -98,6 +98,8 @@ dependencies {
     implementation fg.deobf("curse.maven:hardcore-torches-forge-576846:6232004")
 
     implementation fg.deobf("curse.maven:neat-238372:5838485")
+
+    implementation fg.deobf("curse.maven:crafttweaker-239197:6256146")
 }
 
 mixin {
