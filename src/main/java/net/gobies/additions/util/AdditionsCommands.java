@@ -1,4 +1,4 @@
-package net.gobies.additions.init;
+package net.gobies.additions.util;
 
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.StringArgumentType;
@@ -7,7 +7,6 @@ import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.suggestion.Suggestions;
 import com.mojang.brigadier.suggestion.SuggestionsBuilder;
 import net.gobies.additions.Config;
-import net.gobies.additions.util.MobUtils;
 import net.gobies.additions.world.MobRandomHP;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;

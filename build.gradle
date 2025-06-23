@@ -100,6 +100,10 @@ dependencies {
     implementation fg.deobf("curse.maven:neat-238372:5838485")
 
     implementation fg.deobf("curse.maven:crafttweaker-239197:6256146")
+
+    implementation fg.deobf("curse.maven:atomicstrykers-infernal-mobs-227875:6453542")
+
+    compileOnly fg.deobf("curse.maven:champions-unofficial-1074990:${cf_champions}")
 }
 
 mixin {

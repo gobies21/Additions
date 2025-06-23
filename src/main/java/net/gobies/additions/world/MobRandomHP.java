@@ -1,6 +1,7 @@
 package net.gobies.additions.world;
 
 import net.gobies.additions.Config;
+import net.gobies.additions.compat.champions.ChampionCompat;
 import net.gobies.additions.network.MobHPSyncPacket;
 import net.gobies.additions.network.PacketHandler;
 import net.gobies.additions.util.MobUtils;
@@ -19,12 +20,10 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
 import java.util.Objects;
-import java.util.Random;
 
 @Mod.EventBusSubscriber(modid = "additions", bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class MobRandomHP extends MobUtils {
 
-    private static final Random random = new Random();
     private static int tickCounter = 0;
 
     @SubscribeEvent(priority = EventPriority.LOWEST)
@@ -39,6 +38,10 @@ public class MobRandomHP extends MobUtils {
 
                 CompoundTag entityData = livingEntity.getPersistentData();
                 if (entityData.contains("Rarity")) {
+                    return;
+                }
+
+                if (ChampionCompat.allowChampion(livingEntity)) {
                     return;
                 }
 
@@ -57,8 +60,9 @@ public class MobRandomHP extends MobUtils {
                 entityData.putString("Rarity", mobHealthData.rarityType);
                 entityData.putFloat("BonusHealth", extraHP);
 
-                if (Config.MOB_RARITY_DISPLAY_NAME.get())
+                if (Config.MOB_RARITY_DISPLAY_NAME.get()) {
                     setMobNameWithRarity(livingEntity, MobRarity.valueOf(mobHealthData.rarityType));
+                }
             }
         }
     }

@@ -93,14 +93,14 @@ public class MobUtils {
             } else if (rarity < 0.85f) { // 25% Chance
                 rarityType = MobRarity.UNCOMMON.name();
                 extraHPPercentage = 0.02f + (random.nextFloat() * 0.04f); // 2-4% Health Increase
-                if (random.nextFloat() < 0.5f) {
+                if (random.nextFloat() < 0.6f) {
                     extraHPFlat = 2f;
                 }
 
             } else if (rarity < 0.95f) { // 10% Chance
                 rarityType = MobRarity.RARE.name();
                 extraHPPercentage = 0.04f + (random.nextFloat() * 0.02f); // 4-6% Health Increase
-                if (random.nextFloat() < 0.6f) {
+                if (random.nextFloat() < 0.7f) {
                     extraHPFlat = 5f;
                 }
 
@@ -200,13 +200,13 @@ public class MobUtils {
                 break;
             case UNCOMMON:
                 extraHPPercentage = 0.02f + (random.nextFloat() * 0.04f);
-                if (random.nextFloat() < 0.5f) {
+                if (random.nextFloat() < 0.6f) {
                     extraHPFlat = 2f;
                 }
                 break;
             case RARE:
                 extraHPPercentage = 0.04f + (random.nextFloat() * 0.02f);
-                if (random.nextFloat() < 0.6f) {
+                if (random.nextFloat() < 0.7f) {
                     extraHPFlat = 5f;
                 }
                 break;

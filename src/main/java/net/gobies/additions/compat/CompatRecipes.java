@@ -69,6 +69,8 @@ public class CompatRecipes {
         return ingredients;
     }
 
+
+    //Ice and Fire
     private static void registerRecipes(RecipeManager recipeManager, RegistryAccess registryAccess) {
         if (ModList.get().isLoaded("iceandfire")) {
             if (Config.ENABLE_GEMS.get()) {

@@ -7,7 +7,7 @@ import net.gobies.additions.init.AdditionsItems;
 import net.gobies.additions.init.AdditionsBlocks;
 import net.gobies.additions.network.MobHPSyncPacket;
 import net.gobies.additions.network.PacketHandler;
-import net.gobies.additions.init.AdditionsCommands;
+import net.gobies.additions.util.AdditionsCommands;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegisterCommandsEvent;

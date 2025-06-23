@@ -5,7 +5,7 @@ license = "All Rights Reserved"
 
 [[mods]]
 modId="additions"
-version="1.0.8"
+version="1.1.0"
 displayName="Additions"
 authors="gobies"
 description='''A collection of useful additions to Minecraft, including new blocks, items, and tools'''
