@@ -48,8 +48,6 @@ public class Additions {
 
         MinecraftForge.EVENT_BUS.register(this);
 
-        modBus.addListener(this::registerCommands);
-
         PacketHandler.registerMessages();
 
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
@@ -66,6 +64,7 @@ public class Additions {
         event.enqueueWork(() -> MobHPSyncPacket.registerPackets(channel));
     }
 
+    @SubscribeEvent
     public void registerCommands(RegisterCommandsEvent event) {
         AdditionsCommands.register(event.getDispatcher());
     }

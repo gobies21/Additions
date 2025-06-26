@@ -77,6 +77,8 @@ public class MobUtils {
         }
 
         public static MobHealthData calculateMobHealth(LivingEntity livingEntity) {
+            MobHealthConfig config = new MobHealthConfig();
+
             float extraHPPercentage;
             float extraHPFlat = 0;
             String rarityType;
@@ -84,35 +86,35 @@ public class MobUtils {
             float rarity = random.nextFloat();
             if (rarity < 0.6f) { // 60% Chance
                 rarityType = COMMON.name();
-                extraHPPercentage = 0.01f + (random.nextFloat() * 0.01f); // 1-2% Health Increase
+                extraHPPercentage = (float) (config.getCommonMinHP() + (random.nextFloat() * config.getCommonMaxHP()));
                 if (random.nextFloat() < 0.5f) {
-                    extraHPFlat = 1f;
+                    extraHPFlat = (float) config.getCommonFlatHP();
                 }
 
             } else if (rarity < 0.85f) { // 25% Chance
                 rarityType = UNCOMMON.name();
-                extraHPPercentage = 0.02f + (random.nextFloat() * 0.04f); // 2-4% Health Increase
-                extraHPFlat = 2f;
+                extraHPPercentage = (float) (config.getUncommonMinHP() + (random.nextFloat() * config.getUncommonMaxHP()));
+                extraHPFlat = (float) config.getUncommonFlatHP();
 
             } else if (rarity < 0.95f) { // 10% Chance
                 rarityType = RARE.name();
-                extraHPPercentage = 0.04f + (random.nextFloat() * 0.02f); // 4-6% Health Increase
-                extraHPFlat = 5f;
+                extraHPPercentage = (float) (config.getRareMinHP() + (random.nextFloat() * config.getRareMaxHP()));
+                extraHPFlat = (float) config.getRareFlatHP();
 
             } else if (rarity < 0.99f) { // 4% Chance
                 rarityType = EPIC.name();
-                extraHPPercentage = 0.06f + (random.nextFloat() * 0.02f); // 6-8% Health Increase
-                extraHPFlat = 8f;
+                extraHPPercentage = (float) (config.getEpicMinHP() + (random.nextFloat() * config.getEpicMaxHP()));
+                extraHPFlat = (float) config.getEpicFlatHP();
 
             } else if (rarity < 0.9999f) { // 1% Chance
                 rarityType = LEGENDARY.name();
-                extraHPPercentage = 0.08f + (random.nextFloat() * 0.07f); // 8-15% Health Increase
-                extraHPFlat = 10f;
+                extraHPPercentage = (float) (config.getLegendaryMinHP() + (random.nextFloat() * config.getLegendaryMaxHP()));
+                extraHPFlat = (float) config.getLegendaryFlatHP();
 
             } else { // 0.01% Chance
                 rarityType = SHINY.name();
-                extraHPPercentage = 0.20f + (random.nextFloat() * 0.20f); // 20-40% Health Increase
-                extraHPFlat = 25f;
+                extraHPPercentage = (float) (config.getShinyMinHP() + (random.nextFloat() * config.getShinyMaxHP()));
+                extraHPFlat = (float) config.getShinyFlatHP();
             }
 
             return new MobHealthData(rarityType, extraHPPercentage, extraHPFlat);
@@ -177,46 +179,47 @@ public class MobUtils {
         }
     }
 
-
     public static float getBonusHealthForRarity(MobRarity rarity, LivingEntity livingEntity) {
+        MobHealthConfig config = new MobHealthConfig();
         float extraHPPercentage;
         float extraHPFlat = 0;
 
         switch (rarity) {
             case COMMON:
-                extraHPPercentage = 0.01f + (random.nextFloat() * 0.01f);
+                extraHPPercentage = (float) (config.getCommonMinHP() + (random.nextFloat() * config.getCommonMaxHP()));
                 if (random.nextFloat() < 0.5f) {
-                    extraHPFlat = 1f;
+                    extraHPFlat = (float) config.getCommonFlatHP();
                 }
                 break;
             case UNCOMMON:
-                extraHPPercentage = 0.02f + (random.nextFloat() * 0.04f);
-                extraHPFlat = 2f;
+                extraHPPercentage = (float) (config.getUncommonMinHP() + (random.nextFloat() * config.getUncommonMaxHP()));
+                extraHPFlat = (float) config.getUncommonFlatHP();
 
                 break;
             case RARE:
-                extraHPPercentage = 0.04f + (random.nextFloat() * 0.02f);
-                extraHPFlat = 5f;
+                extraHPPercentage = (float) (config.getRareMinHP() + (random.nextFloat() * config.getRareMaxHP()));
+                extraHPFlat = (float) config.getRareFlatHP();
 
                 break;
             case EPIC:
-                extraHPPercentage = 0.06f + (random.nextFloat() * 0.02f);
-                extraHPFlat = 8f;
+                extraHPPercentage = (float) (config.getEpicMinHP() + (random.nextFloat() * config.getEpicMaxHP()));
+                extraHPFlat = (float) config.getEpicFlatHP();
 
                 break;
             case LEGENDARY:
-                extraHPPercentage = 0.08f + (random.nextFloat() * 0.07f);
-                extraHPFlat = 10f;
+                extraHPPercentage = (float) (config.getLegendaryMinHP() + (random.nextFloat() * config.getLegendaryMaxHP()));
+                extraHPFlat = (float) config.getLegendaryFlatHP();
 
                 break;
             case SHINY:
-                extraHPPercentage = 0.20f + (random.nextFloat() * 0.20f);
-                extraHPFlat = 25f;
+                extraHPPercentage = (float) (config.getShinyMinHP() + (random.nextFloat() * config.getShinyMaxHP()));
+                extraHPFlat = (float) config.getShinyFlatHP();
                 break;
 
             default:
                 extraHPPercentage = 0;
                 extraHPFlat = 0;
+
         }
 
         return (livingEntity.getMaxHealth() * extraHPPercentage) + extraHPFlat;
