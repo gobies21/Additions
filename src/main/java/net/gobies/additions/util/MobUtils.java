@@ -7,7 +7,6 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;
 
@@ -84,42 +83,34 @@ public class MobUtils {
 
             float rarity = random.nextFloat();
             if (rarity < 0.6f) { // 60% Chance
-                rarityType = MobRarity.COMMON.name();
+                rarityType = COMMON.name();
                 extraHPPercentage = 0.01f + (random.nextFloat() * 0.01f); // 1-2% Health Increase
                 if (random.nextFloat() < 0.5f) {
                     extraHPFlat = 1f;
                 }
 
             } else if (rarity < 0.85f) { // 25% Chance
-                rarityType = MobRarity.UNCOMMON.name();
+                rarityType = UNCOMMON.name();
                 extraHPPercentage = 0.02f + (random.nextFloat() * 0.04f); // 2-4% Health Increase
-                if (random.nextFloat() < 0.6f) {
-                    extraHPFlat = 2f;
-                }
+                extraHPFlat = 2f;
 
             } else if (rarity < 0.95f) { // 10% Chance
-                rarityType = MobRarity.RARE.name();
+                rarityType = RARE.name();
                 extraHPPercentage = 0.04f + (random.nextFloat() * 0.02f); // 4-6% Health Increase
-                if (random.nextFloat() < 0.7f) {
-                    extraHPFlat = 5f;
-                }
+                extraHPFlat = 5f;
 
             } else if (rarity < 0.99f) { // 4% Chance
-                rarityType = MobRarity.EPIC.name();
+                rarityType = EPIC.name();
                 extraHPPercentage = 0.06f + (random.nextFloat() * 0.02f); // 6-8% Health Increase
-                if (random.nextFloat() < 0.8f) {
-                    extraHPFlat = 8f;
-                }
+                extraHPFlat = 8f;
 
             } else if (rarity < 0.9999f) { // 1% Chance
-                rarityType = MobRarity.LEGENDARY.name();
-                extraHPPercentage = 0.08f + (random.nextFloat() * 0.04f); // 8-12% Health Increase
-                if (random.nextFloat() < 0.9f) {
-                    extraHPFlat = 10f;
-                }
+                rarityType = LEGENDARY.name();
+                extraHPPercentage = 0.08f + (random.nextFloat() * 0.07f); // 8-15% Health Increase
+                extraHPFlat = 10f;
 
             } else { // 0.01% Chance
-                rarityType = MobRarity.SHINY.name();
+                rarityType = SHINY.name();
                 extraHPPercentage = 0.20f + (random.nextFloat() * 0.20f); // 20-40% Health Increase
                 extraHPFlat = 25f;
             }
@@ -200,32 +191,29 @@ public class MobUtils {
                 break;
             case UNCOMMON:
                 extraHPPercentage = 0.02f + (random.nextFloat() * 0.04f);
-                if (random.nextFloat() < 0.6f) {
-                    extraHPFlat = 2f;
-                }
+                extraHPFlat = 2f;
+
                 break;
             case RARE:
                 extraHPPercentage = 0.04f + (random.nextFloat() * 0.02f);
-                if (random.nextFloat() < 0.7f) {
-                    extraHPFlat = 5f;
-                }
+                extraHPFlat = 5f;
+
                 break;
             case EPIC:
                 extraHPPercentage = 0.06f + (random.nextFloat() * 0.02f);
-                if (random.nextFloat() < 0.8f) {
-                    extraHPFlat = 8f;
-                }
+                extraHPFlat = 8f;
+
                 break;
             case LEGENDARY:
-                extraHPPercentage = 0.08f + (random.nextFloat() * 0.04f);
-                if (random.nextFloat() < 0.9f) {
-                    extraHPFlat = 10f;
-                }
+                extraHPPercentage = 0.08f + (random.nextFloat() * 0.07f);
+                extraHPFlat = 10f;
+
                 break;
             case SHINY:
-                extraHPPercentage = 0.20f + (random.nextFloat() * 0.10f);
+                extraHPPercentage = 0.20f + (random.nextFloat() * 0.20f);
                 extraHPFlat = 25f;
                 break;
+
             default:
                 extraHPPercentage = 0;
                 extraHPFlat = 0;

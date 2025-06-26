@@ -48,25 +48,25 @@ public class Additions {
 
         MinecraftForge.EVENT_BUS.register(this);
 
+        modBus.addListener(this::registerCommands);
+
         PacketHandler.registerMessages();
 
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
 
     @SubscribeEvent
-    public static void setup(FMLCommonSetupEvent event) {
+    public static void commonSetup(FMLCommonSetupEvent event) {
         SimpleChannel channel = NetworkRegistry.ChannelBuilder
                 .named(new ResourceLocation("additions", "channel"))
                 .networkProtocolVersion(() -> "1.0")
                 .clientAcceptedVersions(s -> true)
                 .serverAcceptedVersions(s -> true)
                 .simpleChannel();
-
         event.enqueueWork(() -> MobHPSyncPacket.registerPackets(channel));
     }
 
-    @SubscribeEvent
-    public void onCommandsRegister(RegisterCommandsEvent event) {
+    public void registerCommands(RegisterCommandsEvent event) {
         AdditionsCommands.register(event.getDispatcher());
     }
 

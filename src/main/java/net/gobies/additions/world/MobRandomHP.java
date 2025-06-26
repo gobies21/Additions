@@ -116,6 +116,7 @@ public class MobRandomHP extends MobUtils {
             int newExperience = (int) (originalExperience * 2.0);
             event.setDroppedExperience(newExperience);
         }
+
         if (MobUtils.MobRarity.isShinyEntity(livingEntity)) {
             int originalExperience = event.getDroppedExperience();
             int newExperience = (int) (originalExperience * 5.0);
