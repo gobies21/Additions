@@ -6,6 +6,7 @@ import net.gobies.additions.network.MobHPSyncPacket;
 import net.gobies.additions.network.PacketHandler;
 import net.gobies.additions.util.MobUtils;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -18,6 +19,7 @@ import net.minecraftforge.event.entity.living.LivingExperienceDropEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.Objects;
 
@@ -36,10 +38,16 @@ public class MobRandomHP extends MobUtils {
                     return;
                 }
 
+                ResourceLocation entityName = ForgeRegistries.ENTITY_TYPES.getKey(livingEntity.getType());
+                if (entityName != null && Config.BLACKLISTED_ENTITIES.get().contains(entityName.toString())) {
+                    return;
+                }
+
                 CompoundTag entityData = livingEntity.getPersistentData();
                 if (entityData.contains("Rarity")) {
                     return;
                 }
+
 
                 if (ChampionCompat.allowChampion(livingEntity)) {
                     return;

@@ -14,6 +14,7 @@ import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
@@ -89,5 +90,9 @@ public class Additions {
             actions.forEach((e) -> ((Runnable) e.getKey()).run());
             workQueue.removeAll(actions);
         }
+    }
+
+    public static boolean isChampionsLoaded() {
+        return ModList.get().isLoaded("champions");
     }
 }

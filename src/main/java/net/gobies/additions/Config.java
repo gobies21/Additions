@@ -6,6 +6,8 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.config.ModConfigEvent;
 
+import java.util.List;
+
 @Mod.EventBusSubscriber(modid = Additions.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class Config {
     public static final ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();
@@ -79,6 +81,9 @@ public class Config {
     public static ForgeConfigSpec.ConfigValue<Integer> SHINY_FLAT_HP_INCREASE;
     public static int shiny_flat_hp_increase;
 
+    public static ForgeConfigSpec.ConfigValue<List<? extends String>> BLACKLISTED_ENTITIES;
+    public static List<? extends String> blacklisted_entities;
+
 
     public Config() {
     }
@@ -115,6 +120,7 @@ public class Config {
         shiny_hp_percentage_min = SHINY_HP_PERCENTAGE_MIN.get();
         shiny_hp_percentage_max = SHINY_HP_PERCENTAGE_MAX.get();
         shiny_flat_hp_increase = SHINY_FLAT_HP_INCREASE.get();
+        blacklisted_entities = BLACKLISTED_ENTITIES.get();
     }
 
     static {
@@ -130,6 +136,7 @@ public class Config {
         ENABLE_RANDOM_MOB_HP = BUILDER.comment("Adds rarity to mobs to spawn with random slight increase in max health depending on their rarity type").define("Random_Mob_HP", true);
         BOSS_HP_THRESHOLD = BUILDER.comment("Limits the maximum health percentage that can be randomly increased for certain mobs, like bosses, to prevent their health from becoming too high").define("Boss_HP_Threshold", 1000.0);
         MOB_RARITY_DISPLAY_NAME = BUILDER.comment("Displays the rarity of mobs in their name").define("Mob_Rarity_Display_Name", false);
+        BLACKLISTED_ENTITIES = BUILDER.comment("Blacklist for entities that cannot spawn with a rarity").defineList("Blacklisted_Entities",List.of("alexsmobs:cosmic_cod"), s -> s instanceof String);
 
         BUILDER.push("Common").comment("Defines the health increase range for common mobs, e.g. 0.01 + 0.01 = 1-2% max health increase");
         COMMON_HP_PERCENTAGE_MIN = BUILDER.comment("Minimum percentage of max health that can be randomly increased for common mobs").define("Common_HP_Percentage_Min", 0.01);
