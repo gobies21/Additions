@@ -34,7 +34,12 @@ public class MobRandomHP extends MobUtils {
         Level world = event.getLevel();
         if (Config.ENABLE_RANDOM_MOB_HP.get()) {
             if (!world.isClientSide() && entity instanceof LivingEntity livingEntity && !(entity instanceof Player)) {
+                CompoundTag entityData = livingEntity.getPersistentData();
                 if (livingEntity.getMaxHealth() > Config.BOSS_HP_THRESHOLD.get()) {
+                    return;
+                }
+
+                if (entityData.contains("Rarity")) {
                     return;
                 }
 
@@ -42,12 +47,6 @@ public class MobRandomHP extends MobUtils {
                 if (entityName != null && Config.BLACKLISTED_ENTITIES.get().contains(entityName.toString())) {
                     return;
                 }
-
-                CompoundTag entityData = livingEntity.getPersistentData();
-                if (entityData.contains("Rarity")) {
-                    return;
-                }
-
 
                 if (ChampionCompat.allowChampion(livingEntity)) {
                     return;
@@ -92,8 +91,6 @@ public class MobRandomHP extends MobUtils {
 
                 MobHPSyncPacket packet = new MobHPSyncPacket(bonusHealth, livingEntity.getId());
                 PacketHandler.sendToAllClients(packet);
-            } else {
-                return;
             }
         }
     }

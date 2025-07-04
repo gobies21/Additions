@@ -146,7 +146,7 @@ public class Config {
 
         BUILDER.push("Uncommon").comment("Defines the health increase range for uncommon mobs, e.g. 0.02 + 0.04 = 2-4% max health increase");
         UNCOMMON_HP_PERCENTAGE_MIN = BUILDER.comment("Minimum percentage of max health that can be randomly increased for uncommon mobs").define("Uncommon_HP_Percentage_Min", 0.02);
-        UNCOMMON_HP_PERCENTAGE_MAX = BUILDER.comment("Maximum added percentage to minimum value that can be randomly increased for uncommon mobs").define("Uncommon_HP_Percentage_Max", 0.04);
+        UNCOMMON_HP_PERCENTAGE_MAX = BUILDER.comment("Maximum added percentage to minimum value that can be randomly increased for uncommon mobs").define("Uncommon_HP_Percentage_Max", 0.02);
         UNCOMMON_FLAT_HP_INCREASE = BUILDER.comment("Flat increase in max health for uncommon mobs").define("Uncommon_Flat_HP_Increase", 2);
         BUILDER.pop();
 
