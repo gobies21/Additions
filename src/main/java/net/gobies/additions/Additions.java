@@ -60,9 +60,7 @@ public class Additions {
 
     @SubscribeEvent
     public static void commonSetup(FMLCommonSetupEvent event) {
-        event.enqueueWork(() -> {
-            MobHPSyncPacket.registerPackets(PacketHandler.INSTANCE);
-        });
+        event.enqueueWork(() -> MobHPSyncPacket.registerPackets(PacketHandler.INSTANCE));
     }
 
 

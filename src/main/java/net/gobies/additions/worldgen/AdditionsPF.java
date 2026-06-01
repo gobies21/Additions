@@ -20,7 +20,7 @@ public class AdditionsPF {
     public static final ResourceKey<PlacedFeature> TIN_ORE_PLACED = createKey("tin_ore_placed");
     public static final ResourceKey<PlacedFeature> DEEPSLATE_TIN_ORE_PLACED = createKey("deepslate_tin_ore_placed");
     public static final ResourceKey<PlacedFeature> RUBY_ORE_PLACED = createKey("ruby_ore_placed");
-    public static void bootstrap(BootstapContext<PlacedFeature> context) {
+    public static void registerFeatures(BootstapContext<PlacedFeature> context) {
         HolderGetter<ConfiguredFeature<?, ?>> configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
 
         register(context, TIN_ORE_PLACED, configuredFeatures.getOrThrow(AdditionsCF.OVERWORLD_TIN_KEY),

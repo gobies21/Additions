@@ -1,22 +1,38 @@
 package net.gobies.additions.util;
 
 import net.gobies.additions.Config;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Item;
 import net.minecraftforge.registries.ForgeRegistries;
+
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 
 public class AdditionsUtil {
 
-    public static boolean isValidWeapon(Player player) {
-        ItemStack heldItem = player.getMainHandItem();
-        ResourceLocation weaponId = ForgeRegistries.ITEMS.getKey(heldItem.getItem());
-        return weaponId != null && Config.WEAPON_SOUND_ADDITIONS.get().contains(weaponId.toString());
+    private static final Set<String> WEAPON_CACHE = new HashSet<>();
+    private static final Set<String> TOOL_CACHE = new HashSet<>();
+
+    // Cache item lists for performance
+    public static void bakeConfigCaches() {
+        WEAPON_CACHE.clear();
+        TOOL_CACHE.clear();
+
+        if (Config.weapon_sound_additions != null) {
+            WEAPON_CACHE.addAll(Config.weapon_sound_additions);
+        }
+        if (Config.tool_sound_additions != null) {
+            TOOL_CACHE.addAll(Config.tool_sound_additions);
+        }
     }
 
-    public static boolean isValidTool(Player player) {
-        ItemStack heldItem = player.getMainHandItem();
-        ResourceLocation toolId = ForgeRegistries.ITEMS.getKey(heldItem.getItem());
-        return toolId != null && Config.TOOL_SOUND_ADDITIONS.get().contains(toolId.toString());
+    public static boolean isValidWeapon(Item item) {
+        String registryName = Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(item)).toString();
+        return WEAPON_CACHE.contains(registryName);
+    }
+
+    public static boolean isValidTool(Item item) {
+        String registryName = Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(item)).toString();
+        return TOOL_CACHE.contains(registryName);
     }
 }

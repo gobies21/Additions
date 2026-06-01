@@ -47,11 +47,11 @@ public class ClientEvents {
         }
 
         Item currentItemType = currentItem.getItem();
-        if (currentItemType instanceof TieredItem && (!(currentItemType instanceof DiggerItem)) || AdditionsUtil.isValidWeapon(player)) {
+        if (currentItemType instanceof TieredItem && (!(currentItemType instanceof DiggerItem)) || currentItemType instanceof TridentItem || AdditionsUtil.isValidWeapon(currentItemType)) {
             player.level().playSound(null, player.blockPosition(), AdditionsSounds.PLAYER_SWORD_EQUIP.get(), SoundSource.PLAYERS, Config.SOUND_VOLUME.get().floatValue(), 1.0F);
         } else if (currentItemType instanceof BowItem || currentItemType instanceof CrossbowItem) {
             player.level().playSound(null, player.blockPosition(), AdditionsSounds.PLAYER_BOW_EQUIP.get(), SoundSource.PLAYERS, (Config.SOUND_VOLUME.get().floatValue() - 1) + 0.6F, 1.0F);
-        } else if (currentItemType instanceof DiggerItem || IronsSpellbooksCompat.isStaff(currentItemType) || AdditionsUtil.isValidTool(player)) {
+        } else if (currentItemType instanceof DiggerItem || IronsSpellbooksCompat.isStaff(currentItemType) || AdditionsUtil.isValidTool(currentItemType)) {
             player.level().playSound(null, player.blockPosition(), AdditionsSounds.PLAYER_TOOL_EQUIP.get(), SoundSource.PLAYERS, (Config.SOUND_VOLUME.get().floatValue() - 1) + 0.6F, 1.0F);
         } else if (!currentItemType.getDefaultInstance().isEmpty()){
             player.level().playSound(null, player.blockPosition(), AdditionsSounds.PLAYER_OTHER_EQUIP.get(), SoundSource.PLAYERS, (Config.SOUND_VOLUME.get().floatValue() - 1) + 0.6F, 1.0F);

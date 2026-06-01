@@ -1,6 +1,6 @@
 package net.gobies.additions;
 
-
+import net.gobies.additions.util.AdditionsUtil;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -90,12 +90,8 @@ public class Config {
     public static ForgeConfigSpec.ConfigValue<Double> SOUND_VOLUME;
     public static double sound_volume;
 
-
-    public Config() {
-    }
-
     @SubscribeEvent
-    static void onLoad(ModConfigEvent.Loading configEvent) {
+    static void onLoad(ModConfigEvent.Loading event) {
         blast_furnace_recipe_change = BLAST_FURNACE_RECIPE_CHANGE.get();
         saddle_recipe = SADDLE_RECIPE.get();
         horse_armor_recipes = HORSE_ARMOR_RECIPES.get();
@@ -130,6 +126,8 @@ public class Config {
         weapon_sound_additions = WEAPON_SOUND_ADDITIONS.get();
         tool_sound_additions = TOOL_SOUND_ADDITIONS.get();
         sound_volume = SOUND_VOLUME.get();
+
+        AdditionsUtil.bakeConfigCaches();
     }
 
     static {

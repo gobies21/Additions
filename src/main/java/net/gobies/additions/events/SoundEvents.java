@@ -46,7 +46,7 @@ public class SoundEvents {
         if (!Config.ENABLE_SPECIAL_SOUNDS.get()) return;
         if (event.getSource().getEntity() instanceof Player player) {
             ItemStack heldItem = player.getMainHandItem();
-            if (heldItem.getItem() instanceof TieredItem && (!(heldItem.getItem() instanceof DiggerItem)) || AdditionsUtil.isValidWeapon(player)) {
+            if (heldItem.getItem() instanceof TieredItem && (!(heldItem.getItem() instanceof DiggerItem)) || heldItem.getItem() instanceof TridentItem ||  AdditionsUtil.isValidWeapon(heldItem.getItem())) {
                 player.level().playSound(null, player.blockPosition(), AdditionsSounds.PLAYER_SWORD_SWING.get(), SoundSource.PLAYERS, (Config.SOUND_VOLUME.get().floatValue() - 1) + 0.7F, 1.0F);
                 if (PMLCompat.isCriticalHit(damageSource)) {
                     target.level().playSound(null, player.blockPosition(), AdditionsSounds.PLAYER_CRIT_HIT.get(), SoundSource.PLAYERS, Config.SOUND_VOLUME.get().floatValue() + 0.5F, 1.0F);
@@ -75,7 +75,7 @@ public class SoundEvents {
         Player player = event.getEntity();
         if (!player.level().isClientSide()) return;
         ItemStack heldItem = player.getMainHandItem();
-        if (heldItem.getItem() instanceof TieredItem && (!(heldItem.getItem() instanceof DiggerItem)) || AdditionsUtil.isValidWeapon(player)) {
+        if (heldItem.getItem() instanceof TieredItem && (!(heldItem.getItem() instanceof DiggerItem)) || heldItem.getItem() instanceof TridentItem || AdditionsUtil.isValidWeapon(heldItem.getItem())) {
             UUID playerUUID = player.getUUID();
             long currentTime = System.currentTimeMillis();
             Long lastAttackTime = SWORD_ATTACK_COOLDOWN.get(playerUUID);
@@ -130,7 +130,7 @@ public class SoundEvents {
         Player player = event.getEntity();
         ItemStack heldItem = player.getMainHandItem();
         float attackStrength = player.getAttackStrengthScale(0.5F);
-        if (heldItem.getItem() instanceof DiggerItem || IronsSpellbooksCompat.isStaff(heldItem.getItem()) || AdditionsUtil.isValidTool(player)) {
+        if (heldItem.getItem() instanceof DiggerItem || IronsSpellbooksCompat.isStaff(heldItem.getItem()) || AdditionsUtil.isValidTool(heldItem.getItem())) {
             if (player.fallDistance > 0.1F && attackStrength >= 0.2F)
                 player.level().playSound(null, player.blockPosition(), AdditionsSounds.PLAYER_TOOL_SWING.get(), SoundSource.PLAYERS, Config.SOUND_VOLUME.get().floatValue(), 1.0F);
             else if (attackStrength >= 0.2F) {
@@ -145,7 +145,7 @@ public class SoundEvents {
         Player player = event.getEntity();
         if (!player.level().isClientSide()) return;
         ItemStack heldItem = player.getMainHandItem();
-        if (heldItem.getItem() instanceof DiggerItem || IronsSpellbooksCompat.isStaff(heldItem.getItem()) || AdditionsUtil.isValidTool(player)) {
+        if (heldItem.getItem() instanceof DiggerItem || IronsSpellbooksCompat.isStaff(heldItem.getItem()) || AdditionsUtil.isValidTool(heldItem.getItem())) {
             UUID playerUUID = player.getUUID();
             long currentTime = System.currentTimeMillis();
             Long lastAttackTime = SWING_COOLDOWN.get(playerUUID);
