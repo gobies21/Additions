@@ -23,8 +23,6 @@ public class Config {
     public static boolean enable_bundle;
     public static ForgeConfigSpec.ConfigValue<Boolean> ENABLE_GEMS;
     public static boolean enable_gems;
-    public static ForgeConfigSpec.ConfigValue<Boolean> ENABLE_FLINT_TOOLS;
-    public static boolean enable_flint_tools;
     public static ForgeConfigSpec.ConfigValue<Double> STEEL_ARMOR_DAMAGE_REDUCTION;
     public static float steel_armor_damage_reduction;
     public static ForgeConfigSpec.ConfigValue<Boolean> ENABLE_RANDOM_MOB_HP;
@@ -37,6 +35,8 @@ public class Config {
     public static boolean lightning_destroy_item;
     public static ForgeConfigSpec.ConfigValue<Boolean> ATTACK_THROUGH_GRASS;
     public static boolean attack_through_grass;
+    public static ForgeConfigSpec.ConfigValue<Boolean> ENABLE_SPECIAL_SOUNDS;
+    public static boolean enable_special_sounds;
 
     public static ForgeConfigSpec.ConfigValue<Double> COMMON_HP_PERCENTAGE_MIN;
     public static double common_hp_percentage_min;
@@ -83,6 +83,12 @@ public class Config {
 
     public static ForgeConfigSpec.ConfigValue<List<? extends String>> BLACKLISTED_ENTITIES;
     public static List<? extends String> blacklisted_entities;
+    public static ForgeConfigSpec.ConfigValue<List<? extends String>> WEAPON_SOUND_ADDITIONS;
+    public static List<? extends String> weapon_sound_additions;
+    public static ForgeConfigSpec.ConfigValue<List<? extends String>> TOOL_SOUND_ADDITIONS;
+    public static List<? extends String> tool_sound_additions;
+    public static ForgeConfigSpec.ConfigValue<Double> SOUND_VOLUME;
+    public static double sound_volume;
 
 
     public Config() {
@@ -95,7 +101,6 @@ public class Config {
         horse_armor_recipes = HORSE_ARMOR_RECIPES.get();
         enable_bundle = ENABLE_BUNDLE.get();
         enable_gems = ENABLE_GEMS.get();
-        enable_flint_tools = ENABLE_FLINT_TOOLS.get();
         steel_armor_damage_reduction = STEEL_ARMOR_DAMAGE_REDUCTION.get().floatValue();
         enable_random_mob_hp = ENABLE_RANDOM_MOB_HP.get();
         boss_hp_threshold = BOSS_HP_THRESHOLD.get();
@@ -121,6 +126,10 @@ public class Config {
         shiny_hp_percentage_max = SHINY_HP_PERCENTAGE_MAX.get();
         shiny_flat_hp_increase = SHINY_FLAT_HP_INCREASE.get();
         blacklisted_entities = BLACKLISTED_ENTITIES.get();
+        enable_special_sounds = ENABLE_SPECIAL_SOUNDS.get();
+        weapon_sound_additions = WEAPON_SOUND_ADDITIONS.get();
+        tool_sound_additions = TOOL_SOUND_ADDITIONS.get();
+        sound_volume = SOUND_VOLUME.get();
     }
 
     static {
@@ -144,33 +153,33 @@ public class Config {
         COMMON_FLAT_HP_INCREASE = BUILDER.comment("Flat increase in max health for common mobs").define("Common_Flat_HP_Increase", 1);
         BUILDER.pop();
 
-        BUILDER.push("Uncommon").comment("Defines the health increase range for uncommon mobs, e.g. 0.02 + 0.04 = 2-4% max health increase");
+        BUILDER.push("Uncommon").comment("Defines the health increase range for uncommon mobs, e.g. 0.02 + 0.02 = 2-4% max health increase");
         UNCOMMON_HP_PERCENTAGE_MIN = BUILDER.comment("Minimum percentage of max health that can be randomly increased for uncommon mobs").define("Uncommon_HP_Percentage_Min", 0.02);
         UNCOMMON_HP_PERCENTAGE_MAX = BUILDER.comment("Maximum added percentage to minimum value that can be randomly increased for uncommon mobs").define("Uncommon_HP_Percentage_Max", 0.02);
         UNCOMMON_FLAT_HP_INCREASE = BUILDER.comment("Flat increase in max health for uncommon mobs").define("Uncommon_Flat_HP_Increase", 2);
         BUILDER.pop();
 
-        BUILDER.push("Rare").comment("Defines the health increase range for rare mobs, e.g. 0.04 + 0.02 = 4-6% max health increase");
+        BUILDER.push("Rare").comment("Defines the health increase range for rare mobs, e.g. 0.04 + 0.04 = 4-8% max health increase");
         RARE_HP_PERCENTAGE_MIN = BUILDER.comment("Minimum percentage of max health that can be randomly increased for rare mobs").define("Rare_HP_Percentage_Min", 0.04);
-        RARE_HP_PERCENTAGE_MAX = BUILDER.comment("Maximum added percentage to minimum value that can be randomly increased for rare mobs").define("Rare_HP_Percentage_Max", 0.02);
-        RARE_FLAT_HP_INCREASE = BUILDER.comment("Flat increase in max health for rare mobs").define("Rare_Flat_HP_Increase", 5);
+        RARE_HP_PERCENTAGE_MAX = BUILDER.comment("Maximum added percentage to minimum value that can be randomly increased for rare mobs").define("Rare_HP_Percentage_Max", 0.04);
+        RARE_FLAT_HP_INCREASE = BUILDER.comment("Flat increase in max health for rare mobs").define("Rare_Flat_HP_Increase", 4);
         BUILDER.pop();
 
-        BUILDER.push("Epic").comment("Defines the health increase range for epic mobs, e.g. 0.06 + 0.02 = 6-8% max health increase");
-        EPIC_HP_PERCENTAGE_MIN = BUILDER.comment("Minimum percentage of max health that can be randomly increased for epic mobs").define("Epic_HP_Percentage_Min", 0.06);
-        EPIC_HP_PERCENTAGE_MAX = BUILDER.comment("Maximum added percentage to minimum value that can be randomly increased for epic mobs").define("Epic_HP_Percentage_Max", 0.02);
+        BUILDER.push("Epic").comment("Defines the health increase range for epic mobs, e.g. 0.08 + 0.08 = 8-16% max health increase");
+        EPIC_HP_PERCENTAGE_MIN = BUILDER.comment("Minimum percentage of max health that can be randomly increased for epic mobs").define("Epic_HP_Percentage_Min", 0.08);
+        EPIC_HP_PERCENTAGE_MAX = BUILDER.comment("Maximum added percentage to minimum value that can be randomly increased for epic mobs").define("Epic_HP_Percentage_Max", 0.08);
         EPIC_FLAT_HP_INCREASE = BUILDER.comment("Flat increase in max health for epic mobs").define("Epic_Flat_HP_Increase", 8);
         BUILDER.pop();
 
-        BUILDER.push("Legendary").comment("Defines the health increase range for legendary mobs, e.g. 0.08 + 0.07 = 8-15% max health increase");
-        LEGENDARY_HP_PERCENTAGE_MIN = BUILDER.comment("Minimum percentage of max health that can be randomly increased for legendary mobs").define("Legendary_HP_Percentage_Min", 0.08);
-        LEGENDARY_HP_PERCENTAGE_MAX = BUILDER.comment("Maximum added percentage to minimum value that can be randomly increased for legendary mobs").define("Legendary_HP_Percentage_Max", 0.07);
+        BUILDER.push("Legendary").comment("Defines the health increase range for legendary mobs, e.g. 0.16 + 0.16 = 16-32% max health increase");
+        LEGENDARY_HP_PERCENTAGE_MIN = BUILDER.comment("Minimum percentage of max health that can be randomly increased for legendary mobs").define("Legendary_HP_Percentage_Min", 0.16);
+        LEGENDARY_HP_PERCENTAGE_MAX = BUILDER.comment("Maximum added percentage to minimum value that can be randomly increased for legendary mobs").define("Legendary_HP_Percentage_Max", 0.16);
         LEGENDARY_FLAT_HP_INCREASE = BUILDER.comment("Flat increase in max health for legendary mobs").define("Legendary_Flat_HP_Increase", 10);
         BUILDER.pop();
 
-        BUILDER.push("Shiny").comment("Defines the health increase range for shiny mobs, e.g. 0.20 + 0.20 = 20-40% max health increase");
-        SHINY_HP_PERCENTAGE_MIN = BUILDER.comment("Minimum percentage of max health that can be randomly increased for shiny mobs").define("Shiny_HP_Percentage_Min", 0.20);
-        SHINY_HP_PERCENTAGE_MAX = BUILDER.comment("Maximum added percentage to minimum value that can be randomly increased for shiny mobs").define("Shiny_HP_Percentage_Max", 0.20);
+        BUILDER.push("Shiny").comment("Defines the health increase range for shiny mobs, e.g. 0.32 + 0.32 = 32-64% max health increase");
+        SHINY_HP_PERCENTAGE_MIN = BUILDER.comment("Minimum percentage of max health that can be randomly increased for shiny mobs").define("Shiny_HP_Percentage_Min", 0.32);
+        SHINY_HP_PERCENTAGE_MAX = BUILDER.comment("Maximum added percentage to minimum value that can be randomly increased for shiny mobs").define("Shiny_HP_Percentage_Max", 0.32);
         SHINY_FLAT_HP_INCREASE = BUILDER.comment("Flat increase in max health for shiny mobs").define("Shiny_Flat_HP_Increase", 25);
         BUILDER.pop();
 
@@ -179,9 +188,16 @@ public class Config {
 
         BUILDER.push("Additions");
         ENABLE_GEMS = BUILDER.comment("Enable gems, nugget versions for minerals such as diamond").define("Enable_Gems", true);
-        ENABLE_FLINT_TOOLS = BUILDER.comment("Enable flint tools, early game tools weaker than wood").define("Enable_Flint_Tools", true);
         STEEL_ARMOR_DAMAGE_REDUCTION = BUILDER.comment("Damage reduction to fire type damage that each steel armor piece provides in percentage").defineInRange("Steel_Fire_Damage_Reduction", 0.125, 0.01, 0.250);
-        BUILDER.pop();
+        ENABLE_SPECIAL_SOUNDS = BUILDER.comment("Enable gems special sounds, an overhaul to common sounds").define("Enable_Special_Sounds", false);
+
+        BUILDER.push("Sound_Settings");
+        WEAPON_SOUND_ADDITIONS = BUILDER.comment("Items to count as weapons for special sound effects").defineList("Weapon_Sound_Additions",List.of(), s -> s instanceof String);
+        TOOL_SOUND_ADDITIONS = BUILDER.comment("Items to count as tools for special sound effects").defineList("Tool_Sound_Additions",List.of(), s -> s instanceof String);
+        SOUND_VOLUME = BUILDER.comment("Global volume value for all special sounds").define("Sound_Volume", 1.0);
+        BUILDER.pop(); // Sound Settings
+
+        BUILDER.pop(); // Config End
 
         SPEC = BUILDER.build();
 

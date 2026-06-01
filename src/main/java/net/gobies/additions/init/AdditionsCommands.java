@@ -1,4 +1,4 @@
-package net.gobies.additions.util;
+package net.gobies.additions.init;
 
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.StringArgumentType;
@@ -7,7 +7,7 @@ import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.suggestion.Suggestions;
 import com.mojang.brigadier.suggestion.SuggestionsBuilder;
 import net.gobies.additions.Config;
-import net.gobies.additions.world.MobRandomHP;
+import net.gobies.additions.util.MobUtils;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.commands.arguments.ResourceLocationArgument;
@@ -67,14 +67,15 @@ public class AdditionsCommands {
 
                     entity.setPos(x, y, z);
 
-                    float bonusHealth = MobRandomHP.getBonusHealthForRarity(rarity, livingEntity);
+                    float bonusHealth = MobUtils.getBonusHealthForRarity(rarity, livingEntity);
 
                     CompoundTag entityTag = entity.getPersistentData();
                     entityTag.putString("Rarity", rarity.name());
                     entityTag.putFloat("BonusHealth", bonusHealth);
 
-                    double currentBaseHealth = Objects.requireNonNull(livingEntity.getAttribute(Attributes.MAX_HEALTH)).getBaseValue();
-                    Objects.requireNonNull(livingEntity.getAttribute(Attributes.MAX_HEALTH)).setBaseValue(currentBaseHealth + bonusHealth);
+                    float currentBaseHealth = (float) Objects.requireNonNull(livingEntity.getAttribute(Attributes.MAX_HEALTH)).getBaseValue();
+                    float newMaxHealth = currentBaseHealth + bonusHealth;
+                    Objects.requireNonNull(livingEntity.getAttribute(Attributes.MAX_HEALTH)).setBaseValue(newMaxHealth);
                     livingEntity.setHealth(livingEntity.getMaxHealth());
 
                     context.getSource().getLevel().addFreshEntity(entity);

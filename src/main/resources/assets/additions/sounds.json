@@ -1,0 +1,111 @@
+{
+  "player_sword_swing": {
+    "subtitles": "sounds.additions.player_sword_swing",
+    "sounds": [
+      "additions:swordswing1",
+      "additions:swordswing2",
+      "additions:swordswing3",
+      "additions:swordswing4",
+      "additions:swordswing5",
+      "additions:swordswing6",
+      "additions:swordswing7",
+      "additions:swordswing8",
+      "additions:swordswing9"
+    ]
+  },
+  "player_sword_equip": {
+    "subtitles": "sounds.additions.player_sword_equip",
+    "sounds": [
+      "additions:swordequip"
+    ]
+  },
+  "player_tool_swing": {
+    "subtitles": "sounds.additions.player_tool_swing",
+    "sounds": [
+      "additions:toolswing1",
+      "additions:toolswing",
+      "additions:toolswing3",
+      "additions:toolswing4",
+      "additions:toolswing5"
+    ]
+  },
+  "player_tool_equip": {
+    "subtitles": "sounds.additions.player_tool_equip",
+    "sounds": [
+      "additions:tooldraw"
+    ]
+  },
+  "player_bow_shoot": {
+    "subtitles": "sounds.additions.player_bow_shoot",
+    "sounds": [
+      "additions:bowshoot1",
+      "additions:bowshoot2",
+      "additions:bowshoot3",
+      "additions:bowshoot4"
+    ]
+  },
+  "player_bow_pull": {
+    "subtitles": "sounds.additions.player_bow_pull",
+    "sounds": [
+      "additions:bowpull1",
+      "additions:bowpull2",
+      "additions:bowpull3"
+    ]
+  },
+  "player_crossbow_shoot": {
+    "subtitles": "sounds.additions.player_crossbow_shoot",
+    "sounds": [
+      "additions:crossbowshoot1",
+      "additions:crossbowshoot2",
+      "additions:crossbowshoot3"
+    ]
+  },
+  "player_crossbow_pull": {
+    "subtitles": "sounds.additions.player_crossbow_pull",
+    "sounds": [
+      "additions:bowpull1",
+      "additions:bowpull2",
+      "additions:bowpull3"
+    ]
+  },
+  "player_bow_equip": {
+    "subtitles": "sounds.additions.player_bow_equip",
+    "sounds": [
+      "additions:bowequip"
+    ]
+  },
+  "player_other_equip": {
+    "subtitles": "sounds.additions.player_other_equip",
+    "sounds": [
+      "additions:otherequip"
+    ]
+  },
+  "player_craft_other": {
+    "subtitles": "sounds.additions.player_craft_other",
+    "sounds": [
+      "additions:crafthammer1",
+      "additions:crafthammer2",
+      "additions:craftsand1",
+      "additions:craftsand2"
+    ]
+  },
+  "player_craft_wood": {
+    "subtitles": "sounds.additions.player_craft_wood",
+    "sounds": [
+      "additions:craftsaw1",
+      "additions:craftsaw2"
+    ]
+  },
+  "player_sword_slash": {
+    "subtitles": "sounds.additions.player_sword_slash",
+    "sounds": [
+      "additions:swordslash"
+    ]
+  },
+  "player_crit_hit": {
+    "subtitles": "sounds.additions.player_crit_hit",
+    "sounds": [
+      "additions:crithit"
+    ]
+  }
+}

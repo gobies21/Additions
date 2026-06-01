@@ -1,8 +1,6 @@
 {
   "replace": false,
   "values": [
-    "additions:tin_helmet",
-    "additions:bronze_helmet",
-    "additions:steel_helmet"
+    "additions:tin_helmet"
   ]
 }

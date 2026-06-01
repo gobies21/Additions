@@ -64,19 +64,19 @@ public class MobUtils {
             return getMobRarity(entity).equals(MobRarity.SHINY.name());
         }
 
-        public static class MobHealthData {
+        public static class MobRarityData {
             public String rarityType;
             public float extraHPPercentage;
             public float extraHPFlat;
 
-            public MobHealthData(String rarityType, float extraHPPercentage, float extraHPFlat) {
+            public MobRarityData(String rarityType, float extraHPPercentage, float extraHPFlat) {
                 this.rarityType = rarityType;
                 this.extraHPPercentage = extraHPPercentage;
                 this.extraHPFlat = extraHPFlat;
             }
         }
 
-        public static MobHealthData calculateMobHealth(LivingEntity livingEntity) {
+        public static MobRarityData calculateMobStats(LivingEntity livingEntity) {
             MobHealthConfig config = new MobHealthConfig();
 
             float extraHPPercentage;
@@ -117,13 +117,7 @@ public class MobUtils {
                 extraHPFlat = (float) config.getShinyFlatHP();
             }
 
-            return new MobHealthData(rarityType, extraHPPercentage, extraHPFlat);
-        }
-
-        public CompoundTag toCompoundTag() {
-            CompoundTag tag = new CompoundTag();
-            tag.putInt("Rarity", this.getValue());
-            return tag;
+            return new MobRarityData(rarityType, extraHPPercentage, extraHPFlat);
         }
 
         public MutableComponent getFormattedName(MutableComponent originalName) {
@@ -141,17 +135,24 @@ public class MobUtils {
         return entityData.getFloat("BonusHealth");
     }
 
+    public static void setMobRarity(CompoundTag entityTag, MobRarity rarity) {
+        entityTag.putString("Rarity", rarity.name());
+    }
+
+    public static void setBonusHealth(CompoundTag entityTag, float health) {
+        entityTag.putFloat("BonusHealth", health);
+    }
+
     public static MobRarity getMobRarityFromTag(CompoundTag entityTag) {
-        CompoundTag rarityTag = entityTag.getCompound("MobRarity");
-        int rarityValue = rarityTag.getInt("Rarity");
-        return switch (rarityValue) {
-            case 1 -> MobRarity.COMMON;
-            case 2 -> MobRarity.UNCOMMON;
-            case 3 -> MobRarity.RARE;
-            case 4 -> MobRarity.EPIC;
-            case 5 -> MobRarity.LEGENDARY;
-            case 6 -> MobRarity.SHINY;
-            default -> throw new IllegalArgumentException("Unknown Rarity");
+        String rarityType = entityTag.getString("Rarity");
+        return switch (rarityType) {
+            case "Common" -> MobRarity.COMMON;
+            case "Uncommon" -> MobRarity.UNCOMMON;
+            case "Rare" -> MobRarity.RARE;
+            case "Epic" -> MobRarity.EPIC;
+            case "Legendary" -> MobRarity.LEGENDARY;
+            case "Shiny" -> MobRarity.SHINY;
+            default -> throw new IllegalArgumentException("Unknown Rarity: " + rarityType);
         };
     }
 

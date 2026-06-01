@@ -12,10 +12,6 @@ public class AdditionsParticles {
     public static final DeferredRegister<ParticleType<?>> PARTICLES;
     public static final RegistryObject<SimpleParticleType> Shiny;
 
-
-    public AdditionsParticles() {
-    }
-
     public static void register(IEventBus eventbus) {
         PARTICLES.register(eventbus);
     }

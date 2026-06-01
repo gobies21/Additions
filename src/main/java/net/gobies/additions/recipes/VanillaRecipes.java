@@ -57,14 +57,7 @@ public class VanillaRecipes {
     }
 
     private static void registerRecipes(RecipeManager recipeManager, RegistryAccess registryAccess) {
-        if (Config.BLAST_FURNACE_RECIPE_CHANGE.get()) {
-            addRecipe(recipeManager, registryAccess, Items.BLAST_FURNACE, "blast_furnace",
-                    createIngredients(
-                            AdditionsItems.SteelIngot.get(), AdditionsItems.SteelIngot.get(), AdditionsItems.SteelIngot.get(),
-                            AdditionsItems.SteelIngot.get(), Items.FURNACE, AdditionsItems.SteelIngot.get(),
-                            Items.SMOOTH_STONE, Items.SMOOTH_STONE, Items.SMOOTH_STONE
-                    ));
-        }
+
 
         if (Config.HORSE_ARMOR_RECIPES.get()) {
             addRecipe(recipeManager, registryAccess, Items.LEATHER_HORSE_ARMOR, "leather_horse_armor",

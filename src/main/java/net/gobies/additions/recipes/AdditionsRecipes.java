@@ -139,37 +139,6 @@ public class AdditionsRecipes {
             addRecipe(recipeManager, registryAccess, AdditionsItems.RubyGem.get(), "ruby_to_gems",
                     createIngredients(AdditionsItems.Ruby.get()), false, 9);
         }
-
-        if (Config.ENABLE_FLINT_TOOLS.get()) {
-            addMirroredRecipe(recipeManager, registryAccess, AdditionsItems.FlintSword.get(),
-                    createIngredients(Items.FLINT, Items.FLINT, Items.STICK),
-                    new String[]{"#",
-                                 "#",
-                                 "/"}, 1, 3);
-
-            addMirroredRecipe(recipeManager, registryAccess, AdditionsItems.FlintPickaxe.get(),
-                    createPattern(new String[]{"###", " / ", " / "}, Items.FLINT, Items.STICK),
-                    new String[]{"###",
-                                 " / ",
-                                 " / "}, 3, 3);
-
-            addMirroredRecipe(recipeManager, registryAccess, AdditionsItems.FlintAxe.get(),
-                    createPattern(new String[]{"/#", "/ "}, Items.FLINT, Items.STICK),
-                    new String[]{"/#",
-                                 "/ "}, 2, 2);
-
-            addMirroredRecipe(recipeManager, registryAccess, AdditionsItems.FlintHoe.get(),
-                    createPattern(new String[]{"## ", " / ", " / "}, Items.FLINT, Items.STICK),
-                    new String[]{"## ",
-                                 " / ",
-                                 " / "}, 3, 3);
-
-            addMirroredRecipe(recipeManager, registryAccess, AdditionsItems.FlintShovel.get(),
-                    createIngredients(Items.FLINT, Items.STICK, Items.STICK),
-                    new String[]{"#",
-                                 "/",
-                                 "/"}, 1, 3);
-        }
     }
 
     @SubscribeEvent

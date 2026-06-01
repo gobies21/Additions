@@ -1,6 +1,7 @@
 package net.gobies.additions.compat;
 
 import com.mojang.logging.LogUtils;
+import net.gobies.additions.Additions;
 import net.gobies.additions.Config;
 import net.gobies.additions.init.AdditionsItems;
 import net.minecraft.core.NonNullList;
@@ -11,7 +12,6 @@ import net.minecraft.world.item.crafting.*;
 import net.minecraftforge.event.AddReloadListenerEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.slf4j.Logger;
@@ -72,7 +72,7 @@ public class CompatRecipes {
 
     //Ice and Fire
     private static void registerRecipes(RecipeManager recipeManager, RegistryAccess registryAccess) {
-        if (ModList.get().isLoaded("iceandfire")) {
+        if (Additions.isIceandFireLoaded()) {
             if (Config.ENABLE_GEMS.get()) {
                 addRecipe(recipeManager, registryAccess, (Objects.requireNonNull(ForgeRegistries.ITEMS.getValue(new ResourceLocation("iceandfire:sapphire_gem")))), "sapphire",
                         createIngredients(

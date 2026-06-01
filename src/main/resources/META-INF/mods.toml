@@ -5,7 +5,7 @@ license = "All Rights Reserved"
 
 [[mods]]
 modId="additions"
-version="1.1.0"
+version="2.0.0"
 displayName="Additions"
 authors="gobies"
 description='''A collection of useful additions to Minecraft, including new blocks, items, and tools'''
@@ -23,4 +23,7 @@ mandatory= true
 versionRange = "[1.20.1]"
 ordering="NONE"
 side="BOTH"
+
+[modproperties.additions]
+configuredBackground="additions:textures/block/tin_block.png"
 

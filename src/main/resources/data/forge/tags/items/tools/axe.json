@@ -1,9 +1,6 @@
 {
   "replace": false,
   "values": [
-    "additions:flint_axe",
-    "additions:tin_axe",
-    "additions:bronze_axe",
-    "additions:steel_axe"
+    "additions:tin_axe"
   ]
 }

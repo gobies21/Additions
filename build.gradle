@@ -103,7 +103,19 @@ dependencies {
 
     implementation fg.deobf("curse.maven:atomicstrykers-infernal-mobs-227875:6453542")
 
-    compileOnly fg.deobf("curse.maven:champions-unofficial-1074990:${cf_champions}")
+    implementation fg.deobf("curse.maven:forgotten-nunchakus-1208165:7596922")
+
+    implementation fg.deobf("curse.maven:champions-unofficial-1074990:${cf_champions}")
+    implementation fg.deobf("curse.maven:configured-457570:5180900")
+    implementation fg.deobf("curse.maven:progressive-mechanics-library-1235043:7597380")
+
+    implementation fg.deobf("curse.maven:no-tree-punching-289043:4599926")
+
+    implementation fg.deobf("curse.maven:irons-spells-n-spellbooks-855414:6488484")
+    implementation fg.deobf("curse.maven:playeranimator-658587:4587214")
+    implementation fg.deobf("curse.maven:curios-309927:6418456")
+    implementation fg.deobf("curse.maven:geckolib-388172:6333474")
+    implementation fg.deobf("curse.maven:caelus-308989:5281700")
 }
 
 mixin {

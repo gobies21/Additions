@@ -1,14 +1,12 @@
 package net.gobies.additions;
 
 import com.mojang.logging.LogUtils;
-import net.gobies.additions.init.AdditionsParticles;
+import net.gobies.additions.events.FoodEvents;
+import net.gobies.additions.init.*;
 import net.gobies.additions.item.AdditionsCreativeTab;
-import net.gobies.additions.init.AdditionsItems;
-import net.gobies.additions.init.AdditionsBlocks;
 import net.gobies.additions.network.MobHPSyncPacket;
 import net.gobies.additions.network.PacketHandler;
-import net.gobies.additions.util.AdditionsCommands;
-import net.minecraft.resources.ResourceLocation;
+import net.gobies.additions.init.AdditionsCommands;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.event.TickEvent;
@@ -21,8 +19,6 @@ import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.util.thread.SidedThreadGroups;
-import net.minecraftforge.network.NetworkRegistry;
-import net.minecraftforge.network.simple.SimpleChannel;
 import org.slf4j.Logger;
 import java.util.AbstractMap;
 import java.util.ArrayList;
@@ -41,13 +37,21 @@ public class Additions {
 
         AdditionsItems.register(modBus);
 
+        AdditionsRarities.register();
+
         AdditionsBlocks.register(modBus);
 
         AdditionsParticles.register(modBus);
 
         AdditionsCreativeTab.register(modBus);
 
+        AdditionsSounds.register(modBus);
+
+        AdditionsEffects.register(modBus);
+
         MinecraftForge.EVENT_BUS.register(this);
+
+        MinecraftForge.EVENT_BUS.register(FoodEvents.class);
 
         PacketHandler.registerMessages();
 
@@ -56,14 +60,11 @@ public class Additions {
 
     @SubscribeEvent
     public static void commonSetup(FMLCommonSetupEvent event) {
-        SimpleChannel channel = NetworkRegistry.ChannelBuilder
-                .named(new ResourceLocation("additions", "channel"))
-                .networkProtocolVersion(() -> "1.0")
-                .clientAcceptedVersions(s -> true)
-                .serverAcceptedVersions(s -> true)
-                .simpleChannel();
-        event.enqueueWork(() -> MobHPSyncPacket.registerPackets(channel));
+        event.enqueueWork(() -> {
+            MobHPSyncPacket.registerPackets(PacketHandler.INSTANCE);
+        });
     }
+
 
     @SubscribeEvent
     public void registerCommands(RegisterCommandsEvent event) {
@@ -94,5 +95,9 @@ public class Additions {
 
     public static boolean isChampionsLoaded() {
         return ModList.get().isLoaded("champions");
+    }
+
+    public static boolean isIceandFireLoaded() {
+        return ModList.get().isLoaded("iceandfire");
     }
 }

@@ -2,12 +2,6 @@
   "item.additions.raw_tin": "Raw Tin",
   "item.additions.tin_ingot": "Tin Ingot",
   "item.additions.tin_nugget": "Tin Nugget",
-  "item.additions.raw_bronze_alloy": "Raw Bronze Alloy",
-  "item.additions.bronze_ingot": "Bronze Ingot",
-  "item.additions.bronze_nugget": "Bronze Nugget",
-  "item.additions.raw_steel_alloy": "Raw Steel Alloy",
-  "item.additions.steel_ingot": "Steel Ingot",
-  "item.additions.steel_nugget": "Steel Nugget",
   "item.additions.ruby": "Ruby",
   "item.additions.ruby_gem": "Ruby Gem",
   "item.additions.diamond_gem": "Diamond Gem",
@@ -15,12 +9,7 @@
   "item.additions.sapphire_gem": "Sapphire Gem",
 
   "item.additions.match_box": "Match Box",
-
-  "item.additions.flint_sword": "Flint Sword",
-  "item.additions.flint_pickaxe": "Flint Pickaxe",
-  "item.additions.flint_axe": "Flint Axe",
-  "item.additions.flint_shovel": "Flint Shovel",
-  "item.additions.flint_hoe": "Flint Hoe",
+  "item.additions.rarity_scanner": "Rarity Scanner",
 
   "item.additions.tin_helmet": "Tin Helmet",
   "item.additions.tin_chestplate": "Tin Chestplate",
@@ -32,36 +21,18 @@
   "item.additions.tin_shovel": "Tin Shovel",
   "item.additions.tin_hoe": "Tin Hoe",
 
-  "item.additions.bronze_helmet": "Bronze Helmet",
-  "item.additions.bronze_chestplate": "Bronze Chestplate",
-  "item.additions.bronze_leggings": "Bronze Leggings",
-  "item.additions.bronze_boots": "Bronze Boots",
-  "item.additions.bronze_sword": "Bronze Sword",
-  "item.additions.bronze_pickaxe": "Bronze Pickaxe",
-  "item.additions.bronze_axe": "Bronze Axe",
-  "item.additions.bronze_shovel": "Bronze Shovel",
-  "item.additions.bronze_hoe": "Bronze Hoe",
-
-  "item.additions.steel_helmet": "Steel Helmet",
-  "item.additions.steel_chestplate": "Steel Chestplate",
-  "item.additions.steel_leggings": "Steel Leggings",
-  "item.additions.steel_boots": "Steel Boots",
-  "item.additions.steel_sword": "Steel Sword",
-  "item.additions.steel_pickaxe": "Steel Pickaxe",
-  "item.additions.steel_axe": "Steel Axe",
-  "item.additions.steel_shovel": "Steel Shovel",
-  "item.additions.steel_hoe": "Steel Hoe",
-
   "block.additions.tin_ore": "Tin Ore",
   "block.additions.deepslate_tin_ore": "Deepslate Tin Ore",
   "block.additions.ruby_ore": "Nether Ruby Ore",
   "block.additions.tin_block": "Block of Tin",
-  "block.additions.bronze_block": "Block of Bronze",
-  "block.additions.steel_block": "Block of Steel",
   "block.additions.ruby_block": "Block of Ruby",
   "block.additions.raw_tin_block": "Block of Raw Tin",
-  "block.additions.raw_bronze_block": "Block of Raw Bronze",
-  "block.additions.raw_steel_block": "Block of Raw Steel",
 
-  "creativetab.additions_tab": "Additions"
+  "rarity.additions.legendary": "Legendary",
+  "rarity.additions.mythic": "Mythic",
+
+  "creativetab.additions_tab": "Additions",
+  "tooltip.additions.rarity_scanner.desc": "Allows viewing mob rarites",
+  "effect.additions.well_fed": "Well Fed",
+  "effect.additions.well_fed.description": "Increases damage dealt and damage reduction"
 }
