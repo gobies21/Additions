@@ -12,14 +12,7 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Supplier;
 
-public class MobHPSyncPacket {
-    private final float maxHealth;
-    private final int entityId;
-
-    public MobHPSyncPacket(float maxHealth, int entityId) {
-        this.maxHealth = maxHealth;
-        this.entityId = entityId;
-    }
+public record MobHPSyncPacket(float maxHealth, int entityId) {
 
     public void encode(FriendlyByteBuf buf) {
         buf.writeFloat(maxHealth);

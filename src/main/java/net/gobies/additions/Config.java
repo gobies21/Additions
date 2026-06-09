@@ -87,6 +87,14 @@ public class Config {
     public static List<? extends String> weapon_sound_additions;
     public static ForgeConfigSpec.ConfigValue<List<? extends String>> TOOL_SOUND_ADDITIONS;
     public static List<? extends String> tool_sound_additions;
+    public static ForgeConfigSpec.ConfigValue<List<? extends String>> ARMOR_LIGHT_ADDITIONS;
+    public static List<? extends String> armor_light_additions;
+    public static ForgeConfigSpec.ConfigValue<List<? extends String>> ARMOR_MEDIUM_ADDITIONS;
+    public static List<? extends String> armor_medium_additions;
+    public static ForgeConfigSpec.ConfigValue<List<? extends String>> ARMOR_HEAVY_ADDITIONS;
+    public static List<? extends String> armor_heavy_additions;
+    public static ForgeConfigSpec.ConfigValue<List<? extends String>> ARMOR_CRYSTAL_ADDITIONS;
+    public static List<? extends String> armor_crystal_additions;
     public static ForgeConfigSpec.ConfigValue<Double> SOUND_VOLUME;
     public static double sound_volume;
 
@@ -125,6 +133,10 @@ public class Config {
         enable_special_sounds = ENABLE_SPECIAL_SOUNDS.get();
         weapon_sound_additions = WEAPON_SOUND_ADDITIONS.get();
         tool_sound_additions = TOOL_SOUND_ADDITIONS.get();
+        armor_light_additions = ARMOR_LIGHT_ADDITIONS.get();
+        armor_medium_additions = ARMOR_MEDIUM_ADDITIONS.get();
+        armor_heavy_additions = ARMOR_HEAVY_ADDITIONS.get();
+        armor_crystal_additions = ARMOR_CRYSTAL_ADDITIONS.get();
         sound_volume = SOUND_VOLUME.get();
 
         AdditionsUtil.bakeConfigCaches();
@@ -187,12 +199,20 @@ public class Config {
         BUILDER.push("Additions");
         ENABLE_GEMS = BUILDER.comment("Enable gems, nugget versions for minerals such as diamond").define("Enable_Gems", true);
         STEEL_ARMOR_DAMAGE_REDUCTION = BUILDER.comment("Damage reduction to fire type damage that each steel armor piece provides in percentage").defineInRange("Steel_Fire_Damage_Reduction", 0.125, 0.01, 0.250);
-        ENABLE_SPECIAL_SOUNDS = BUILDER.comment("Enable gems special sounds, an overhaul to common sounds").define("Enable_Special_Sounds", false);
+        ENABLE_SPECIAL_SOUNDS = BUILDER.comment("Enable special sounds, adds sounds where some should be").define("Enable_Special_Sounds", false);
 
         BUILDER.push("Sound_Settings");
         WEAPON_SOUND_ADDITIONS = BUILDER.comment("Items to count as weapons for special sound effects").defineList("Weapon_Sound_Additions",List.of(), s -> s instanceof String);
         TOOL_SOUND_ADDITIONS = BUILDER.comment("Items to count as tools for special sound effects").defineList("Tool_Sound_Additions",List.of(), s -> s instanceof String);
         SOUND_VOLUME = BUILDER.comment("Global volume value for all special sounds").define("Sound_Volume", 1.0);
+
+        BUILDER.push("Armor");
+        ARMOR_LIGHT_ADDITIONS = BUILDER.comment("Armors that count as light armors").defineList("Light_Armors",List.of(), s -> s instanceof String);
+        ARMOR_MEDIUM_ADDITIONS = BUILDER.comment("Armors that count as medium armors").defineList("Medium_Armors",List.of(), s -> s instanceof String);
+        ARMOR_HEAVY_ADDITIONS = BUILDER.comment("Armors that count as heavy armors").defineList("Heavy_Armors",List.of(), s -> s instanceof String);
+        ARMOR_CRYSTAL_ADDITIONS = BUILDER.comment("Armors that count as crystal armors").defineList("Crystal_Armors",List.of(), s -> s instanceof String);
+        BUILDER.pop(); // Armor Settings
+
         BUILDER.pop(); // Sound Settings
 
         BUILDER.pop(); // Config End

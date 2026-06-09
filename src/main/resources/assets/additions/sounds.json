@@ -107,5 +107,99 @@
     "sounds": [
       "additions:crithit"
     ]
+  },
+  "potion": {
+    "subtitles": "sounds.additions.potion",
+    "sounds": [
+      "additions:potion1",
+      "additions:potion2",
+      "additions:potion3",
+      "additions:potion4"
+    ]
+  },
+  "armor_crystal_run": {
+    "subtitles": "sounds.additions.armor_crystal_run",
+    "sounds": [
+      "additions:armor/crystal_run1",
+      "additions:armor/crystal_run2",
+      "additions:armor/crystal_run3",
+      "additions:armor/crystal_run4",
+      "additions:armor/crystal_run5",
+      "additions:armor/crystal_run6"
+    ]
+  },
+  "armor_crystal_walk": {
+    "subtitles": "sounds.additions.armor_crystal_walk",
+    "sounds": [
+      "additions:armor/crystal_walk1",
+      "additions:armor/crystal_walk2",
+      "additions:armor/crystal_walk3",
+      "additions:armor/crystal_walk4",
+      "additions:armor/crystal_walk5",
+      "additions:armor/crystal_walk6"
+    ]
+  },
+  "armor_heavy_run": {
+    "subtitles": "sounds.additions.armor_heavy_run",
+    "sounds": [
+      "additions:armor/heavy_run1",
+      "additions:armor/heavy_run2",
+      "additions:armor/heavy_run3",
+      "additions:armor/heavy_run4",
+      "additions:armor/heavy_run5",
+      "additions:armor/heavy_run6",
+      "additions:armor/heavy_run7",
+      "additions:armor/heavy_run8",
+      "additions:armor/heavy_run9"
+    ]
+  },
+  "armor_heavy_walk": {
+    "subtitles": "sounds.additions.armor_heavy_walk",
+    "sounds": [
+      "additions:armor/heavy_walk1",
+      "additions:armor/heavy_walk2",
+      "additions:armor/heavy_walk3",
+      "additions:armor/heavy_walk4",
+      "additions:armor/heavy_walk5",
+      "additions:armor/heavy_walk6"
+    ]
+  },
+  "armor_light": {
+    "subtitles": "sounds.additions.armor_light",
+    "sounds": [
+      "additions:armor/light1",
+      "additions:armor/light2",
+      "additions:armor/light3"
+    ]
+  },
+  "armor_medium": {
+    "subtitles": "sounds.additions.armor_medium",
+    "sounds": [
+      "additions:armor/medium1",
+      "additions:armor/medium2",
+      "additions:armor/medium3"
+    ]
+  },
+  "armor_slime_run": {
+    "subtitles": "sounds.additions.armor_slime_run",
+    "sounds": [
+      "additions:armor/slime_run1",
+      "additions:armor/slime_run2",
+      "additions:armor/slime_run3",
+      "additions:armor/slime_run4",
+      "additions:armor/slime_run5",
+      "additions:armor/slime_run6"
+    ]
+  },
+  "armor_slime_walk": {
+    "subtitles": "sounds.additions.armor_slime_walk",
+    "sounds": [
+      "additions:armor/slime_walk1",
+      "additions:armor/slime_walk2",
+      "additions:armor/slime_walk3",
+      "additions:armor/slime_walk4",
+      "additions:armor/slime_walk5",
+      "additions:armor/slime_walk6"
+    ]
   }
 }

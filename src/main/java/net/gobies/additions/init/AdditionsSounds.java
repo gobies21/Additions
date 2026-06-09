@@ -24,9 +24,22 @@ public class AdditionsSounds {
     public static final RegistryObject<SoundEvent> PLAYER_CRAFT_WOOD;
     public static final RegistryObject<SoundEvent> PLAYER_SWORD_SLASH;
     public static final RegistryObject<SoundEvent> PLAYER_CRIT_HIT;
+    public static final RegistryObject<SoundEvent> POTION;
+    public static final RegistryObject<SoundEvent> ARMOR_CRYSTAL_RUN;
+    public static final RegistryObject<SoundEvent> ARMOR_CRYSTAL_WALK;
+    public static final RegistryObject<SoundEvent> ARMOR_HEAVY_RUN;
+    public static final RegistryObject<SoundEvent> ARMOR_HEAVY_WALK;
+    public static final RegistryObject<SoundEvent> ARMOR_LIGHT;
+    public static final RegistryObject<SoundEvent> ARMOR_MEDIUM;
+    public static final RegistryObject<SoundEvent> ARMOR_SLIME_RUN;
+    public static final RegistryObject<SoundEvent> ARMOR_SLIME_WALK;
 
     public static void register(IEventBus eventBus) {
         REGISTRY.register(eventBus);
+    }
+
+    public static SoundEvent getOrFallback(RegistryObject<SoundEvent> registryObject, SoundEvent fallback) {
+        return registryObject.isPresent() ? registryObject.get() : fallback;
     }
 
     static {
@@ -45,6 +58,14 @@ public class AdditionsSounds {
         PLAYER_CRAFT_WOOD = REGISTRY.register("player_craft_wood", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(Additions.MOD_ID, "player_craft_wood")));
         PLAYER_SWORD_SLASH = REGISTRY.register("player_sword_slash", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(Additions.MOD_ID, "player_sword_slash")));
         PLAYER_CRIT_HIT = REGISTRY.register("player_crit_hit", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(Additions.MOD_ID, "player_crit_hit")));
-
+        POTION = REGISTRY.register("potion", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(Additions.MOD_ID, "potion")));
+        ARMOR_CRYSTAL_RUN = REGISTRY.register("armor_crystal_run", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(Additions.MOD_ID, "armor_crystal_run")));
+        ARMOR_CRYSTAL_WALK = REGISTRY.register("armor_crystal_walk", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(Additions.MOD_ID, "armor_crystal_walk")));
+        ARMOR_HEAVY_RUN = REGISTRY.register("armor_heavy_run", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(Additions.MOD_ID, "armor_heavy_run")));
+        ARMOR_HEAVY_WALK = REGISTRY.register("armor_heavy_walk", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(Additions.MOD_ID, "armor_heavy_walk")));
+        ARMOR_LIGHT = REGISTRY.register("armor_light", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(Additions.MOD_ID, "armor_light")));
+        ARMOR_MEDIUM = REGISTRY.register("armor_medium", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(Additions.MOD_ID, "armor_medium")));
+        ARMOR_SLIME_RUN = REGISTRY.register("armor_slime_run", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(Additions.MOD_ID, "armor_slime_run")));
+        ARMOR_SLIME_WALK = REGISTRY.register("armor_slime_walk", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(Additions.MOD_ID, "armor_slime_walk")));
     }
 }
