@@ -31,8 +31,27 @@
   "rarity.additions.legendary": "Legendary",
   "rarity.additions.mythic": "Mythic",
 
+  "attribute.name.additions.critical_rate": "Critical Rate",
+  "attribute.name.additions.enchanting_focus": "Enchanting Focus",
+  "attribute.name.additions.arrow_velocity": "Arrow Velocity",
+
+  "item.minecraft.potion.effect.magic_focus": "Potion of Magic Focus",
+  "item.minecraft.potion.effect.long_magic_focus": "Potion of Magic Focus",
+  "item.minecraft.potion.effect.strong_magic_focus": "Potion of Magic Focus",
+  "item.minecraft.splash_potion.effect.magic_focus": "Splash Potion of Magic Focus",
+  "item.minecraft.splash_potion.effect.long_magic_focus": "Splash Potion of Magic Focus",
+  "item.minecraft.splash_potion.effect.strong_magic_focus": "Splash Potion of Magic Focus",
+  "item.minecraft.lingering_potion.effect.magic_focus": "Lingering Potion of Magic Focus",
+  "item.minecraft.lingering_potion.effect.long_magic_focus": "Lingering Potion of Magic Focus",
+  "item.minecraft.lingering_potion.effect.strong_magic_focus": "Lingering Potion of Magic Focus",
+  "item.minecraft.tipped_arrow.effect.magic_focus": "Arrow of Magic Focus",
+  "item.minecraft.tipped_arrow.effect.long_magic_focus": "Arrow of Magic Focus",
+  "item.minecraft.tipped_arrow.effect.strong_magic_focus": "Arrow of Magic Focus",
+  "effect.additions.magic_focus": "Magic Focus",
+  "effect.additions.magic_focus.description": "Increases maximum levels for enchantment tables",
+
   "creativetab.additions_tab": "Additions",
-  "tooltip.additions.rarity_scanner.desc": "Allows viewing mob rarites",
+  "tooltip.additions.rarity_scanner.desc": "Allows viewing mob rarities",
   "effect.additions.well_fed": "Well Fed",
   "effect.additions.well_fed.description": "Increases damage dealt and damage reduction"
 }

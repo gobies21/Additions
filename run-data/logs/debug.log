@@ -675,12 +675,12 @@
 [17Feb2026 15:29:13.923] [modloading-worker-0/DEBUG] [mixin/]: Mixing ReloadableServerResourcesMixin from notreepunching.common.mixins.json into net.minecraft.server.ReloadableServerResources
 [17Feb2026 15:29:13.928] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing atomicstryker.infernalmobs.client.OverlayChoking to MOD
 [17Feb2026 15:29:13.929] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing atomicstryker.infernalmobs.client.OverlayBossBar to MOD
-[17Feb2026 15:29:13.930] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing net.gobies.additions.Config to MOD
+[17Feb2026 15:29:13.930] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing net.gobies.additions.config.CommonConfig to MOD
 [17Feb2026 15:29:13.930] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing atomicstryker.infernalmobs.client.InfernalMobsClient to FORGE
 [17Feb2026 15:29:13.930] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing net.gobies.additions.datagen.DataGenerators to MOD
-[17Feb2026 15:29:13.932] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing net.gobies.additions.events.ClientEvents to FORGE
-[17Feb2026 15:29:13.933] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing net.gobies.additions.events.FoodEvents to FORGE
-[17Feb2026 15:29:13.933] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing net.gobies.additions.events.SoundEvents to FORGE
+[17Feb2026 15:29:13.932] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing net.gobies.additions.events.AClientEvents to FORGE
+[17Feb2026 15:29:13.933] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing net.gobies.additions.events.AFoodEvents to FORGE
+[17Feb2026 15:29:13.933] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing net.gobies.additions.events.ASoundEvents to FORGE
 [17Feb2026 15:29:13.934] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing net.gobies.additions.item.Bundle to MOD
 [17Feb2026 15:29:13.936] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing net.gobies.additions.item.CreativeTab to MOD
 [17Feb2026 15:29:13.939] [modloading-worker-0/DEBUG] [mixin/]: Mixing LevelRendererMixin from neat.mixins.json into net.minecraft.client.renderer.LevelRenderer

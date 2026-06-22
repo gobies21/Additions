@@ -9,6 +9,7 @@ import org.spongepowered.asm.mixin.injection.ModifyConstant;
 
 @Mixin(value = Wolf.class, priority = 100)
 public class WolfMixin {
+
     @ModifyConstant(
             method = "setTame",
             constant = @Constant(doubleValue = 20.0D)

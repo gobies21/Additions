@@ -1,7 +1,6 @@
 package net.gobies.additions.item;
 
 import net.gobies.additions.Additions;
-import net.gobies.additions.Config;
 import net.gobies.additions.init.AdditionsItems;
 import net.gobies.additions.init.AdditionsBlocks;
 import net.minecraft.core.registries.Registries;
@@ -9,7 +8,6 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.ModList;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 
@@ -35,15 +33,6 @@ public class AdditionsCreativeTab {
                             pOutput.accept(AdditionsItems.TinNugget.get());
                             pOutput.accept(AdditionsItems.Ruby.get());
 
-                            if (Config.ENABLE_GEMS.get()) {
-                                pOutput.accept(AdditionsItems.RubyGem.get());
-                                pOutput.accept(AdditionsItems.DiamondGem.get());
-                                pOutput.accept(AdditionsItems.EmeraldGem.get());
-                                if (ModList.get().isLoaded("iceandfire")) {
-                                    pOutput.accept(AdditionsItems.SapphireGem.get());
-                                }
-                            }
-
                             pOutput.accept(AdditionsItems.TinSword.get());
                             pOutput.accept(AdditionsItems.TinPickaxe.get());
                             pOutput.accept(AdditionsItems.TinAxe.get());
@@ -55,7 +44,6 @@ public class AdditionsCreativeTab {
                             pOutput.accept(AdditionsItems.TinBoots.get());
                             pOutput.accept(AdditionsItems.MatchBox.get());
                             pOutput.accept(AdditionsItems.RarityScanner.get());
-
                         })
                         .build());
     }

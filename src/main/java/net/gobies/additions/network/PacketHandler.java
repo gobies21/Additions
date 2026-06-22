@@ -21,8 +21,12 @@ public class PacketHandler {
     }
 
     public static void registerMessages() {
-        MobHPSyncPacket.registerPackets(INSTANCE);
+        packetId = 100;
         INSTANCE.messageBuilder(SoundSyncPacket.class, nextId()).encoder(SoundSyncPacket::toBytes).decoder(SoundSyncPacket::new).consumerMainThread(SoundSyncPacket::handle).add();
+        INSTANCE.messageBuilder(ScaleSyncPacket.class, nextId()).encoder(ScaleSyncPacket::toBytes).decoder(ScaleSyncPacket::new).consumerMainThread(ScaleSyncPacket::handle).add();
+        INSTANCE.registerMessage(nextId(), SpawnerSyncPackets.SyncMobNBTDataPacket.class, SpawnerSyncPackets.SyncMobNBTDataPacket::encode, SpawnerSyncPackets.SyncMobNBTDataPacket::decode, SpawnerSyncPackets.SyncMobNBTDataPacket::handle);
+        INSTANCE.registerMessage(nextId(), SpawnerSyncPackets.SyncSpawnerNBTDataPacket.class, SpawnerSyncPackets.SyncSpawnerNBTDataPacket::encode, SpawnerSyncPackets.SyncSpawnerNBTDataPacket::decode, SpawnerSyncPackets.SyncSpawnerNBTDataPacket::handle);
+        INSTANCE.registerMessage(nextId(), MobHPSyncPacket.class, MobHPSyncPacket::encode, MobHPSyncPacket::decode, MobHPSyncPacket::handle);
     }
 
     public static void sendToAllClients(Object packet) {

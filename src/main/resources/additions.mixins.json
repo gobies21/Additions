@@ -4,10 +4,17 @@
   "compatibilityLevel": "JAVA_17",
   "refmap": "additions.mixins.refmap.json",
   "mixins": [
+    "BaseSpawnerMixin",
+    "EnchantRandomlyFunctionMixin",
+    "EntityMixin",
     "ItemMixin",
-    "WolfMixin"
+    "PlayerMixin",
+    "WolfMixin",
+    "easymagic.ModEnchantmentMenuMixin"
   ],
   "client": [
+    "DebugScreenOverlayMixin",
+    "LivingEntityRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1

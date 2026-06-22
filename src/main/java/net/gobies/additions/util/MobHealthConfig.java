@@ -1,6 +1,6 @@
 package net.gobies.additions.util;
 
-import net.gobies.additions.Config;
+import net.gobies.additions.config.CommonConfig;
 
 public class MobHealthConfig {
     private final double commonMinHP;
@@ -23,24 +23,24 @@ public class MobHealthConfig {
     private final double shinyFlatHP;
 
     public MobHealthConfig() {
-        this.commonMinHP = Config.COMMON_HP_PERCENTAGE_MIN.get();
-        this.commonMaxHP = Config.COMMON_HP_PERCENTAGE_MAX.get();
-        this.commonFlatHP = Config.COMMON_FLAT_HP_INCREASE.get();
-        this.uncommonMinHP = Config.UNCOMMON_HP_PERCENTAGE_MIN.get();
-        this.uncommonMaxHP = Config.UNCOMMON_HP_PERCENTAGE_MAX.get();
-        this.uncommonFlatHP = Config.UNCOMMON_FLAT_HP_INCREASE.get();
-        this.rareMinHP = Config.RARE_HP_PERCENTAGE_MIN.get();
-        this.rareMaxHP = Config.RARE_HP_PERCENTAGE_MAX.get();
-        this.rareFlatHP = Config.RARE_FLAT_HP_INCREASE.get();
-        this.epicMinHP = Config.EPIC_HP_PERCENTAGE_MIN.get();
-        this.epicMaxHP = Config.EPIC_HP_PERCENTAGE_MAX.get();
-        this.epicFlatHP = Config.EPIC_FLAT_HP_INCREASE.get();
-        this.legendaryMinHP = Config.LEGENDARY_HP_PERCENTAGE_MIN.get();
-        this.legendaryMaxHP = Config.LEGENDARY_HP_PERCENTAGE_MAX.get();
-        this.legendaryFlatHP = Config.LEGENDARY_FLAT_HP_INCREASE.get();
-        this.shinyMinHP = Config.SHINY_HP_PERCENTAGE_MIN.get();
-        this.shinyMaxHP = Config.SHINY_HP_PERCENTAGE_MAX.get();
-        this.shinyFlatHP = Config.SHINY_FLAT_HP_INCREASE.get();
+        this.commonMinHP = CommonConfig.COMMON_HP_PERCENTAGE_MIN.get();
+        this.commonMaxHP = CommonConfig.COMMON_HP_PERCENTAGE_MAX.get();
+        this.commonFlatHP = CommonConfig.COMMON_FLAT_HP_INCREASE.get();
+        this.uncommonMinHP = CommonConfig.UNCOMMON_HP_PERCENTAGE_MIN.get();
+        this.uncommonMaxHP = CommonConfig.UNCOMMON_HP_PERCENTAGE_MAX.get();
+        this.uncommonFlatHP = CommonConfig.UNCOMMON_FLAT_HP_INCREASE.get();
+        this.rareMinHP = CommonConfig.RARE_HP_PERCENTAGE_MIN.get();
+        this.rareMaxHP = CommonConfig.RARE_HP_PERCENTAGE_MAX.get();
+        this.rareFlatHP = CommonConfig.RARE_FLAT_HP_INCREASE.get();
+        this.epicMinHP = CommonConfig.EPIC_HP_PERCENTAGE_MIN.get();
+        this.epicMaxHP = CommonConfig.EPIC_HP_PERCENTAGE_MAX.get();
+        this.epicFlatHP = CommonConfig.EPIC_FLAT_HP_INCREASE.get();
+        this.legendaryMinHP = CommonConfig.LEGENDARY_HP_PERCENTAGE_MIN.get();
+        this.legendaryMaxHP = CommonConfig.LEGENDARY_HP_PERCENTAGE_MAX.get();
+        this.legendaryFlatHP = CommonConfig.LEGENDARY_FLAT_HP_INCREASE.get();
+        this.shinyMinHP = CommonConfig.SHINY_HP_PERCENTAGE_MIN.get();
+        this.shinyMaxHP = CommonConfig.SHINY_HP_PERCENTAGE_MAX.get();
+        this.shinyFlatHP = CommonConfig.SHINY_FLAT_HP_INCREASE.get();
     }
 
     public double getCommonMinHP() {

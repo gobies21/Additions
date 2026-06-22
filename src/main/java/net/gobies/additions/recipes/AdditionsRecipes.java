@@ -1,17 +1,11 @@
 package net.gobies.additions.recipes;
 
-import net.gobies.additions.Config;
-import net.gobies.additions.init.AdditionsItems;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.*;
 import com.mojang.logging.LogUtils;
-import net.minecraftforge.event.AddReloadListenerEvent;
-import net.minecraftforge.event.server.ServerStartingEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import org.slf4j.Logger;
 
@@ -105,51 +99,6 @@ public class AdditionsRecipes {
             }
         }
         return ingredients;
-    }
-
-    private static void registerRecipes(RecipeManager recipeManager, RegistryAccess registryAccess) {
-        if (Config.ENABLE_GEMS.get()) {
-            addRecipe(recipeManager, registryAccess, Items.DIAMOND, "diamond",
-                    createIngredients(
-                            AdditionsItems.DiamondGem.get(), AdditionsItems.DiamondGem.get(), AdditionsItems.DiamondGem.get(),
-                            AdditionsItems.DiamondGem.get(), AdditionsItems.DiamondGem.get(), AdditionsItems.DiamondGem.get(),
-                            AdditionsItems.DiamondGem.get(), AdditionsItems.DiamondGem.get(), AdditionsItems.DiamondGem.get()
-                    ), true, 1);
-
-            addRecipe(recipeManager, registryAccess, AdditionsItems.DiamondGem.get(), "diamond_to_gems",
-                    createIngredients(Items.DIAMOND), false, 9);
-
-            addRecipe(recipeManager, registryAccess, Items.EMERALD, "emerald",
-                    createIngredients(
-                            AdditionsItems.EmeraldGem.get(), AdditionsItems.EmeraldGem.get(), AdditionsItems.EmeraldGem.get(),
-                            AdditionsItems.EmeraldGem.get(), AdditionsItems.EmeraldGem.get(), AdditionsItems.EmeraldGem.get(),
-                            AdditionsItems.EmeraldGem.get(), AdditionsItems.EmeraldGem.get(), AdditionsItems.EmeraldGem.get()
-                    ), true, 1);
-
-            addRecipe(recipeManager, registryAccess, AdditionsItems.EmeraldGem.get(), "emerald_to_gems",
-                    createIngredients(Items.EMERALD), false, 9);
-
-            addRecipe(recipeManager, registryAccess, AdditionsItems.Ruby.get(), "ruby",
-                    createIngredients(
-                            AdditionsItems.RubyGem.get(), AdditionsItems.RubyGem.get(), AdditionsItems.RubyGem.get(),
-                            AdditionsItems.RubyGem.get(), AdditionsItems.RubyGem.get(), AdditionsItems.RubyGem.get(),
-                            AdditionsItems.RubyGem.get(), AdditionsItems.RubyGem.get(), AdditionsItems.RubyGem.get()
-                    ), true, 1);
-
-            addRecipe(recipeManager, registryAccess, AdditionsItems.RubyGem.get(), "ruby_to_gems",
-                    createIngredients(AdditionsItems.Ruby.get()), false, 9);
-        }
-    }
-
-    @SubscribeEvent
-    public static void onServerStarting(ServerStartingEvent event) {
-        registryAccess = event.getServer().registryAccess();
-        registerRecipes(event.getServer().getRecipeManager(), registryAccess);
-    }
-
-    @SubscribeEvent
-    public static void onRecipesUpdated(AddReloadListenerEvent event) {
-        registerRecipes(event.getServerResources().getRecipeManager(), registryAccess);
     }
 }
 

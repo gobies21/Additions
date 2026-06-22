@@ -1,31 +1,42 @@
-[11May2025 13:20:32.183] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgedatauserdev, --assetIndex, 5, --assetsDir, C:\Users\tmrai\.gradle\caches\forge_gradle\assets, --gameDir, ., --fml.forgeVersion, 47.3.0, --fml.mcVersion, 1.20.1, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20230612.114412, --mod, additions, --all, --output, C:\Additions\src\generated\resources, --existing, C:\Additions\src\main\resources, --mixin.config, additions.mixins.json]
-[11May2025 13:20:32.189] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.0.9+10.0.9+main.dcd20f30 starting: java version 17.0.13 by Eclipse Adoptium; OS Windows 10 arch amd64 version 10.0
-[11May2025 13:20:32.283] [main/INFO] [net.minecraftforge.fml.loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgedatauserdev
-[11May2025 13:20:32.326] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.5 Source=union:/C:/Users/tmrai/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.5/9d1c0c3a304ae6697ecd477218fa61b850bf57fc/mixin-0.8.5.jar%23128!/ Service=ModLauncher Env=CLIENT
-[11May2025 13:20:32.572] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\tmrai\.gradle\caches\modules-2\files-2.1\net.minecraftforge\javafmllanguage\1.20.1-47.3.0\d7ebc62120f202109e300e084ca1a31a7b946a62\javafmllanguage-1.20.1-47.3.0.jar is missing mods.toml file
-[11May2025 13:20:32.573] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\tmrai\.gradle\caches\modules-2\files-2.1\net.minecraftforge\lowcodelanguage\1.20.1-47.3.0\1bf3e845ea0ce750096da8c71c8364b188ab74d4\lowcodelanguage-1.20.1-47.3.0.jar is missing mods.toml file
-[11May2025 13:20:32.575] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\tmrai\.gradle\caches\modules-2\files-2.1\net.minecraftforge\mclanguage\1.20.1-47.3.0\6093682e943ddccbabf70539319d7f2fe64db2e7\mclanguage-1.20.1-47.3.0.jar is missing mods.toml file
-[11May2025 13:20:32.578] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\tmrai\.gradle\caches\modules-2\files-2.1\net.minecraftforge\fmlcore\1.20.1-47.3.0\3b6be96aba3e323f3c918e8ef6a96312d82d76ad\fmlcore-1.20.1-47.3.0.jar is missing mods.toml file
-[11May2025 13:20:32.715] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection
-[11May2025 13:20:33.726] [main/INFO] [mixin/]: Compatibility level set to JAVA_17
-[11May2025 13:20:33.735] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgedatauserdev' with arguments [--gameDir, ., --assetsDir, C:\Users\tmrai\.gradle\caches\forge_gradle\assets, --assetIndex, 5, --mod, additions, --all, --output, C:\Additions\src\generated\resources, --existing, C:\Additions\src\main\resources]
-[11May2025 13:20:33.781] [main/WARN] [mixin/]: Reference map 'additions.mixins.refmap.json' for additions.mixins.json could not be read. If this is a development environment you can ignore this message
-[11May2025 13:20:34.121] [main/INFO] [mixin/]: Remapping refMap blessfulled.refmap.json using C:\Additions/build/createSrgToMcp/output.srg
-[11May2025 13:20:34.122] [main/INFO] [mixin/]: Remapping refMap spartanweaponry.mixins.refmap.json using C:\Additions/build/createSrgToMcp/output.srg
-[11May2025 13:20:34.609] [main/INFO] [net.minecraftforge.data.loading.DatagenModLoader/]: Initializing Data Gatherer for mods [additions]
-[11May2025 13:20:34.711] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.3.5).
-[11May2025 13:20:38.044] [modloading-worker-0/INFO] [Spartan Weaponry/]: Constructing Mod: Spartan Weaponry
-[11May2025 13:20:38.044] [modloading-worker-0/INFO] [Spartan Weaponry/]: Initialising API! Version: 11
-[11May2025 13:20:38.048] [modloading-worker-0/INFO] [Spartan Weaponry/]: Spartan Weaponry API version 11 has been initalized!
-[11May2025 13:20:38.058] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 47.3.0, for MC 1.20.1 with MCP 20230612.114412
-[11May2025 13:20:38.060] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v47.3.0 Initialized
-[11May2025 13:20:38.300] [modloading-worker-0/INFO] [mezz.jei.library.load.PluginCaller/]: Sending ConfigManager...
-[11May2025 13:20:38.306] [modloading-worker-0/INFO] [mezz.jei.library.load.PluginCaller/]: Sending ConfigManager took 3.706 ms
-[11May2025 13:20:38.641] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/tmrai/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.3.0_mapped_parchment_2023.09.03-1.20.1/forge-1.20.1-47.3.0_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23191!/assets/.mcassetsroot' uses unexpected schema
-[11May2025 13:20:38.641] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/tmrai/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.3.0_mapped_parchment_2023.09.03-1.20.1/forge-1.20.1-47.3.0_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23191!/data/.mcassetsroot' uses unexpected schema
-[11May2025 13:20:38.825] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Loot Tables
-[11May2025 13:20:38.887] [main/INFO] [net.minecraft.data.DataGenerator/]: Loot Tables finished after 62 ms
-[11May2025 13:20:38.887] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Registries
-[11May2025 13:20:38.903] [main/INFO] [net.minecraft.data.DataGenerator/]: Registries finished after 15 ms
-[11May2025 13:20:38.903] [main/INFO] [net.minecraft.data.DataGenerator/]: All providers took: 78 ms
-[11May2025 13:20:38.907] [main/INFO] [net.minecraft.data.HashCache/]: Caching: total files: 16, old count: 16, new count: 17, removed stale: 0, written: 1
+[17Feb2026 15:29:08.816] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgedatauserdev, --assetIndex, 5, --assetsDir, C:\Users\tmrai\.gradle\caches\forge_gradle\assets, --gameDir, ., --fml.forgeVersion, 47.3.0, --fml.mcVersion, 1.20.1, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20230612.114412, --mod, additions, --all, --output, C:\Additions\src\generated\resources, --existing, C:\Additions\src\main\resources, --mixin.config, additions.mixins.json]
+[17Feb2026 15:29:08.821] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.0.9+10.0.9+main.dcd20f30 starting: java version 17.0.13 by Eclipse Adoptium; OS Windows 10 arch amd64 version 10.0
+[17Feb2026 15:29:08.896] [main/INFO] [net.minecraftforge.fml.loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgedatauserdev
+[17Feb2026 15:29:08.926] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.5 Source=union:/C:/Users/tmrai/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.5/9d1c0c3a304ae6697ecd477218fa61b850bf57fc/mixin-0.8.5.jar%23128!/ Service=ModLauncher Env=CLIENT
+[17Feb2026 15:29:09.127] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\tmrai\.gradle\caches\modules-2\files-2.1\net.minecraftforge\javafmllanguage\1.20.1-47.3.0\d7ebc62120f202109e300e084ca1a31a7b946a62\javafmllanguage-1.20.1-47.3.0.jar is missing mods.toml file
+[17Feb2026 15:29:09.129] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\tmrai\.gradle\caches\modules-2\files-2.1\net.minecraftforge\lowcodelanguage\1.20.1-47.3.0\1bf3e845ea0ce750096da8c71c8364b188ab74d4\lowcodelanguage-1.20.1-47.3.0.jar is missing mods.toml file
+[17Feb2026 15:29:09.131] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\tmrai\.gradle\caches\modules-2\files-2.1\net.minecraftforge\mclanguage\1.20.1-47.3.0\6093682e943ddccbabf70539319d7f2fe64db2e7\mclanguage-1.20.1-47.3.0.jar is missing mods.toml file
+[17Feb2026 15:29:09.133] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\tmrai\.gradle\caches\modules-2\files-2.1\net.minecraftforge\fmlcore\1.20.1-47.3.0\3b6be96aba3e323f3c918e8ef6a96312d82d76ad\fmlcore-1.20.1-47.3.0.jar is missing mods.toml file
+[17Feb2026 15:29:09.286] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection
+[17Feb2026 15:29:10.278] [main/INFO] [mixin/]: Compatibility level set to JAVA_17
+[17Feb2026 15:29:10.294] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgedatauserdev' with arguments [--gameDir, ., --assetsDir, C:\Users\tmrai\.gradle\caches\forge_gradle\assets, --assetIndex, 5, --mod, additions, --all, --output, C:\Additions\src\generated\resources, --existing, C:\Additions\src\main\resources]
+[17Feb2026 15:29:10.332] [main/WARN] [mixin/]: Reference map 'additions.mixins.refmap.json' for additions.mixins.json could not be read. If this is a development environment you can ignore this message
+[17Feb2026 15:29:10.494] [main/INFO] [mixin/]: Remapping refMap configured.refmap.json using C:\Additions/build/createSrgToMcp/output.srg
+[17Feb2026 15:29:10.542] [main/INFO] [mixin/]: Remapping refMap champions.refmap.json using C:\Additions/build/createSrgToMcp/output.srg
+[17Feb2026 15:29:10.542] [main/INFO] [mixin/]: Remapping refMap blessfulled.refmap.json using C:\Additions/build/createSrgToMcp/output.srg
+[17Feb2026 15:29:10.543] [main/INFO] [mixin/]: Remapping refMap spartanweaponry.mixins.refmap.json using C:\Additions/build/createSrgToMcp/output.srg
+[17Feb2026 15:29:10.544] [main/INFO] [mixin/]: Remapping refMap pml.mixins.refmap.json using C:\Additions/build/createSrgToMcp/output.srg
+[17Feb2026 15:29:10.545] [main/INFO] [mixin/]: Remapping refMap crafttweaker.refmap.json using C:\Additions/build/createSrgToMcp/output.srg
+[17Feb2026 15:29:10.545] [main/INFO] [mixin/]: Remapping refMap crafttweaker.refmap.json using C:\Additions/build/createSrgToMcp/output.srg
+[17Feb2026 15:29:10.546] [main/INFO] [mixin/]: Remapping refMap notreepunching.refmap.json using C:\Additions/build/createSrgToMcp/output.srg
+[17Feb2026 15:29:10.547] [main/INFO] [mixin/]: Remapping refMap notreepunching.refmap.json using C:\Additions/build/createSrgToMcp/output.srg
+[17Feb2026 15:29:10.548] [main/INFO] [mixin/]: Remapping refMap neat.refmap.json using C:\Additions/build/createSrgToMcp/output.srg
+[17Feb2026 15:29:10.744] [main/WARN] [mixin/]: Error loading class: ichttt/mods/firstaid/common/util/ArmorUtils (java.lang.ClassNotFoundException: ichttt.mods.firstaid.common.util.ArmorUtils)
+[17Feb2026 15:29:10.744] [main/WARN] [mixin/]: @Mixin target ichttt.mods.firstaid.common.util.ArmorUtils was not found pml.mixins.json:ArmorUtilsMixin
+[17Feb2026 15:29:10.983] [main/INFO] [net.minecraftforge.data.loading.DatagenModLoader/]: Initializing Data Gatherer for mods [additions]
+[17Feb2026 15:29:10.990] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.4.1).
+[17Feb2026 15:29:13.825] [modloading-worker-0/INFO] [Spartan Weaponry/]: Constructing Mod: Spartan Weaponry
+[17Feb2026 15:29:13.825] [modloading-worker-0/INFO] [Spartan Weaponry/]: Initialising API! Version: 11
+[17Feb2026 15:29:13.826] [modloading-worker-0/INFO] [com.alcatrazescapee.notreepunching.NoTreePunching/]: I tried to punch tree. It didn't work, my hands are now covered in blood and splinters. Need to try something else ...
+[17Feb2026 15:29:13.828] [modloading-worker-0/INFO] [Spartan Weaponry/]: Spartan Weaponry API version 11 has been initalized!
+[17Feb2026 15:29:13.852] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 47.3.0, for MC 1.20.1 with MCP 20230612.114412
+[17Feb2026 15:29:13.853] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v47.3.0 Initialized
+[17Feb2026 15:29:14.166] [modloading-worker-0/INFO] [mezz.jei.library.load.PluginCaller/]: Sending ConfigManager...
+[17Feb2026 15:29:14.171] [modloading-worker-0/INFO] [mezz.jei.library.load.PluginCaller/]: Sending ConfigManager took 3.324 ms
+[17Feb2026 15:29:14.923] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/tmrai/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.3.0_mapped_parchment_2023.09.03-1.20.1/forge-1.20.1-47.3.0_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23191!/assets/.mcassetsroot' uses unexpected schema
+[17Feb2026 15:29:14.923] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/tmrai/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.3.0_mapped_parchment_2023.09.03-1.20.1/forge-1.20.1-47.3.0_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23191!/data/.mcassetsroot' uses unexpected schema
+[17Feb2026 15:29:15.040] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Loot Tables
+[17Feb2026 15:29:15.068] [main/INFO] [net.minecraft.data.DataGenerator/]: Loot Tables finished after 27 ms
+[17Feb2026 15:29:15.068] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Registries
+[17Feb2026 15:29:15.136] [main/INFO] [net.minecraft.data.DataGenerator/]: Registries finished after 67 ms
+[17Feb2026 15:29:15.136] [main/INFO] [net.minecraft.data.DataGenerator/]: All providers took: 96 ms
+[17Feb2026 15:29:15.141] [main/INFO] [net.minecraft.data.HashCache/]: Caching: total files: 12, old count: 0, new count: 13, removed stale: 0, written: 12

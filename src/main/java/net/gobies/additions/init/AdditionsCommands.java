@@ -6,7 +6,7 @@ import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.suggestion.Suggestions;
 import com.mojang.brigadier.suggestion.SuggestionsBuilder;
-import net.gobies.additions.Config;
+import net.gobies.additions.config.CommonConfig;
 import net.gobies.additions.util.MobUtils;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
@@ -79,7 +79,7 @@ public class AdditionsCommands {
                     livingEntity.setHealth(livingEntity.getMaxHealth());
 
                     context.getSource().getLevel().addFreshEntity(entity);
-                    if (Config.MOB_RARITY_DISPLAY_NAME.get()) {
+                    if (CommonConfig.MOB_RARITY_DISPLAY_NAME.get()) {
                         MobUtils.setMobNameWithRarity(livingEntity, rarity);
 
                     }

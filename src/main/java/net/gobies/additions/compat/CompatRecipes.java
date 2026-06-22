@@ -1,22 +1,13 @@
 package net.gobies.additions.compat;
 
 import com.mojang.logging.LogUtils;
-import net.gobies.additions.Additions;
-import net.gobies.additions.Config;
-import net.gobies.additions.init.AdditionsItems;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.crafting.*;
-import net.minecraftforge.event.AddReloadListenerEvent;
-import net.minecraftforge.event.server.ServerStartingEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.registries.ForgeRegistries;
 import org.slf4j.Logger;
-
-import java.util.Objects;
 
 @Mod.EventBusSubscriber
 public class CompatRecipes {
@@ -67,34 +58,5 @@ public class CompatRecipes {
             }
         }
         return ingredients;
-    }
-
-
-    //Ice and Fire
-    private static void registerRecipes(RecipeManager recipeManager, RegistryAccess registryAccess) {
-        if (Additions.isIceandFireLoaded()) {
-            if (Config.ENABLE_GEMS.get()) {
-                addRecipe(recipeManager, registryAccess, (Objects.requireNonNull(ForgeRegistries.ITEMS.getValue(new ResourceLocation("iceandfire:sapphire_gem")))), "sapphire",
-                        createIngredients(
-                                AdditionsItems.SapphireGem.get(), AdditionsItems.SapphireGem.get(), AdditionsItems.SapphireGem.get(),
-                                AdditionsItems.SapphireGem.get(), AdditionsItems.SapphireGem.get(), AdditionsItems.SapphireGem.get(),
-                                AdditionsItems.SapphireGem.get(), AdditionsItems.SapphireGem.get(), AdditionsItems.SapphireGem.get()
-                        ), true, 1);
-
-                addRecipe(recipeManager, registryAccess, AdditionsItems.SapphireGem.get(), "sapphire_to_gems",
-                        createIngredients(Objects.requireNonNull(ForgeRegistries.ITEMS.getValue(new ResourceLocation("iceandfire:sapphire_gem")))), false, 9);
-            }
-        }
-    }
-
-    @SubscribeEvent
-    public static void onServerStarting(ServerStartingEvent event) {
-        registryAccess = event.getServer().registryAccess();
-        registerRecipes(event.getServer().getRecipeManager(), registryAccess);
-    }
-
-    @SubscribeEvent
-    public static void onRecipesUpdated(AddReloadListenerEvent event) {
-        registerRecipes(event.getServerResources().getRecipeManager(), registryAccess);
     }
 }

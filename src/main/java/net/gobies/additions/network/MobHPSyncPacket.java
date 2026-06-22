@@ -37,10 +37,4 @@ public record MobHPSyncPacket(float maxHealth, int entityId) {
         });
         context.setPacketHandled(true);
     }
-
-
-    public static void registerPackets(SimpleChannel channel) {
-        int packetId = 0;
-        channel.registerMessage(packetId, MobHPSyncPacket.class, MobHPSyncPacket::encode, MobHPSyncPacket::decode, MobHPSyncPacket::handle, Optional.of(NetworkDirection.PLAY_TO_CLIENT));
-    }
 }

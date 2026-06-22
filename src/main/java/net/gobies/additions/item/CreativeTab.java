@@ -1,7 +1,6 @@
 package net.gobies.additions.item;
 
 import net.gobies.additions.Additions;
-import net.gobies.additions.Config;
 import net.gobies.additions.init.AdditionsItems;
 import net.gobies.additions.init.AdditionsBlocks;
 import net.minecraft.world.item.CreativeModeTab;
@@ -9,7 +8,6 @@ import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Items;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber(modid = Additions.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -24,15 +22,6 @@ public class CreativeTab {
             event.getEntries().putAfter(Items.DIAMOND.getDefaultInstance(), AdditionsItems.Ruby.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
 
             event.getEntries().putAfter(Items.GOLD_NUGGET.getDefaultInstance(), AdditionsItems.TinNugget.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-
-            if (Config.ENABLE_GEMS.get()) {
-                event.getEntries().putAfter(Items.AMETHYST_SHARD.getDefaultInstance(), AdditionsItems.DiamondGem.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-                event.getEntries().putAfter(AdditionsItems.DiamondGem.get().getDefaultInstance(), AdditionsItems.EmeraldGem.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-                event.getEntries().putAfter(AdditionsItems.EmeraldGem.get().getDefaultInstance(), AdditionsItems.RubyGem.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-                if (ModList.get().isLoaded("iceandfire")) {
-                    event.getEntries().putAfter(AdditionsItems.RubyGem.get().getDefaultInstance(), AdditionsItems.SapphireGem.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-                }
-            }
         }
         if (event.getTabKey() == CreativeModeTabs.NATURAL_BLOCKS) {
             event.getEntries().putAfter(Items.DEEPSLATE_COPPER_ORE.getDefaultInstance(), AdditionsBlocks.TinOre.get().asItem().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);

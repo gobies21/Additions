@@ -1,12 +1,13 @@
 package net.gobies.additions;
 
 import com.mojang.logging.LogUtils;
-import net.gobies.additions.events.FoodEvents;
+import net.gobies.additions.config.CommonConfig;
+import net.gobies.additions.events.AFoodEvents;
 import net.gobies.additions.init.*;
 import net.gobies.additions.item.AdditionsCreativeTab;
-import net.gobies.additions.network.MobHPSyncPacket;
 import net.gobies.additions.network.PacketHandler;
 import net.gobies.additions.init.AdditionsCommands;
+import net.gobies.additions.recipe.AdditionsBrewing;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.event.TickEvent;
@@ -34,33 +35,24 @@ public class Additions {
 
     public Additions() {
         IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
-
         AdditionsItems.register(modBus);
-
         AdditionsRarities.register();
-
         AdditionsBlocks.register(modBus);
-
         AdditionsParticles.register(modBus);
-
         AdditionsCreativeTab.register(modBus);
-
         AdditionsSounds.register(modBus);
-
         AdditionsEffects.register(modBus);
-
+        AdditionsPotions.register(modBus);
+        AdditionsAttributes.register(modBus);
         MinecraftForge.EVENT_BUS.register(this);
-
-        MinecraftForge.EVENT_BUS.register(FoodEvents.class);
-
+        MinecraftForge.EVENT_BUS.register(AFoodEvents.class);
+        modBus.addListener(this::commonSetup);
         PacketHandler.registerMessages();
-
-        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, CommonConfig.SPEC);
     }
 
-    @SubscribeEvent
-    public static void commonSetup(FMLCommonSetupEvent event) {
-        event.enqueueWork(() -> MobHPSyncPacket.registerPackets(PacketHandler.INSTANCE));
+    public void commonSetup(final FMLCommonSetupEvent event) {
+        event.enqueueWork(AdditionsBrewing::register);
     }
 
 
@@ -94,8 +86,7 @@ public class Additions {
     public static boolean isChampionsLoaded() {
         return ModList.get().isLoaded("champions");
     }
-
-    public static boolean isIceandFireLoaded() {
-        return ModList.get().isLoaded("iceandfire");
+    public static boolean isEasyMagicLoaded() {
+        return ModList.get().isLoaded("easymagic");
     }
 }

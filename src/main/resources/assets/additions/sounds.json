@@ -35,8 +35,8 @@
       "additions:tooldraw"
     ]
   },
-  "player_bow_shoot": {
-    "subtitles": "sounds.additions.player_bow_shoot",
+  "bow_shoot": {
+    "subtitles": "sounds.additions.bow_shoot",
     "sounds": [
       "additions:bowshoot1",
       "additions:bowshoot2",
@@ -44,24 +44,24 @@
       "additions:bowshoot4"
     ]
   },
-  "player_bow_pull": {
-    "subtitles": "sounds.additions.player_bow_pull",
+  "bow_pull": {
+    "subtitles": "sounds.additions.bow_pull",
     "sounds": [
       "additions:bowpull1",
       "additions:bowpull2",
       "additions:bowpull3"
     ]
   },
-  "player_crossbow_shoot": {
-    "subtitles": "sounds.additions.player_crossbow_shoot",
+  "crossbow_shoot": {
+    "subtitles": "sounds.additions.crossbow_shoot",
     "sounds": [
       "additions:crossbowshoot1",
       "additions:crossbowshoot2",
       "additions:crossbowshoot3"
     ]
   },
-  "player_crossbow_pull": {
-    "subtitles": "sounds.additions.player_crossbow_pull",
+  "crossbow_pull": {
+    "subtitles": "sounds.additions.crossbow_pull",
     "sounds": [
       "additions:bowpull1",
       "additions:bowpull2",
@@ -106,6 +106,12 @@
     "subtitles": "sounds.additions.player_crit_hit",
     "sounds": [
       "additions:crithit"
+    ]
+  },
+  "player_jump": {
+    "subtitles": "sounds.additions.player_jump",
+    "sounds": [
+      "additions:jump"
     ]
   },
   "potion": {

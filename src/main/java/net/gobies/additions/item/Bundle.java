@@ -1,8 +1,7 @@
 package net.gobies.additions.item;
 
-import net.gobies.additions.Config;
+import net.gobies.additions.config.CommonConfig;
 import net.minecraft.world.item.CreativeModeTabs;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -15,7 +14,7 @@ public class Bundle {
     @SubscribeEvent
     public static void addCreative(BuildCreativeModeTabContentsEvent event) {
         if (event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
-            if (Config.ENABLE_BUNDLE.get())
+            if (CommonConfig.ENABLE_BUNDLE.get())
                 event.accept(Items.BUNDLE.getDefaultInstance());
         }
     }

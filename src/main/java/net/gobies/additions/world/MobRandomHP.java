@@ -1,6 +1,7 @@
 package net.gobies.additions.world;
 
-import net.gobies.additions.Config;
+import net.gobies.additions.Additions;
+import net.gobies.additions.config.CommonConfig;
 import net.gobies.additions.compat.champions.ChampionsCompat;
 import net.gobies.additions.network.MobHPSyncPacket;
 import net.gobies.additions.network.PacketHandler;
@@ -24,7 +25,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.Objects;
 
-@Mod.EventBusSubscriber(modid = "additions", bus = Mod.EventBusSubscriber.Bus.FORGE)
+@Mod.EventBusSubscriber(modid = Additions.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class MobRandomHP extends MobUtils {
 
     private static int tickCounter = 0;
@@ -33,7 +34,7 @@ public class MobRandomHP extends MobUtils {
     public static void onMobSpawn(EntityJoinLevelEvent event) {
         Entity entity = event.getEntity();
         Level world = event.getLevel();
-        if (Config.ENABLE_RANDOM_MOB_HP.get()) {
+        if (CommonConfig.ENABLE_RANDOM_MOB_HP.get()) {
             if (world.isClientSide() || !(entity instanceof LivingEntity livingEntity) || entity instanceof Player) {
                 return;
             }
@@ -42,19 +43,22 @@ public class MobRandomHP extends MobUtils {
             if (entityData.contains("Rarity") || entityData.contains("BonusHealth")) return;
 
             ResourceLocation entityName = ForgeRegistries.ENTITY_TYPES.getKey(livingEntity.getType());
-            if (entityName != null && Config.BLACKLISTED_ENTITIES.get().contains(entityName.toString())) return;
+            if (entityName != null && CommonConfig.BLACKLISTED_ENTITIES.get().contains(entityName.toString())) return;
 
             if (ChampionsCompat.isChampion(livingEntity)) return;
 
+            var maxHealthAttr = livingEntity.getAttribute(Attributes.MAX_HEALTH);
+            if (maxHealthAttr == null) return;
+
             MobRarity.MobRarityData mobHealthData = MobRarity.calculateMobStats(livingEntity);
-            float maxHealth = livingEntity.getMaxHealth();
-            if (maxHealth > Config.BOSS_HP_THRESHOLD.get()) return;
+            float maxHealth = (float) maxHealthAttr.getBaseValue();
+            if (maxHealth > CommonConfig.BOSS_HP_THRESHOLD.get()) return;
 
             float bonusHealth = (maxHealth * mobHealthData.extraHPPercentage) + mobHealthData.extraHPFlat;
             float newMaxHealth = maxHealth + bonusHealth;
 
-            Objects.requireNonNull(livingEntity.getAttribute(Attributes.MAX_HEALTH)).setBaseValue(newMaxHealth);
-            livingEntity.setHealth(newMaxHealth);
+            maxHealthAttr.setBaseValue(newMaxHealth);
+            livingEntity.setHealth(livingEntity.getHealth() + bonusHealth);
 
             MobHPSyncPacket packet = new MobHPSyncPacket(newMaxHealth, entity.getId());
             PacketHandler.sendToAllClients(packet);
@@ -62,7 +66,7 @@ public class MobRandomHP extends MobUtils {
             MobUtils.setMobRarity(entityData, MobRarity.valueOf(mobHealthData.rarityType));
             MobUtils.setBonusHealth(entityData, bonusHealth);
 
-            if (Config.MOB_RARITY_DISPLAY_NAME.get()) {
+            if (CommonConfig.MOB_RARITY_DISPLAY_NAME.get()) {
                 setMobNameWithRarity(livingEntity, MobRarity.valueOf(mobHealthData.rarityType));
             }
         }
@@ -70,7 +74,7 @@ public class MobRandomHP extends MobUtils {
 
     @SubscribeEvent(priority = EventPriority.LOWEST)
     public static void onBabySpawn(BabyEntitySpawnEvent event) {
-        if (Config.ENABLE_RANDOM_MOB_HP.get()) {
+        if (CommonConfig.ENABLE_RANDOM_MOB_HP.get()) {
             LivingEntity baby = event.getChild();
             LivingEntity parentA = event.getParentA();
             LivingEntity parentB = event.getParentB();
@@ -295,7 +299,7 @@ public class MobRandomHP extends MobUtils {
                 MobUtils.setBonusHealth(babyData, bonusHealth);
                 Objects.requireNonNull(baby.getAttribute(Attributes.MAX_HEALTH)).setBaseValue(newMaxHealth);
                 baby.setHealth(newMaxHealth);
-                if (Config.MOB_RARITY_DISPLAY_NAME.get()) {
+                if (CommonConfig.MOB_RARITY_DISPLAY_NAME.get()) {
                     setMobNameWithRarity(baby, MobRarity.valueOf(rarity.name()));
                 }
             }
@@ -304,7 +308,7 @@ public class MobRandomHP extends MobUtils {
 
     @SubscribeEvent
     public static void onLivingUpdate(LivingEvent.LivingTickEvent event) {
-        if (Config.ENABLE_RANDOM_MOB_HP.get()) {
+        if (CommonConfig.ENABLE_RANDOM_MOB_HP.get()) {
             LivingEntity livingEntity = event.getEntity();
             if (MobRarity.isShinyEntity(livingEntity)) {
                 if (tickCounter % 20 == 0) {
@@ -318,7 +322,7 @@ public class MobRandomHP extends MobUtils {
 
     @SubscribeEvent
     public static void onLivingExperienceDrop(LivingExperienceDropEvent event) {
-        if (Config.ENABLE_RANDOM_MOB_HP.get()) {
+        if (CommonConfig.ENABLE_RANDOM_MOB_HP.get()) {
             LivingEntity livingEntity = event.getEntity();
             if (MobRarity.isRareEntity(livingEntity)) {
                 int originalExperience = event.getDroppedExperience();

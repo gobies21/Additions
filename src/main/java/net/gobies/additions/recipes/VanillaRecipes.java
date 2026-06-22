@@ -1,8 +1,7 @@
 package net.gobies.additions.recipes;
 
 import com.mojang.logging.LogUtils;
-import net.gobies.additions.Config;
-import net.gobies.additions.init.AdditionsItems;
+import net.gobies.additions.config.CommonConfig;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.resources.ResourceLocation;
@@ -59,7 +58,7 @@ public class VanillaRecipes {
     private static void registerRecipes(RecipeManager recipeManager, RegistryAccess registryAccess) {
 
 
-        if (Config.HORSE_ARMOR_RECIPES.get()) {
+        if (CommonConfig.HORSE_ARMOR_RECIPES.get()) {
             addRecipe(recipeManager, registryAccess, Items.LEATHER_HORSE_ARMOR, "leather_horse_armor",
                     createIngredients(
                             Items.AIR, Items.AIR, Items.LEATHER_HELMET,
@@ -89,7 +88,7 @@ public class VanillaRecipes {
                     ));
         }
 
-        if (Config.SADDLE_RECIPE.get()) {
+        if (CommonConfig.SADDLE_RECIPE.get()) {
             addRecipe(recipeManager, registryAccess, Items.SADDLE, "saddle",
                     createIngredients(
                             Items.LEATHER, Items.LEATHER, Items.LEATHER,
@@ -98,12 +97,12 @@ public class VanillaRecipes {
                     ));
         }
 
-        if (Config.ENABLE_BUNDLE.get()) {
+        if (CommonConfig.ENABLE_BUNDLE.get()) {
             addRecipe(recipeManager, registryAccess, Items.BUNDLE, "bundle",
                     createIngredients(
-                            Items.STRING, Items.LEATHER, Items.STRING,
+                            Items.AIR, Items.STRING, Items.AIR,
                             Items.LEATHER, Items.AIR, Items.LEATHER,
-                            Items.LEATHER, Items.LEATHER, Items.LEATHER
+                            Items.AIR, Items.LEATHER, Items.AIR
                     ));
         }
     }
