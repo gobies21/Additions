@@ -125,6 +125,12 @@ public class CommonConfig {
     public static List<? extends String> ultra_rare_enchantments;
     public static ForgeConfigSpec.ConfigValue<Double> FOCUS_LEVEL_SCALE;
     public static double focus_level_scale;
+    public static ForgeConfigSpec.ConfigValue<Integer> QUICK_DRAW_MAX_LEVEL;
+    public static int quick_draw_max_level;
+    public static ForgeConfigSpec.ConfigValue<Integer> SPLITSHOT_MAX_LEVEL;
+    public static int splitshot_max_level;
+    public static ForgeConfigSpec.ConfigValue<Integer> ARROW_RECOVERY_MAX_LEVEL;
+    public static int arrow_recovery_max_level;
 
     public static ForgeConfigSpec.ConfigValue<Boolean> HIDE_COORDINATES;
     public static boolean hide_coordinates;
@@ -181,6 +187,9 @@ public class CommonConfig {
         enable_enchantment_module = ENABLE_ENCHANTMENT_MODULE.get();
         ultra_rare_enchantments = ULTRA_RARE_ENCHANTMENTS.get();
         focus_level_scale = FOCUS_LEVEL_SCALE.get();
+        quick_draw_max_level = QUICK_DRAW_MAX_LEVEL.get();
+        splitshot_max_level = SPLITSHOT_MAX_LEVEL.get();
+        arrow_recovery_max_level = ARROW_RECOVERY_MAX_LEVEL.get();
         hide_coordinates =  HIDE_COORDINATES.get();
 
         AdditionsUtil.bakeConfigCaches();
@@ -278,6 +287,9 @@ public class CommonConfig {
         ENABLE_ENCHANTMENT_MODULE = BUILDER.comment("Enable enchantment module, makes lower level enchantments more common while higher level ones are more rare").define("Enable_Enchantment_Module", true);
         ULTRA_RARE_ENCHANTMENTS = BUILDER.comment("Enchantments that are considered rarer then all others").defineList("Ultra_Rare_Enchantments",List.of("minecraft:mending"), s -> s instanceof String);
         FOCUS_LEVEL_SCALE = BUILDER.comment("Enchantment levels added per enchantment focus attribute").defineInRange("Focus_Level_Scale", 2.5, 0.0, 10.0);
+        QUICK_DRAW_MAX_LEVEL = BUILDER.comment("Maximum level of the quick draw enchantment").define("Quick_Draw_Max_Level", 2);
+        SPLITSHOT_MAX_LEVEL = BUILDER.comment("Maximum level of the splitshot enchantment").define("Splitshot_Max_Level", 4);
+        ARROW_RECOVERY_MAX_LEVEL = BUILDER.comment("Maximum level of the arrow recovery enchantment").define("Arrow_Recovery_Max_Level", 3);
         BUILDER.pop();
 
 

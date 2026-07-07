@@ -42,6 +42,9 @@ public class Additions {
         AdditionsCreativeTab.register(modBus);
         AdditionsSounds.register(modBus);
         AdditionsEffects.register(modBus);
+
+        AdditionsEnchantments.register(modBus);
+
         AdditionsPotions.register(modBus);
         AdditionsAttributes.register(modBus);
         MinecraftForge.EVENT_BUS.register(this);

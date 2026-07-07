@@ -13,6 +13,7 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.world.Container;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
@@ -322,12 +323,14 @@ public class ASoundEvents {
         if (isWood.test(event.getCrafting())) {
             hasWood = true;
         }
-        CraftingContainer container = (CraftingContainer) event.getInventory();
-        for (int i = 0; i < container.getContainerSize(); i++) {
-            ItemStack stack = container.getItem(i);
-            if (!stack.isEmpty() && isWood.test(stack)) {
-                hasWood = true;
-                break;
+        Container container = event.getInventory();
+        if (container instanceof CraftingContainer craftingContainer) {
+            for (int i = 0; i < craftingContainer.getContainerSize(); i++) {
+                ItemStack stack = craftingContainer.getItem(i);
+                if (!stack.isEmpty() && isWood.test(stack)) {
+                    hasWood = true;
+                    break;
+                }
             }
         }
         UUID playerUUID = player.getUUID();

@@ -2,20 +2,30 @@ package net.gobies.additions.events;
 import net.gobies.additions.Additions;
 import net.gobies.additions.config.CommonConfig;
 import net.gobies.additions.init.AdditionsAttributes;
+import net.gobies.additions.init.AdditionsEnchantments;
 import net.gobies.additions.network.PacketHandler;
 import net.gobies.additions.network.ScaleSyncPacket;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.entity.projectile.Projectile;
+import net.minecraft.world.item.BowItem;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
+import net.minecraft.world.phys.EntityHitResult;
+import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.event.enchanting.EnchantmentLevelSetEvent;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;
+import net.minecraftforge.event.entity.ProjectileImpactEvent;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
@@ -23,6 +33,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.network.PacketDistributor;
 
+import java.util.List;
 import java.util.Random;
 
 @Mod.EventBusSubscriber(modid = Additions.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
@@ -65,6 +76,105 @@ public class ForgeEvents {
 
         arrow.setDeltaMovement(arrow.getDeltaMovement().scale(attribute.getValue()));
     }
+
+    @SubscribeEvent
+    public static void onArrowImpact(ProjectileImpactEvent event) {
+        if (!(event.getProjectile() instanceof AbstractArrow arrow) || !(event.getRayTraceResult() instanceof EntityHitResult entityHit)) return;
+        if (!(entityHit.getEntity() instanceof LivingEntity livingTarget)) return;
+
+        if (arrow.pickup == AbstractArrow.Pickup.CREATIVE_ONLY) {
+            if (livingTarget.hurtTime > 0 || livingTarget.invulnerableTime > 0) {
+                arrow.discard();
+                event.setImpactResult(ProjectileImpactEvent.ImpactResult.STOP_AT_CURRENT_NO_DAMAGE);
+                return;
+            }
+        }
+
+        if (arrow.getOwner() instanceof LivingEntity shooter) {
+            ItemStack weapon = shooter.getUseItem().isEmpty() ? shooter.getMainHandItem() : shooter.getUseItem();
+
+            if (EnchantmentHelper.getTagEnchantmentLevel(AdditionsEnchantments.FREEZE.get(), weapon) > 0) {
+                if (livingTarget.isOnFire()) {
+                    livingTarget.clearFire();
+                }
+
+                livingTarget.setTicksFrozen(300);
+            }
+        }
+    }
+
+    private static final ThreadLocal<Boolean> SPAWN_SPLITSHOT = ThreadLocal.withInitial(() -> false);
+
+    @SubscribeEvent
+    public static void onArrowSpawn(EntityJoinLevelEvent event) {
+        if (SPAWN_SPLITSHOT.get() || event.getLevel().isClientSide()) return;
+        if (!(event.getEntity() instanceof AbstractArrow originalArrow) || !(originalArrow.getOwner() instanceof LivingEntity shooter)) return;
+
+        InteractionHand hand = shooter.getUsedItemHand();
+        ItemStack weapon = shooter.getItemInHand(hand);
+        if (weapon.isEmpty() || !(weapon.getItem() instanceof BowItem)) {
+            hand = shooter.getMainHandItem().getItem() instanceof BowItem ? InteractionHand.MAIN_HAND : InteractionHand.OFF_HAND;
+            weapon = shooter.getItemInHand(hand);
+        }
+
+        if (weapon.isEmpty() || !(weapon.getItem() instanceof BowItem)) return;
+
+        int level = EnchantmentHelper.getTagEnchantmentLevel(AdditionsEnchantments.SPLITSHOT.get(), weapon);
+        if (level <= 0) {
+            return;
+        }
+
+        try {
+            SPAWN_SPLITSHOT.set(true);
+
+            Vec3 velocity = originalArrow.getDeltaMovement();
+            float speed = (float) velocity.length();
+            final InteractionHand finalHand = hand;
+            if (shooter instanceof ServerPlayer serverPlayer) {
+                weapon.hurtAndBreak(level, serverPlayer, (player) -> player.broadcastBreakEvent(finalHand));
+            }
+            for (int i = 0; i < level; i++) {
+                float randomOffset = (shooter.getRandom().nextFloat() - 0.5f) * 40.0f;
+
+                spawnExtraArrow(event, originalArrow, shooter, speed, randomOffset);
+            }
+        } finally {
+            SPAWN_SPLITSHOT.set(false);
+        }
+    }
+
+    private static void spawnExtraArrow(EntityJoinLevelEvent event, AbstractArrow original, LivingEntity shooter, float speed, float offset) {
+        Entity extraArrow = original.getType().create(event.getLevel());
+        if (extraArrow instanceof AbstractArrow arrow) {
+            arrow.setOwner(shooter);
+            arrow.setPos(original.getX(), original.getY(), original.getZ());
+            arrow.setBaseDamage(original.getBaseDamage());
+            arrow.setCritArrow(original.isCritArrow());
+            arrow.setKnockback(original.getKnockback());
+
+            if (original.isOnFire()) {
+                arrow.setSecondsOnFire(100);
+            }
+
+            arrow.pickup = AbstractArrow.Pickup.CREATIVE_ONLY;
+
+            try {
+                List<SynchedEntityData.DataValue<?>> values = original.getEntityData().getNonDefaultValues();
+                if (values != null) {
+                    arrow.getEntityData().assignValues(values);
+                }
+            } catch (Exception e) {
+                Additions.LOGGER.error("Failed sync arrow data for splitshot arrows", e);
+            }
+
+            float adjustedOffset = shooter.getYRot() + offset;
+            float pitch = shooter.getXRot();
+
+            arrow.shootFromRotation(shooter, pitch, adjustedOffset, 0.0F, speed, 8.0F);
+            event.getLevel().addFreshEntity(extraArrow);
+        }
+    }
+
 
     @SubscribeEvent
     public static void fixCritTooltip(ItemTooltipEvent event) {

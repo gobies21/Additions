@@ -22,6 +22,6 @@ public class AdditionsAttributes {
         ATTRIBUTES = DeferredRegister.create(ForgeRegistries.ATTRIBUTES, Additions.MOD_ID);
         CRITICAL_RATE = ATTRIBUTES.register("critical_rate", () -> new RangedAttribute("attribute.name.additions.critical_rate", 0.20D, 0.0D, 1.0D).setSyncable(true));
         ENCHANTING_FOCUS = ATTRIBUTES.register("enchanting_focus", () -> new RangedAttribute("attribute.name.additions.enchanting_focus", 0.0D, 0.0D, 100.0D).setSyncable(true));
-        ARROW_VELOCITY = ATTRIBUTES.register("arrow_velocity", () -> new RangedAttribute("attribute.name.additions.arrow_velocity", 1.0D, 0.0D, 10.0D).setSyncable(true));
+        ARROW_VELOCITY = ATTRIBUTES.register("arrow_velocity", () -> new RangedAttribute("attribute.name.additions.arrow_velocity", 1.0D, 0.5D, 2.0D).setSyncable(true));
     }
 }

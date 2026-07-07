@@ -35,6 +35,18 @@
   "attribute.name.additions.enchanting_focus": "Enchanting Focus",
   "attribute.name.additions.arrow_velocity": "Arrow Velocity",
 
+  "enchantment.additions.quick_draw": "Quick Draw",
+  "enchantment.additions.freeze": "Freeze",
+  "enchantment.additions.splitshot": "Splitshot",
+  "enchantment.additions.snipe": "Snipe",
+  "enchantment.additions.arrow_recovery": "Arrow Recovery",
+
+  "enchantment.additions.quick_draw.desc": "Decreases how long it takes to fully draw bows",
+  "enchantment.additions.freeze.desc": "Arrows fired from the bow will deal additional freeze damage",
+  "enchantment.additions.splitshot.desc": "Fires additional arrows horizontally based on level, each extra arrow costs additional durability",
+  "enchantment.additions.snipe.desc": "Increases how long it takes to fully draw bows and increases arrow velocity",
+  "enchantment.additions.arrow_recovery.desc": "Grants a chance to not consume arrows when firing a bow",
+
   "item.minecraft.potion.effect.magic_focus": "Potion of Magic Focus",
   "item.minecraft.potion.effect.long_magic_focus": "Potion of Magic Focus",
   "item.minecraft.potion.effect.strong_magic_focus": "Potion of Magic Focus",
